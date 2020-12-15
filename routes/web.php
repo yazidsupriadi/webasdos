@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/admin','HomeController@admin');
+Route::get('/dashboard','HomeController@admin');
 
 //dosen
 Route::get('/home', 'HomeController@index')->name('home');
@@ -66,6 +66,16 @@ Route::delete('/admin/user/delete/{id}','UserController@delete');
 
 
 //asdos
+//jadwal praktek
 Route::get('/asdos/jadwal-praktikum','JadwalPraktikumController@asdosindex');
 Route::get('/asdos/jadwal-praktikum/add','JadwalPraktikumController@add');
 Route::post('/asdos/jadwal-praktikum/store','JadwalPraktikumController@store');
+
+//kelas
+Route::get('/asdos/kelas','KelasController@asdosindex');
+
+//matkul
+Route::get('/asdos/matkul','MatkulController@asdosindex');
+
+//asdos
+Route::get('/asdos','UserController@asdos');

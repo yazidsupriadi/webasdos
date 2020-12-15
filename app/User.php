@@ -41,4 +41,7 @@ class User extends Authenticatable
     public function jadwal_praktek(){
     	return $this->hasMany(JadwalPraktikum::class);
     }
+    public function matkul(){
+    	return $this->hasMany(Matkul::class);
+    }
 }

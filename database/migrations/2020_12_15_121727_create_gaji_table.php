@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMatkulTable extends Migration
+class CreateGajiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateMatkulTable extends Migration
      */
     public function up()
     {
-        Schema::create('matkul', function (Blueprint $table) {
+        Schema::create('gaji', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama');
-            $table->string('kodemk');
-            $table->longText('keterangan')->nullable();
-            $table->unsignedBigInteger('dosen_id');
-            $table->foreign('dosen_id')->references('id')->on('dosen');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string("kode_gaji");
+            $table->string("bulan_gaji")->nullable();
+            $table->float("total")->nullable();
+            
+            $table->unsignedBigInteger('insentif_id');
+            $table->foreign('insentif_id')->references('id')->on('insentif');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ class CreateMatkulTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('matkul');
+        Schema::dropIfExists('gaji');
     }
 }

@@ -13,6 +13,11 @@ class MatkulController extends Controller
         return view('pages.admin.matkul.index',compact('matkuls'));
     }
 
+    public function asdosindex(){
+        $matkuls = Matkul::orderBy('nama')->get();
+        return view('pages.asdos.matkul.index',compact('matkuls'));
+    }
+
     public function add(){
         $dosens = Dosen::all();
         return view('pages.admin.matkul.add',compact('dosens'));

@@ -12,6 +12,10 @@ class KelasController extends Controller
         $kelass = Kelas::all();
         return view('pages.admin.kelas.index',compact('kelass'));
     }
+    public function asdosindex(){
+        $kelass = Kelas::all();
+        return view('pages.asdos.kelas.index',compact('kelass'));
+    }
  
     public function add(){
         return view('pages.admin.kelas.add');

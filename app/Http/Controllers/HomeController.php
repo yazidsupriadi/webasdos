@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Matkul;
 use App\Dosen;
 use App\Kelas;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -32,6 +33,7 @@ class HomeController extends Controller
         $matkul = Matkul::all();
         $dosen = Dosen::all();
         $kelas = Kelas::all();
-        return view('pages.admin.dashboard',compact('matkul','dosen','kelas'));
+        $user = User::where('rules','asdos')->get();
+        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user'));
     }
 }

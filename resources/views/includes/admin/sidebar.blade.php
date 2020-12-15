@@ -31,7 +31,7 @@
       @endif
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin')}}">
+        <a class="nav-link" href="{{url('dashboard')}}">
           <i class="fas fa-fw fa-tasks"></i>
           <span>Dashboard</span></a>
       </li>
@@ -45,24 +45,35 @@
           <i class="fas fa-fw fa-book"></i>
           <span>Mata Kuliah</span></a>
       </li>
+      
+      @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/kelas')}}">
           <i class="fas fa-fw fa-graduation-cap"></i>
           <span>Kelas</span></a>
       </li>
+      @else
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/kelas')}}">
+          <i class="fas fa-fw fa-graduation-cap"></i>
+          <span>Kelas</span></a>
+      </li>
+     @endif 
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/insentif')}}">
           <i class="fas fa-fw fa-money-check"></i>
           <span>Insentif</span></a>
       </li>
 
-
+      
+      @if(Auth::user()->rules == 'admin')
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/user')}}">
           <i class="fas fa-fw fa-address-card"></i>
           <span>Data Asdos</span></a>
       </li>
+      @endif
 
     
       

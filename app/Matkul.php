@@ -16,6 +16,10 @@ class Matkul extends Model
     	return $this->belongsTo(Dosen::class);
     }
 
+    public function user(){
+    	return $this->belongsTo(User::class);
+    }
+
     public function jadwal_praktek(){ 
         return $this->hasMany(JadwalPraktikum::class); 
     }

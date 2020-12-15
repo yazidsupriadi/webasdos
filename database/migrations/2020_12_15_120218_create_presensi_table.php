@@ -15,6 +15,14 @@ class CreatePresensiTable extends Migration
     {
         Schema::create('presensi', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->timestamp('tanggal_praktek');
+            $table->string('pertemuan');
+            $table->string('rekap_absen')->nullable();
+            $table->longText('keterangan')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('jadwal_praktikum_id')->nullable();
+            $table->foreign('jadwal_praktikum_id')->references('id')->on('jadwal_praktikum');
             $table->timestamps();
         });
     }
