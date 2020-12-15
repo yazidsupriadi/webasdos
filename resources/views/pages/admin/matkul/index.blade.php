@@ -37,6 +37,7 @@
             @else
       {{$item->keterangan}}
       @endif</td>
+      
       <td>
       <a href="{{url('admin/matkul/edit',$item->id)}}"  class="btn btn-sm btn-info" title="">Edit</a>
 

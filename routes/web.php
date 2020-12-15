@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    
     return view('welcome');
 });
 
@@ -61,3 +62,10 @@ Route::delete('/admin/jadwal-praktikum/delete/{id}','JadwalPraktikumController@d
 
 //user
 Route::get('/admin/user','UserController@index');
+Route::delete('/admin/user/delete/{id}','UserController@delete');
+
+
+//asdos
+Route::get('/asdos/jadwal-praktikum','JadwalPraktikumController@asdosindex');
+Route::get('/asdos/jadwal-praktikum/add','JadwalPraktikumController@add');
+Route::post('/asdos/jadwal-praktikum/store','JadwalPraktikumController@store');

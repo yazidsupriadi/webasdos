@@ -11,4 +11,10 @@ class UserController extends Controller
         $users = User::all();
         return view('pages.admin.user.index',compact('users'));
     }
+
+    public function delete($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/admin/user');
+    }
 }

@@ -30,10 +30,10 @@
       <td>{{$item->name}}</td>
       <td>{{$item->email}}</td>
       
-      <td></td>
+      <td>{{$item->rules}}</td>
       <td>
-@if(Auth::check() == $item->name)
-    @if(Auth::user()->name == $item->name)
+@if(Auth::check() == $item->name )
+    @if(Auth::user()->name == $item->name )
 
     @else
 <form action="{{url('admin/user/delete',$item->id)}}" method="post" class="d-inline">

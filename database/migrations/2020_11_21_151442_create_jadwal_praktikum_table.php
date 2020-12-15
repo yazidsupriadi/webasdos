@@ -23,7 +23,8 @@ class CreateJadwalPraktikumTable extends Migration
             $table->foreign('matkul_id')->references('id')->on('matkul');
             $table->unsignedBigInteger('kelas_id');
             $table->foreign('kelas_id')->references('id')->on('kelas');
-         
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
           
             $table->timestamps();
         });

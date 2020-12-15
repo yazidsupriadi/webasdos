@@ -40,7 +40,7 @@
                       <td>{{$item->rekap_absen}}</td>
                       <td>{{$item->matkul->nama}}</td>
                       <td>{{$item->kelas->kode_kelas}}-{{$item->kelas->angkatan}}</td>
-                      <td>{{$item->user->name}}-{{$item->kelas->angkatan}}</td>
+                      <td>{{$item->user->name}}</td>
                       
                       <td>
                       <a href="{{url('admin/jadwal-praktikum/edit',$item->id)}}"  class="btn btn-sm btn-info" title="">Edit</a>
@@ -99,7 +99,7 @@
                       <td>{{$item->rekap_absen}}</td>
                       <td>{{$item->matkul->nama}}</td>
                       <td>{{$item->kelas->kode_kelas}}-{{$item->kelas->angkatan}}</td>
-                      <td>{{$item->user->name}}-{{$item->kelas->angkatan}}</td>
+                      <td>{{$item->user->name}}</td>
                       
                       <td>
                       <a href="{{url('admin/jadwal-praktikum/edit',$item->id)}}"  class="btn btn-sm btn-info" title="">Edit</a>

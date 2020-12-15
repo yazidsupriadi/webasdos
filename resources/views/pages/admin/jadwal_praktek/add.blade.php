@@ -65,6 +65,20 @@
                        </select>
                    
                    </div>
+
+                   
+                   <label for="slug">Asdos</label>
+                       <select name="user_id" class="form-control">
+                       
+                       <option value="">Pilih asdos</option>
+                           @foreach($users as $item)
+                           @if($item->rules == 'asdos')
+                           <option value="{{$item->id}}">{{$item->name}}-({{$item->rules}})</option>
+                          @endif
+                           @endforeach
+                       </select>
+                   
+                   </div>
                 <div class="form-group">
                   <label>Keterangan</label>
                   <textarea name="keterangan" class="form-control" cols="15" rows="10"></textarea>

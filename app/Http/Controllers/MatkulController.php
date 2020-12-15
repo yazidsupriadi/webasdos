@@ -9,7 +9,7 @@ class MatkulController extends Controller
 {
     //
     public function index(){
-        $matkuls = Matkul::all();
+        $matkuls = Matkul::orderBy('nama')->get();
         return view('pages.admin.matkul.index',compact('matkuls'));
     }
 

@@ -15,13 +15,20 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-5">
 
+      @if(Auth::user()->rules == 'admin')
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/jadwal-praktikum')}}">
           <i class="fas fa-fw fa-calendar"></i>
           <span>Jadwal Praktikum</span></a>
       </li>
-
+      @else
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/jadwal-praktikum')}}">
+          <i class="fas fa-fw fa-calendar"></i>
+          <span>Jadwal Praktikum </span></a>
+      </li>
+      @endif
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin')}}">
@@ -52,7 +59,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{url('admin/user')}}">
           <i class="fas fa-fw fa-address-card"></i>
           <span>Data Asdos</span></a>
       </li>

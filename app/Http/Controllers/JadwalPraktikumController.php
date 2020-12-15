@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\JadwalPraktikum;
 use App\Matkul;
 use App\Kelas;
+use App\User;
+use Auth;
 class JadwalPraktikumController extends Controller
 {
     //
@@ -17,8 +19,9 @@ class JadwalPraktikumController extends Controller
     public function add(){
         $matkuls = Matkul::all();
         $jadwals = JadwalPraktikum::all();
+        $users = User::all();
         $kelas = Kelas::all();
-        return view('pages.admin.jadwal_praktek.add',compact('jadwals','matkuls','kelas'));
+        return view('pages.admin.jadwal_praktek.add',compact('jadwals','matkuls','kelas','users'));
     }
 
     public function store(Request $request){
@@ -30,6 +33,12 @@ class JadwalPraktikumController extends Controller
         $jadwal = JadwalPraktikum::find($id);
         $jadwal->delete();
         return redirect()->back();
+    }
+
+    public function asdosindex(){
+        $jadwals = Auth::user()->jadwal_praktek()->get();
+        return view('pages.asdos.jadwal_praktek.index',compact('jadwals'));
+        
     }
 
 }
