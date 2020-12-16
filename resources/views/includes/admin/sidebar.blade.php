@@ -7,7 +7,7 @@
 
         <div class="sidebar-brand-text mx-3">
         
-        <img class="mt-5 mb-3"src="{{url('backend/img/logo.jpg')}}" alt="Image" width="60px"><br>
+        <img class="mt-5  mb-1"src="{{url('backend/img/logo1.png')}}" alt="Image" width="60px"><br>
         ASDOS NF Website 
         </div>
       </a>
@@ -35,6 +35,13 @@
           <i class="fas fa-fw fa-tasks"></i>
           <span>Dashboard</span></a>
       </li>
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('admin/presensi')}}">
+          <i class="fas fa-fw fa-book-open"></i>
+          <span>Presensi</span></a>
+      </li>
+      
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/dosen')}}">
           <i class="fas fa-fw fa-chalkboard-teacher"></i>
@@ -75,7 +82,6 @@
       </li>
       @endif
 
-    
       
 
      

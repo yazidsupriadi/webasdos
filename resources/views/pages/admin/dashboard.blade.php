@@ -4,7 +4,7 @@
   
   <!-- Page Heading -->
           <div class="jumbotron bg-primary text-light">
-           <h1 class="display-4">Selamat datang di website Asdos </h1>
+           <h1 class="display-4">Selamat datang di website Asdos STT Nurul Fikri </h1>
           </div>
           <!-- Content Row -->
           <div class="row">

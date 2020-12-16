@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function matkul(){
     	return $this->hasMany(Matkul::class);
     }
+    
+    public function presensi(){
+    	return $this->hasMany(Presensi::class);
+    }
 }

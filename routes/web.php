@@ -64,6 +64,11 @@ Route::delete('/admin/jadwal-praktikum/delete/{id}','JadwalPraktikumController@d
 Route::get('/admin/user','UserController@index');
 Route::delete('/admin/user/delete/{id}','UserController@delete');
 
+//presensi
+Route::get('/admin/presensi','PresensiController@index');
+
+
+
 
 //asdos
 //jadwal praktek
@@ -79,3 +84,4 @@ Route::get('/asdos/matkul','MatkulController@asdosindex');
 
 //asdos
 Route::get('/asdos','UserController@asdos');
+
