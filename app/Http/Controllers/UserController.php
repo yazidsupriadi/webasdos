@@ -23,4 +23,18 @@ class UserController extends Controller
         $user->delete();
         return redirect('/admin/user');
     }
+
+    public function makeadmin($id)
+    {
+        $users = User::find($id);
+        if($users->rules == 'asdos'){
+            $change_status = 'admin';
+        }
+        else {
+            $change_status = 'asdos';
+        }
+
+        User::where('id',$id)->update(['rules' => $change_status]);
+        return redirect('admin/user');
+    }
 }

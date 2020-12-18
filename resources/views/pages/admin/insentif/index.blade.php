@@ -38,7 +38,7 @@
 <form action="{{url('admin/insentif/delete',$item->id)}}" method="post" class="d-inline">
   @csrf
   @method('delete')
-  <button class="btn btn-sm btn-danger"></i>Delete</button>
+  <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"></i>Delete</button>
 </form>
       </td>
     </tr>

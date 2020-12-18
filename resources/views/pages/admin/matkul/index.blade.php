@@ -3,9 +3,9 @@
 @section('content')
   
   <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Daftar Mata Kuliah</h1>
-            <a href="{{url('/admin/matkul/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Daftar Mata Kuliah</a>
+          <div class="d-sm-flex align-items-center justify-content-between mb-4 bg-primary p-4">
+            <h1 class="h3 mb-0 text-light">Daftar Mata Kuliah</h1>
+            <a href="{{url('/admin/matkul/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary border-light shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Daftar Mata Kuliah</a>
           </div>
 
           <!-- Content Row -->
@@ -44,7 +44,7 @@
 <form action="{{url('admin/matkul/delete',$item->id)}}" method="post" class="d-inline">
   @csrf
   @method('delete')
-  <button class="btn btn-sm btn-danger"></i>Delete</button>
+  <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"></i>Delete</button>
 </form>
       </td>
     </tr>

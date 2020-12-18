@@ -7,7 +7,7 @@
 
         <div class="sidebar-brand-text mx-3">
         
-        <img class="mt-5  mb-1"src="{{url('backend/img/logo1.png')}}" alt="Image" width="60px"><br>
+        <img class="img-fluid mt-5 mb-1 " height="200px" src="{{url('backend/img/logo1.png')}}" alt="Image" width="60px"><br>
         ASDOS NF Website 
         </div>
       </a>
@@ -36,23 +36,45 @@
           <span>Dashboard</span></a>
       </li>
       
+      @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/presensi')}}">
           <i class="fas fa-fw fa-book-open"></i>
           <span>Presensi</span></a>
       </li>
+      @else
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/presensi')}}">
+          <i class="fas fa-fw fa-book-open"></i>
+          <span>Presensi</span></a>
+      </li>
+      
+
+      @endif      
+
+      @if(Auth::user()->rules == 'admin')
       
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/dosen')}}">
           <i class="fas fa-fw fa-chalkboard-teacher"></i>
           <span>Dosen</span></a>
       </li>
+      @endif
+
+      @if(Auth::user()->rules == 'admin')
+      
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/matkul')}}">
           <i class="fas fa-fw fa-book"></i>
           <span>Mata Kuliah</span></a>
       </li>
-      
+      @else
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/matkul')}}">
+          <i class="fas fa-fw fa-book"></i>
+          <span>Mata Kuliah</span></a>
+      </li>
+     @endif 
       @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/kelas')}}">
@@ -66,11 +88,15 @@
           <span>Kelas</span></a>
       </li>
      @endif 
+
+     
+     @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/insentif')}}">
           <i class="fas fa-fw fa-money-check"></i>
           <span>Insentif</span></a>
       </li>
+      @endif
 
       
       @if(Auth::user()->rules == 'admin')
@@ -82,7 +108,13 @@
       </li>
       @endif
 
-      
+      @if(Auth::user()->rules == 'asdos')
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/profile',Auth::user()->id)}}">
+          <i class="fas fa-fw fa-money-check"></i>
+          <span>profile</span></a>
+      </li>
+      @endif
 
      
 

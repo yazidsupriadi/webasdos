@@ -23,11 +23,23 @@ class JadwalPraktikumController extends Controller
         $kelas = Kelas::all();
         return view('pages.admin.jadwal_praktek.add',compact('jadwals','matkuls','kelas','users'));
     }
+    public function addasdos(){
+        $matkuls = Matkul::all();
+        $jadwals = JadwalPraktikum::all();
+        $users = User::all();
+        $kelas = Kelas::all();
+        return view('pages.asdos.jadwal_praktek.add',compact('jadwals','matkuls','kelas','users'));
+    }
 
     public function store(Request $request){
         $jadwal = $request->all();
         JadwalPraktikum::create($jadwal);
         return redirect('/admin/jadwal-praktikum');
+    }
+    public function storeasdos(Request $request){
+        $jadwal = $request->all();
+        JadwalPraktikum::create($jadwal);
+        return redirect('/asdos/jadwal-praktikum');
     }
     public function delete($id){
         $jadwal = JadwalPraktikum::find($id);

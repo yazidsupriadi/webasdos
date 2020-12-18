@@ -63,7 +63,7 @@ Route::delete('/admin/jadwal-praktikum/delete/{id}','JadwalPraktikumController@d
 //user
 Route::get('/admin/user','UserController@index');
 Route::delete('/admin/user/delete/{id}','UserController@delete');
-
+Route::get('/admin/user/rules/{id}','UserController@makeadmin');
 //presensi
 Route::get('/admin/presensi','PresensiController@index');
 
@@ -73,8 +73,8 @@ Route::get('/admin/presensi','PresensiController@index');
 //asdos
 //jadwal praktek
 Route::get('/asdos/jadwal-praktikum','JadwalPraktikumController@asdosindex');
-Route::get('/asdos/jadwal-praktikum/add','JadwalPraktikumController@add');
-Route::post('/asdos/jadwal-praktikum/store','JadwalPraktikumController@store');
+Route::get('/asdos/jadwal-praktikum/add','JadwalPraktikumController@addasdos');
+Route::post('/asdos/jadwal-praktikum/store','JadwalPraktikumController@storeasdos');
 
 //kelas
 Route::get('/asdos/kelas','KelasController@asdosindex');
@@ -85,3 +85,12 @@ Route::get('/asdos/matkul','MatkulController@asdosindex');
 //asdos
 Route::get('/asdos','UserController@asdos');
 
+//presensi
+Route::get('/asdos/presensi','PresensiController@indexasdos');
+Route::get('/asdos/presensi/add','PresensiController@addasdos');
+Route::post('/asdos/presensi/store','PresensiController@asdosstore');
+Route::delete('/asdos/presensi/presensidelete/{id}','PresensiController@presensidelete');
+
+
+//asdos
+Route::get('/asdos/profile/{id}','AsdosController@profile');

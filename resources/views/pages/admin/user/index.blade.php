@@ -19,6 +19,8 @@
       <th scope="col">Username</th>
       <th scope="col">Email</th>
       <th scope="col">Role</th>
+      <th scope="col">change status</th>
+    
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -31,6 +33,12 @@
       <td>{{$item->email}}</td>
       
       <td>{{$item->rules}}</td>
+      <td>@if($item->rules == 'asdos')
+            <a href="{{url('admin/user/rules/'.$item->id)}}" class="btn btn-primary btn-sm">Make admin</a>
+          @else
+            <a href="{{url('admin/user/rules/'.$item->id)}}" class="btn btn-danger btn-sm ">Make other Rules</a>
+         @endif
+      </td>
       <td>
 @if(Auth::check() == $item->name )
     @if(Auth::user()->name == $item->name )

@@ -35,7 +35,7 @@
 <form action="{{url('admin/dosen/delete',$dosen->id)}}" method="post" class="d-inline">
   @csrf
   @method('delete')
-  <button class="btn btn-sm btn-danger"></i>Delete</button>
+  <button class="btn btn-sm btn-danger"onclick="return confirm('Are you sure?')"></i>Delete</button>
 </form>
       </td>
     </tr>
