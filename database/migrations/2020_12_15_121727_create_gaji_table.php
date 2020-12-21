@@ -20,6 +20,7 @@ class CreateGajiTable extends Migration
             $table->float("total")->nullable();
             
             $table->unsignedBigInteger('insentif_id');
+            $table->enum('status',['accepted','progress','paid'])->nullable();
             $table->foreign('insentif_id')->references('id')->on('insentif');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

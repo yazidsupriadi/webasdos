@@ -5,6 +5,8 @@
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4 bg-primary p-4">
             <h1 class="h3 mb-0 text-light">Daftar Jadwal Praktikum</h1>
+            <a href="{{url('/asdos/jadwal-praktikum/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm border-light "><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Jadwal Praktikum</a>
+      
           </div>
 
           <!-- Content Row -->

@@ -4,7 +4,7 @@
   
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Tambah Data Mata Kuliah</h1>
+            <h1 class="h3 mb-0 text-gray-800">Tambah Jadwal Praktiukm/h1>
           </div>
 
           @if($errors ->any())
@@ -54,12 +54,11 @@
                           <select name="matkul_id" class="form-control">
                         
                           
-                          <option value="">Pilih Jadwal Praktek</option>
-                              @foreach($presensis->jadwal_praktek as $item)
+                          <option value="">Pilih mata Kuliah</option>
+                              @foreach($matkuls as $item)
                               <option value="{{$item->id}}">{{$item->nama}}</option>
                               @endforeach
-                          </select>
-                      
+                          </select> 
                       </div>
                       <div class="form-group">
                      
