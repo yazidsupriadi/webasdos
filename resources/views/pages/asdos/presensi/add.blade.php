@@ -63,9 +63,42 @@
                           </select>
                       
                       </div>
+                      <div class="form-group">
+                     
+                     <label for="slug">Tipe Praktikum</label>
+                       <select name="insentif_id" class="form-control" id="insentif" onchange="myFunction()" >
+                     
+                       
+                       <option >Tipe Praktikum</option>
+                           @foreach($insentif as $item)
+                           <option value="{{$item->id}}">{{$item->tipe_insentif}}  </option>
+                           @endforeach
+                       </select>
+                       <input type="hidden" name="total" id="dpinsentif" value="">
+                       <p class="mt-4">Kategori 1 = kurang dari 35 mahasiswa</p>
+                    <p>Kategori 2 = kurang 70 mahasiswa</p>
+                    <p>Kategori 3 = lebih 70 mahasiswa</p>
+                       <select name="total" class="form-control" id="insentif" >
+                     
+                  
+                     <option >Kategori</option>
+                         @foreach($insentif as $item)
+                         <option value="{{$item->nilai}}">{{$item->kategori}} ({{$item->tipe_insentif}})</option>
+                         @endforeach
+                     </select>
+                       <input type="hidden" name="status" value="accepted">
+                   
+                   </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>
           </div>
          
+
+
+          <script>
+            function myFunction() {
+            var x = document.getElementById("insentif").value;
+            document.getElementById("dpinsentif").value = x;
+          }</script>
 @endsection

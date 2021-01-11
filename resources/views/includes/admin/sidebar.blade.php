@@ -89,6 +89,20 @@
       </li>
      @endif 
 
+     @if(Auth::user()->rules == 'admin')
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('admin/gaji')}}">
+          <i class="fas fa-fw fa-money-bill"></i>
+          <span>Honor</span></a>
+      </li>
+      @else
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/gaji')}}">
+          <i class="fas fa-fw fa-money-bill"></i>
+          <span>Gaji</span></a>
+      </li>
+     @endif 
+
      
      @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">

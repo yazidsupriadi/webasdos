@@ -16,8 +16,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
-Route::get('/dashboard','HomeController@admin');
+Route::group(['middleware' => 'admin'], function()
+{
+    Route::get('/dashboard','HomeController@admin');
 
 //dosen
 Route::get('/home', 'HomeController@index')->name('home');
@@ -67,8 +68,12 @@ Route::get('/admin/user/rules/{id}','UserController@makeadmin');
 //presensi
 Route::get('/admin/presensi','PresensiController@index');
 
+//gaji
+Route::get('admin/gaji','GajiController@index');
 
 
+});
+Auth::routes();
 
 //asdos
 //jadwal praktek
@@ -94,3 +99,7 @@ Route::delete('/asdos/presensi/presensidelete/{id}','PresensiController@presensi
 
 //asdos
 Route::get('/asdos/profile/{id}','AsdosController@profile');
+
+
+//gaji
+Route::get('/asdos/gaji','GajiController@asdosindex');
