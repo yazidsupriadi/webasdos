@@ -15,6 +15,16 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-5">
 
+      @if(Auth::user()->rules == 'applicant')
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('admin/jadwal-praktikum')}}">
+          <i class="fas fa-fw fa-calendar"></i>
+          <span>Isi Bio</span></a>
+      </li>
+    @endif
+
+
       @if(Auth::user()->rules == 'admin')
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
@@ -22,19 +32,23 @@
           <i class="fas fa-fw fa-calendar"></i>
           <span>Jadwal Praktikum</span></a>
       </li>
-      @else
+      @elseif(Auth::user()->rules == 'asdos')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('asdos/jadwal-praktikum')}}">
           <i class="fas fa-fw fa-calendar"></i>
           <span>Jadwal Praktikum </span></a>
       </li>
+      @else
+
       @endif
+      @if(Auth::user()->rules == 'asdos'||Auth::user()->rules == 'admin')
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{url('dashboard')}}">
           <i class="fas fa-fw fa-tasks"></i>
           <span>Dashboard</span></a>
       </li>
+      @endif
       
       @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
@@ -42,13 +56,13 @@
           <i class="fas fa-fw fa-book-open"></i>
           <span>Presensi</span></a>
       </li>
-      @else
+      @elseif(Auth::user()->rules == 'asdos')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('asdos/presensi')}}">
           <i class="fas fa-fw fa-book-open"></i>
           <span>Presensi</span></a>
       </li>
-      
+      @else
 
       @endif      
 
@@ -68,12 +82,14 @@
           <i class="fas fa-fw fa-book"></i>
           <span>Mata Kuliah</span></a>
       </li>
-      @else
+      @elseif(Auth::user()->rules == 'asdos')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('asdos/matkul')}}">
           <i class="fas fa-fw fa-book"></i>
           <span>Mata Kuliah</span></a>
       </li>
+      @else
+
      @endif 
       @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
@@ -81,12 +97,13 @@
           <i class="fas fa-fw fa-graduation-cap"></i>
           <span>Kelas</span></a>
       </li>
-      @else
+      @elseif(Auth::user()->rules == 'asdos')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('asdos/kelas')}}">
           <i class="fas fa-fw fa-graduation-cap"></i>
           <span>Kelas</span></a>
       </li>
+      @else
      @endif 
 
      @if(Auth::user()->rules == 'admin')
@@ -95,12 +112,13 @@
           <i class="fas fa-fw fa-money-bill"></i>
           <span>Honor</span></a>
       </li>
-      @else
+      @elseif(Auth::user()->rules == 'asdos')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('asdos/gaji')}}">
           <i class="fas fa-fw fa-money-bill"></i>
           <span>Gaji</span></a>
       </li>
+      @else
      @endif 
 
      
@@ -129,9 +147,6 @@
           <span>profile</span></a>
       </li>
       @endif
-
-     
-
 
 
       <!-- Divider -->

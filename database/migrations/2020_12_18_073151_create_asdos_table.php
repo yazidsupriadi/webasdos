@@ -16,13 +16,13 @@ class CreateAsdosTable extends Migration
         Schema::create('asdos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('kode');
-            $table->string('birtday_place')->nullable();
-            $table->timestamp('birtday')->nullable();
+            $table->string('birthday_place')->nullable();
+            $table->timestamp('birthday')->nullable();
             $table->string('angkatan')->nullable();
             $table->string('username_elen')->nullable();
-            $table->string('bank');
-            $table->string('norek');
-            $table->string('atasnama');
+            $table->string('bank')->nullable();
+            $table->string('norek')->nullable();
+            $table->string('atasnama')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             

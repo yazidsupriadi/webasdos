@@ -13,9 +13,13 @@
 
 Route::get('/', function () {
     
-    return view('auth.login');
+    return view('home');
 });
 
+Route::get('/daftar', 'Controller@daftar');
+Route::get('/daftarasdos', 'Controller@registerasdos');
+Route::post('/daftarasdos', 'Controller@storeregisterasdos');
+Route::get('/daftarasdos/isibio', 'Controller@isibio');
 Route::group(['middleware' => 'admin'], function()
 {
     Route::get('/dashboard','HomeController@admin');

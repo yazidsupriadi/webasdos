@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-size: 14px;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    color: #071C4D;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  nav ul li a {
+    color: red;
+  }
+  
+  .navbar-brand img {
+    max-height: 40px;
+    width: 50px;
+    margin-left: 20px;
+    border-radius: 50%;
+  }
+  
+  header {
+    min-height: 610px;
+    padding: 200px 0 220px 20px;
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#010038), to(#293a80));
+    background-image: linear-gradient(to bottom right, #010038, #293a80);
+    -webkit-filter: opacity(120%);
+            filter: opacity(120%);
+    background-size: cover;
+  }
+  
+  header h6 {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: inherit;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  header p {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: inherit;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  
+  header a {
+    display: inline-block;
+    padding: 15px;
+    border: 0.125rem solid #f3be22;
+    border-radius: 2rem;
+    background-color: #f3be22;
+    color: #fff;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  
+  header .btn-pintas {
+    margin-left: 30px;
+  }
+  
+  header img {
+    display: block;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 200px;
+    width: 200px;
+    margin-top: 30px;
+    margin-left: 4cm;
+    margin-bottom: -100px;
+    border-radius: 50%;
+  }
+  
+  .introduction {
+    padding: 80px 0 80px 20px;
+    margin-bottom: 20px;
+    background-color: red;
+    -webkit-filter: blur(60%);
+            filter: blur(60%);
+    background-size: cover;
+  }
+  
+  .introduction h2 {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+  
+  .introduction iframe {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    border: 15px solid white;
+    border-radius: 10px 10px 10px 10px;
+    padding: 0px;
+  }
+  
+  .aduan {
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+  
+  .aduan .card-aduan {
+    margin-top: 40px;
+    border: 10px solid black;
+    border-radius: 10px 10px 10px 10px;
+  }
+  
+  .aduan h3 {
+    color: white;
+  }
+  
+  .aduan .card-aduan-title {
+    background-color: #e2562b;
+  }
+  
+  .aduan .card-aduan-title-iptek {
+    background-color: #0609d4;
+  }
+  
+  .aduan .card-aduan-description {
+    margin: 20px 20px 20px 20px;
+  }
+  
+  .aduan .pintas-button {
+    margin: 30px 0 30px 0;
+  }
+  
+  .aduan .pintas-button a {
+    background-color: #0609d4;
+    color: white;
+  }
+  
+  .aduan .tanyaiptek-button {
+    margin: 30px 0 30px 0;
+  }
+  
+  .aduan .tanyaiptek-button a {
+    background-color: #e45908;
+    color: white;
+  }
+  
+  .popular-news img {
+    width: 350px;
+    height: 200px;
+    margin-bottom: 15px;
+  }
+  
+  .popular-news h4 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  
+  footer {
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#010038), to(#293a80));
+    background-image: linear-gradient(to bottom right, #010038, #293a80);
+  }
+  
+  footer h3, footer h5, footer a {
+    color: #ffffff;
+  }
+  
+  .header-kabar {
+    padding: 200px 0 300px 20px;
+    margin-bottom: 20px;
+    background-image: -webkit-gradient(linear, left top, right bottom, from(blue), to(#293a80));
+    background-image: linear-gradient(to bottom right, #000038, #293a80);
+    -webkit-filter: opacity(120%);
+            filter: opacity(120%);
+    background-size: cover;
+    -webkit-box-shadow: 10px 10px 10px #4513b8;
+            box-shadow: 10px 10px 10px #4513b8;
+  }
+  
+  .header-kabar h1, .header-kabar p {
+    font-family: inherit;
+    font-size: 100px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .kabar-news img {
+    width: 350px;
+    height: 200px;
+    margin-bottom: 15px;
+  }
+  
+  .kabar-news h4 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .kabar-news .post-desc {
+    color: #06fc89;
+  }
+  
+  .kabar-news .post-desc-berita {
+    color: #6200ff;
+  }
+  
+  .header-tentangkita {
+    padding: 200px 0 200px 20px;
+    margin-bottom: 20px;
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#2600ff), to(#4513b8));
+    background-image: linear-gradient(to bottom right, #2600ff, #4513b8);
+    -webkit-filter: opacity(120%);
+            filter: opacity(120%);
+    background-size: cover;
+    -webkit-box-shadow: 10px 10px 10px #4513b8;
+            box-shadow: 10px 10px 10px #4513b8;
+  }
+  
+  .header-tentangkita h1, .header-tentangkita p {
+    font-family: inherit;
+    font-size: 100px;
+    font-style: italic;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .tentang-kabinet {
+    padding: 200px 0 200px 20px;
+    background-color: #faeded;
+  }
+  
+  .tentang-kabinet .logo-kabinet img {
+    width: 400px;
+    height: 300px;
+  }
+  
+  .visi-kabinet {
+    padding: 50px 0 100px 20px;
+    min-height: 200px;
+    background-color: #4513b8;
+  }
+  
+  .visi-kabinet .judul-visi {
+    margin: 80px 0px 80px 80px;
+  }
+  
+  .visi-kabinet .judul-visi h2 {
+    font-size: 40px;
+    color: #ffffff;
+  }
+  
+  .visi-kabinet .isi-visi {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 50px;
+  }
+  
+  .visi-kabinet .isi-visi p {
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  .misi-kabinet {
+    padding: 60px 0 20px 20px;
+    margin-bottom: 60px;
+  }
+  
+  .misi-kabinet .card {
+    border: 3px solid black;
+  }
+  
+  .intro-video {
+    color: #fff;
+    background-color: #010038;
+  }
+  
+  .intro-video iframe {
+    margin-top: 100px;
+  }
+  
+  .intro-kabinet {
+    padding: 260px 0 200px 20px;
+    background-color: #faecf1;
+  }
+  
+  .intro-kabinet .card {
+    margin-bottom: 50px;
+  }
+  
+  .intro-video {
+    padding: 100px 0 200px 20px;
+    background-color: #225af3;
+  }
