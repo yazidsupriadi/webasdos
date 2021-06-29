@@ -26,7 +26,7 @@
                 @csrf
                 <div class="form-group">
                   <label>Tanggal Praktikum</label>
-                  <input type="date" class="form-control" name="tanggal_praktikum"  value="{{old('location')}}">
+                  <input type="date" class="form-control" name="tanggal_praktek">
                 </div>
                 <div class="form-group">
                   <label>pertemuan</label>

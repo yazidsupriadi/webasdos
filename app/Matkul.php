@@ -9,7 +9,7 @@ class Matkul extends Model
     //
     protected $table = 'matkul';
 
-    protected $fillable = ['nama','kodemk','keterangan','dosen_id'];
+    protected $fillable = ['nama','kodemk','keterangan','dosen_id','user_id'];
 
  
     public function dosen(){
@@ -22,5 +22,9 @@ class Matkul extends Model
 
     public function jadwal_praktek(){ 
         return $this->hasMany(JadwalPraktikum::class); 
+    }
+    
+    public function asdos(){ 
+        return $this->hasMany(Asdos::class); 
     }
 }

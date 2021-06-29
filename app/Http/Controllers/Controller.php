@@ -9,12 +9,18 @@ use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Asdos;
+use App\Dosen;
+use App\Matkul;
 use Auth;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
+    public function home(){
+        return view('home');
+    }
     public function daftar(){
         return view('daftar');
     }
@@ -37,9 +43,42 @@ class Controller extends BaseController
     
     public function isibio()
     {
-        
-        $gajis = Auth::user()->get();
-        return view('pages.applicant.isibio');
+        $matkuls = Matkul::all();
+        $users = Auth::user()->get();
+        return view('pages.applicant.isibio',compact('matkuls'));
     
     }
+
+    
+    public function biocaasdos($id)
+    {
+        
+        $asdos =  Auth::user()->asdos()->get();
+        return view('pages.applicant.bio',compact('asdos'));
+    
+    }
+    public function isibiostore(Request $request){
+        $asdos = $request->all();
+        Asdos::create($asdos);
+        return redirect('/');
+    }
+
+    
+    public function isimatkul()
+    {
+        
+        $dosens = Dosen::all();   
+        $asdos =  Auth::user()->asdos()->get();
+        return view('pages.applicant.isimatkul',compact('asdos','dosens'));
+    
+    }
+
+    public function isimatkulstore(Request $request){
+        $matkul = $request->all();
+        Matkul::create($matkul);
+        return redirect('/');
+    }
+
+
+
 }

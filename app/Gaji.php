@@ -18,4 +18,5 @@ class Gaji extends Model
     public function insentif() { 
     return $this->belongsTo(Insentif::class,'insentif_id','id'); 
     }
+
 }

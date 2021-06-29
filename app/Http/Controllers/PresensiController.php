@@ -8,11 +8,17 @@ use Auth;
 use App\JadwalPraktikum;
 use App\Gaji;
 use App\Insentif;
+use App\User;
 class PresensiController extends Controller
 {
     //
-    public function index(){
-        $presensis = Presensi::all();
+    public function asdos_presensi(){
+        $users = User::where('rules','asdos')->get();
+        return view('pages.admin.presensi.presensi_asdos',compact('users'));
+    }
+
+    public function detailpresensi($id){
+        $presensis = Presensi::where('user_id','=',$id)->get();
         return view('pages.admin.presensi.index',compact('presensis'));
     }
 
@@ -46,7 +52,7 @@ class PresensiController extends Controller
 
         $gaji = new Gaji;
         $gaji->kode_gaji = Str::random(6);
-        $gaji->bulan_gaji = date('M',strtotime($request->tanggal_praktek));
+        $gaji->bulan_gaji = date('M',strtotime($presensi->tanggal_praktek));
         $gaji->total += $request->total;
         $gaji->insentif_id = $request->insentif_id;
         $gaji->status = $request->status;

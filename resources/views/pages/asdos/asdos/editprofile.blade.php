@@ -21,9 +21,10 @@
           <!-- Content Row -->
           <div class="card-shadow">
             <div class="card-body">
-              <form action="{{url('/daftarasdos/isibio')}}" method="post" >
+              <form action="{{url('/asdos/profile/edit',$asdos->id)}}" method="post" >
                 @csrf
                 
+                @method('PUT')
                 <div class="form-group">
                   <input type="hidden" class="form-control" name="kode" placeholder="Masukan Nama Dosen Mata Kuliah" value="asdos">
                 </div>
@@ -50,24 +51,7 @@
                   <label>Username ELEN</label>
                   <input type="text" class="form-control" name="username_elen" placeholder="masukan username elen">
                 </div>
-                
-                <div class="form-group">
-                     
-                        <label for="slug">Mata Kuliah Yang ingin dipilih</label>
-                          <select name="matkul_id" class="form-control">
-                        
-                          
-                          <option value="">Pilih mata Kuliah</option>
-                              @foreach($matkuls as $item)
-                              <option value="{{$item->id}}">{{$item->nama}}</option>
-                              @endforeach
-                          </select> 
-                      </div>   
-                
-                      <div class="form-group">
-                  
-                  <input type="hidden" class="form-control" name="status" value="inactive">
-                </div>
+              
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>

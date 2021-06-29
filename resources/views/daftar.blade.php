@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASDOS NF</title>
+    <link rel="shortcut icon" href="{{url('backend/img/logo1.png')}}" type="image/x-icon">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{url('frontend/style/main.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
@@ -11,8 +13,7 @@
 
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-light border shadow-4 p-3 bg-white rounded ">
+<nav class="navbar navbar-expand-lg navbar-light border shadow-4 p-3  bg-white rounded ">
         <div class="container">
             
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,7 +30,47 @@
                 <li class="nav-item mr-3">
                   <a class="nav-link" href="/daftar">Daftar Asdos</a>
                 </li>
-              
+      
+                @if(Auth::check())
+                
+                @if(Auth::user()->rules == 'admin')
+                <li class="nav-item mr-3">
+                  <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+                
+                <form class="nav-item mr-3"  method="POST" action="{{url('logout')}}">
+                   @csrf
+                  <button type="submit" style="background-color:red;color:white;padding:5px 20px 5px 20px;" class="nav-link" >Keluar</button>
+               </form>              
+                @elseif(Auth::user()->rules == 'asdos')
+
+                <li class="nav-item mr-3">
+                  <a class="nav-link" href="/asdos/presensi">Dashboard</a>
+                </li>
+                
+                <form class="nav-item mr-3"  method="POST" action="{{url('logout')}}">
+                   @csrf
+                  <button type="submit" style="background-color:red;color:white;padding:5px 20px 5px 20px;" class="nav-link" >Keluar</button>
+               </form>              
+                @elseif(Auth::user()->rules == 'applicant')
+                <li class="nav-item mr-3">
+                  <a class="nav-link" style="background-color:blue;color:white;padding:5px 20px 5px 20px;" href="/daftarasdos/isibio">isi Bio</a>
+                </li>
+                <li class="nav-item-3">
+                
+                <form class="nav-item mr-3"  method="POST" action="{{url('logout')}}">
+                   @csrf
+                  <button type="submit" style="background-color:red;color:white;padding:5px 20px 5px 20px;" class="nav-link" >Keluar</button>
+               </form>              
+                </li>
+                @endif
+
+              @else
+              <li class="nav-item mr-3">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+
+              @endif
               </ul>
             </div>
         </div>
@@ -114,6 +155,7 @@
                     <ol style=" margin-left:50px;margin-bottom:30px;">
                                 <li>Calon asisten dosen mendaftarkan akun dengan memasukan email dan password</li>
                                 <li>Calon asisten dosen mengisi data diri dan mencantumkan berkas pendaftaran sebagai asisten dosen</li>
+                                <li>Calon asisten dosen memilih mata kuliah yang ingin diajarkan</li>
                                 <li>Calon asisten dosen menunggu jadwal interview yang akan dikabarkan lebih lanjut oleh panitia recruitment asisten dosen</li>
                                 <li>Calon asisten dosen melakukan interview dengan panitia recruitment</li>
                                 <li>Calon asisten dosen menunggu pengumuman yang dapat diakses di link berikut: </li>

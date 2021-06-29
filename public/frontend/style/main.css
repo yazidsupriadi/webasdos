@@ -170,8 +170,8 @@
   }
   
   footer {
-    background-image: -webkit-gradient(linear, left top, right bottom, from(#010038), to(#293a80));
-    background-image: linear-gradient(to bottom right, #010038, #293a80);
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#442e66), to(#442e66));
+    background-image: linear-gradient(to bottom right, #010038, #18296e);
   }
   
   footer h3, footer h5, footer a {

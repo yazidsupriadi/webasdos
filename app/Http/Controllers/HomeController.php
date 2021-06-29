@@ -7,6 +7,7 @@ use App\Matkul;
 use App\Dosen;
 use App\Kelas;
 use App\User;
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -30,7 +31,7 @@ class HomeController extends Controller
     }
 
     public function admin(){
-        $matkul = Matkul::all();
+        $matkul = Matkul::distinct()->get(['nama']);
         $dosen = Dosen::all();
         $kelas = Kelas::all();
         $user = User::where('rules','asdos')->get();

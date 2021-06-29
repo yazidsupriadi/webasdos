@@ -11,8 +11,42 @@
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">
-              
-                <table class="table">
+
+                
+                <table class="table table-bordered">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Bulan</th>
+                      <th scope="col">Jumlah Insentif </th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                  <?php $i = 1; 
+                  ?>
+                  @forelse($total_gajis as $item)
+                    <tr>
+                  <?php $monthNum = $item->month;
+              $dateObj = DateTime::createFromFormat('!m', $monthNum);
+              $monthName = $dateObj->format('F');?>
+                      <th scope="row">{{$i++}}</th>
+                      <td>{{$monthName}}</td>
+                      <td>{{$item->total_amount}}</td>
+                      
+                    </tr>
+                    @empty
+                            <tr>
+                                <td class="text-center" colspan="7">Data Kosong</td>
+                          </tr> 
+                  
+                    @endforelse
+                    
+                  </tbody>
+                </table>
+              <h3 style="margin-bottom:45px;margin-top:45px;text-align:center;background:blue; color:white; padding:20px 45px;">Detail Gaji Asisten Dosen</h3>              
+                <table class="table mt-3">
                   <thead class="thead-dark">
                     <tr>
                       <th scope="col">No</th>
@@ -29,7 +63,9 @@
                   </thead>
                   <tbody>
                   
-                  <?php $i = 1 ?>
+                  <?php $i = 1; 
+                  $total_gaji = 0;
+                  ?>
                   @forelse($gajis as $item)
                     <tr>
                       <th scope="row">{{$i++}}</th>
@@ -47,9 +83,20 @@
                   
                     @endforelse
                     
+                    @foreach($gajis as $item)
+                    <?php $total_gaji += $item->total ?>
+                    
+                    @endforeach
+                    <tr>
+                    <td colspan="5"></td>
+                    <td class="bg-primary text-white">Total Gaji</td>
+                    <td>
+                      {{$total_gaji}}
+                    </td>
+                    </tr>
+                    
                   </tbody>
                 </table>
-
 
               </div>
             </div>

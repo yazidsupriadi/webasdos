@@ -18,6 +18,12 @@ class UserController extends Controller
         return view('pages.admin.user.asdos',compact('users'));
     }
 
+    public function daftarasdos(){
+        $users = User::where('rules','applicant')->get();
+        return view('pages.admin.user.asdos',compact('users'));
+    }
+
+
     public function delete($id){
         $user = User::find($id);
         $user->delete();
@@ -37,4 +43,19 @@ class UserController extends Controller
         User::where('id',$id)->update(['rules' => $change_status]);
         return redirect('admin/user');
     }
+
+    public function makeasdos($id)
+    {
+        $users = User::find($id);
+        if($users->rules == 'applicant'){
+            $change_status = 'asdos';
+        }
+        else {
+            $change_status = 'applicant';
+        }
+
+        User::where('id',$id)->update(['rules' => $change_status]);
+        return redirect('admin/applicant');
+    }
+
 }

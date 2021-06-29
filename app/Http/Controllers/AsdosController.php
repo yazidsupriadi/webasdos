@@ -12,4 +12,20 @@ class AsdosController extends Controller
         $asdos =  Auth::user()->asdos()->get();
         return view('pages.asdos.asdos.profile',compact('asdos'));
     }
+
+    public function editprofile($id){
+        $asdos =  Asdos::find($id);
+        return view('pages.asdos.asdos.editprofile',compact('asdos'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+        $asdos = $request->all();
+        $item = Asdos::findOrFail($id);
+         $item->update($asdos);
+        return redirect('/dashboard');
+    
+    }
+
 }

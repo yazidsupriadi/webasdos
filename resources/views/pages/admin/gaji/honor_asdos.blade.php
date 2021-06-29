@@ -4,7 +4,7 @@
   
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Daftar Asdos</h1>
+            <h1 class="h3 mb-0 text-gray-800">Daftar Presensi Asdos</h1>
           </div>
 
           <!-- Content Row -->
@@ -15,10 +15,8 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">No</th>
-      <th scope="col">Username</th>
-      <th scope="col">Email</th>
-      <th scope="col">Role</th>
-      <th scope="col">Make Asdos</th>
+      <th scope="col">Nama Asdos</th>
+      <th scope="col">Detail Presensi Asdos</th>
     </tr>
   </thead>
   <tbody>
@@ -27,14 +25,9 @@
     <tr>
       <th scope="row">{{$i++}}</th>
       <td>{{$item->name}}</td>
-      <td>{{$item->email}}</td>
       
-      <td>{{$item->rules}}</td>
-    <td>@if($item->rules == 'applicant')
-            <a href="{{url('admin/applicant/'.$item->id)}}" class="btn btn-primary btn-sm">Make Asdos</a>
-          @else
-            <a href="{{url('admin/applicant/'.$item->id)}}" class="btn btn-danger btn-sm ">Make other Rules</a>
-         @endif
+    <td>
+         <a href="{{url('admin/gaji/detail/'.$item->id)}}" class="btn btn-primary btn-sm">Detail Honor</a>
       </td>
     
     </tr>

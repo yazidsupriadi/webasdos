@@ -18,12 +18,28 @@
       @if(Auth::user()->rules == 'applicant')
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/jadwal-praktikum')}}">
+        <a class="nav-link" href="{{url('daftarasdos/isibio')}}">
           <i class="fas fa-fw fa-calendar"></i>
           <span>Isi Bio</span></a>
       </li>
     @endif
-
+    @if(Auth::user()->rules == 'applicant')
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('daftarasdos/isimatkul')}}">
+          <i class="fas fa-fw fa-calendar"></i>
+          <span>Isi Mata Kuliah Ajar</span></a>
+      </li>
+    @endif
+    
+    @if(Auth::user()->rules == 'applicant')
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('daftarasdos/calon-asdos-bio',Auth::user()->id)}}">
+          <i class="fas fa-fw fa-calendar"></i>
+          <span>Biodata Calon Asdos</span></a>
+      </li>
+    @endif
 
       @if(Auth::user()->rules == 'admin')
       <!-- Nav Item - Dashboard -->
@@ -52,7 +68,7 @@
       
       @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/presensi')}}">
+        <a class="nav-link" href="{{url('admin/asdos-presensi')}}">
           <i class="fas fa-fw fa-book-open"></i>
           <span>Presensi</span></a>
       </li>
@@ -148,6 +164,13 @@
       </li>
       @endif
 
+      @if(Auth::user()->rules == 'admin')
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('admin/applicant')}}">
+          <i class="fas fa-fw fa-money-check"></i>
+          <span>Daftar Calon Asdos</span></a>
+      </li>
+      @endif
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
