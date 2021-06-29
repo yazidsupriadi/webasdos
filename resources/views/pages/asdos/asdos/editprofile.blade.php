@@ -66,17 +66,17 @@
                 
                 <div class="form-group">
                   <label>Nama Bank</label>
-                  <input type="text" class="form-control" name="bank" placeholder="Masukan Nama Bank" value="{{$asdos->bank}}">
+                  <input type="text" class="form-control" name="bank" placeholder="Masukan Nama Bank" value="{{$asdos->bank}}" required>
                 </div>
                 
                 <div class="form-group">
                   <label>No Rekening</label>
-                  <input type="text" class="form-control" name="norek" placeholder="Masukan Nomor Rekening" value="{{$asdos->norek}}">
+                  <input type="text" class="form-control" name="norek" placeholder="Masukan Nomor Rekening" value="{{$asdos->norek}}" required>
                 </div>
                 
                 <div class="form-group">
                   <label>No Rekening Atas Nama</label>
-                  <input type="text" class="form-control" name="atasnama" placeholder="Masukan Atas Nama Nomor Rekening" value="{{$asdos->atasnama}}">
+                  <input type="text" class="form-control" name="atasnama" placeholder="Masukan Atas Nama Nomor Rekening" value="{{$asdos->atasnama}}" required>
                 </div>
               
                 <button type="submit" class="btn btn-primary">Submit</button>

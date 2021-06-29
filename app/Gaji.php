@@ -8,7 +8,7 @@ class Gaji extends Model
 {
     //
     protected $table = 'gaji';
-    protected $fillable = ['kode_gaji','bulan_gaji','total','insentif_id','status','user_id'];
+    protected $fillable = ['kode_gaji','bulan_gaji','total','insentif_id','status','user_id','presensi_id'];
 
 
     public function user() { 

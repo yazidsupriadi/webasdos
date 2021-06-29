@@ -9,6 +9,7 @@ use App\JadwalPraktikum;
 use App\Gaji;
 use App\Insentif;
 use App\User;
+use DB;
 class PresensiController extends Controller
 {
     //
@@ -57,14 +58,15 @@ class PresensiController extends Controller
         $gaji->insentif_id = $request->insentif_id;
         $gaji->status = $request->status;
         $gaji->user_id = $request->user_id;
+        $gaji->presensi_id = $presensi->id;        
         $gaji->save();
         return redirect('/asdos/presensi');
     }
 
     
     public function presensidelete($id){
-        $presensi = Presensi::find($id);
-        $presensi->delete();
+        DB::table("presensi")->where("id", $id)->delete();
+        DB::table("gaji")->where("presensi_id", $id)->delete();
         return redirect()->back();
     }
 }

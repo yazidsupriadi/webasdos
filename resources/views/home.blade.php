@@ -56,6 +56,9 @@
                 <li class="nav-item mr-3">
                   <a class="nav-link" style="background-color:blue;color:white;padding:5px 20px 5px 20px;" href="/daftarasdos/isibio">isi Bio</a>
                 </li>
+                <li class="nav-item mr-3">
+                  <a class="nav-link" style="background-color:green;color:white;padding:5px 20px 5px 20px;" href="{{url('daftarasdos/calon-asdos-bio',Auth::user()->id)}}">Bio Applicant</a>
+                </li>
                 <li class="nav-item-3">
                 
                 <form class="nav-item mr-3"  method="POST" action="{{url('logout')}}">

@@ -7,7 +7,9 @@ use App\Matkul;
 use App\Dosen;
 use App\Kelas;
 use App\User;
+use App\Presensi;
 use DB;
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -36,5 +38,14 @@ class HomeController extends Controller
         $kelas = Kelas::all();
         $user = User::where('rules','asdos')->get();
         return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user'));
+    }
+    
+    public function asdos(){
+        $matkul = Matkul::distinct()->get(['nama']);
+        $dosen = Dosen::all();
+        $kelas = Kelas::all();
+        $presensi = Presensi::where('user_id','=',Auth::user()->id)->get();
+        $user = User::where('rules','asdos')->get();
+        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user','presensi'));
     }
 }

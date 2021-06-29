@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Asdos;
 class UserController extends Controller
 {
     //
@@ -16,6 +17,11 @@ class UserController extends Controller
     public function asdos(){
         $users = User::where('rules','asdos')->get();
         return view('pages.admin.user.asdos',compact('users'));
+    }
+    
+    public function profileasdos($id){
+        $asdos = Asdos::where('user_id','=',$id)->get();
+        return view('pages.asdos.asdos.profile',compact('asdos'));
     }
 
     public function daftarasdos(){

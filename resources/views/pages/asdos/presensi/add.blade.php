@@ -78,9 +78,8 @@
                        <p class="mt-4">Kategori 1 = kurang dari 35 mahasiswa</p>
                     <p>Kategori 2 = kurang 70 mahasiswa</p>
                     <p>Kategori 3 = lebih 70 mahasiswa</p>
+                    
                        <select name="total" class="form-control" id="insentif" >
-                     
-                  
                      <option >Kategori</option>
                          @foreach($insentif as $item)
                          <option value="{{$item->nilai}}">{{$item->kategori}} ({{$item->tipe_insentif}})</option>

@@ -19,6 +19,8 @@
       <th scope="col">Email</th>
       <th scope="col">Role</th>
       <th scope="col">Make Asdos</th>
+      <th scope="col">Detail</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -36,7 +38,9 @@
             <a href="{{url('admin/applicant/'.$item->id)}}" class="btn btn-danger btn-sm ">Make other Rules</a>
          @endif
       </td>
-    
+      <td>      <a href="{{url('admin/profileasdos/'.$item->id)}}" class="btn btn-danger btn-sm ">Detail</a>
+      </td>
+
     </tr>
    
     @empty

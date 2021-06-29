@@ -32,6 +32,24 @@
           <span>Biodata Calon Asdos</span></a>
       </li>
     @endif
+    
+    @if(Auth::user()->rules == 'admin')
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('dashboard')}}">
+          <i class="fas fa-fw fa-tasks"></i>
+          <span>Dashboard</span></a>
+      </li>
+      
+      @elseif(Auth::user()->rules == 'asdos')
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('/asdos/dashboard')}}">
+          <i class="fas fa-fw fa-tasks"></i>
+          <span>Dashboard</span></a>
+      </li>
+      
+      @endif
 
       @if(Auth::user()->rules == 'admin')
       <!-- Nav Item - Dashboard -->
@@ -48,14 +66,6 @@
       </li>
       @else
 
-      @endif
-      @if(Auth::user()->rules == 'asdos'||Auth::user()->rules == 'admin')
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('dashboard')}}">
-          <i class="fas fa-fw fa-tasks"></i>
-          <span>Dashboard</span></a>
-      </li>
       @endif
       
       @if(Auth::user()->rules == 'admin')

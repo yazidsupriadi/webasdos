@@ -34,6 +34,7 @@
       
       <td>{{date('D , d - M - Y',strtotime($item->tanggal_praktek))}}</td>
       <td>{{$item->pertemuan}}</td>
+      <td></td>
       <td>
     </td>
     

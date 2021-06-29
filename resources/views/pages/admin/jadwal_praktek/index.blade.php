@@ -43,8 +43,7 @@
                       <td>{{$item->rekap_absen}}</td>
                       
                       <td>
-                      <a href="{{url('admin/jadwal-praktikum/edit',$item->id)}}"  class="btn btn-sm btn-info" title="">Edit</a>
-
+                      
                 <form action="{{url('admin/jadwal-praktikum/delete',$item->id)}}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
@@ -93,8 +92,7 @@
                       <td>{{$item->rekap_absen}}</td>
                       
                       <td>
-                      <a href="{{url('admin/jadwal-praktikum/edit',$item->id)}}"  class="btn btn-sm btn-info" title="">Edit</a>
-
+                      
                 <form action="{{url('admin/jadwal-praktikum/delete',$item->id)}}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
@@ -143,8 +141,7 @@
                       <td>{{$item->rekap_absen}}</td>
                       
                       <td>
-                      <a href="{{url('admin/jadwal-praktikum/edit',$item->id)}}"  class="btn btn-sm btn-info" title="">Edit</a>
-
+                      
                 <form action="{{url('admin/jadwal-praktikum/delete',$item->id)}}" method="post" class="d-inline">
                   @csrf
                   @method('delete')

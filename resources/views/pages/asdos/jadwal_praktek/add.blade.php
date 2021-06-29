@@ -4,7 +4,7 @@
   
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Tambah Jadwal Praktiukm/h1>
+            <h1 class="h3 mb-0 text-gray-800">Tambah Jadwal Praktikum</h1>
           </div>
 
           @if($errors ->any())
@@ -25,7 +25,7 @@
                 @csrf
                 <div class="form-group">
                   <label>hari</label>
-                  <select name="hari" id="" class="form-control">
+                  <select name="hari" id="" class="form-control" required>
                   <option value="">Pilih Hari Praktikum</option>
                   <option value="senin">Senin</option>
                   <option value="selasa">Selasa</option>
@@ -38,11 +38,11 @@
                 </div>
                 <div class="form-group">
                   <label>jam</label>
-                  <input type="time" class="form-control" name="jam"  value="{{old('location')}}">
+                  <input type="time" class="form-control" name="jam"  value="{{old('location')}}" required>
                 </div>
                 <div class="form-group">
                   <label>ruangan</label>
-                  <input type="text" class="form-control" name="ruangan" placeholder="Masukan Ruangan Praktek" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="ruangan" placeholder="Masukan Ruangan Praktek" value="{{old('location')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Rekap Absen</label>
@@ -51,7 +51,7 @@
                 <div class="form-group">
                      
                         <label for="slug">Mata Kuliah</label>
-                          <select name="matkul_id" class="form-control">
+                          <select name="matkul_id" class="form-control" required>
                         
                           
                           <option value="">Pilih mata Kuliah</option>
@@ -63,7 +63,7 @@
                       <div class="form-group">
                      
                      <label for="slug">Kelas</label>
-                       <select name="kelas_id" class="form-control">
+                       <select name="kelas_id" class="form-control" required>
                      
                        
                        <option value="">Pilih Kelas</option>
@@ -76,7 +76,7 @@
 
                    
                    <label for="slug">Asdos</label>
-                   <input type="disabled" value="{{Auth::user()->name}}" class="form-control">
+                   <input type="text" value="{{Auth::user()->name}}" class="form-control" disabled>
                     
                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}" class="form-control">
                       

@@ -24,7 +24,7 @@ Route::get('/daftarasdos/calon-asdos-bio/{id}', 'Controller@biocaasdos');
 Route::get('/files/{file}', 'Controller@downloadberkas')->name('download');
 Route::group(['middleware' => 'admin'], function()
 {
-    Route::get('/dashboard','HomeController@admin');
+Route::get('/dashboard','HomeController@admin');
 
 //dosen
 Route::get('/home', 'HomeController@index')->name('home');
@@ -64,13 +64,13 @@ Route::put('/admin/insentif/update/{id}','InsentifController@update');
 Route::get('/admin/jadwal-praktikum','JadwalPraktikumController@index');
 Route::get('/admin/jadwal-praktikum/add','JadwalPraktikumController@add');
 Route::post('/admin/jadwal-praktikum/store','JadwalPraktikumController@store');
-
 Route::delete('/admin/jadwal-praktikum/delete/{id}','JadwalPraktikumController@delete');
 
 //user
 Route::get('/admin/user','UserController@index');
 Route::get('/admin/applicant','UserController@daftarasdos');
 Route::get('/admin/asdos','UserController@dataasdos');
+Route::get('/admin/profileasdos/{id}','UserController@profileasdos');
 
 Route::get('/admin/applicant/{id}','UserController@makeasdos');
 Route::delete('/admin/user/delete/{id}','UserController@delete');
@@ -97,8 +97,11 @@ Auth::routes();
 //jadwal praktek
 Route::group(['middleware' => 'asdos'], function()
 {
-   
-    Route::get('/asdos/jadwal-praktikum','JadwalPraktikumController@asdosindex');
+
+    
+Route::get('/asdos/dashboard','HomeController@asdos');
+
+Route::get('/asdos/jadwal-praktikum','JadwalPraktikumController@asdosindex');
 Route::get('/asdos/jadwal-praktikum/add','JadwalPraktikumController@addasdos');
 Route::post('/asdos/jadwal-praktikum/store','JadwalPraktikumController@storeasdos');
 
