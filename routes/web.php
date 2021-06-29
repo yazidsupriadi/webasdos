@@ -13,15 +13,15 @@
 
 
 Route::get('/','Controller@home');
+Route::get('/dashboard','HomeController@admin');
+
 Route::get('/daftar', 'Controller@daftar');
 Route::get('/daftarasdos', 'Controller@registerasdos');
 Route::post('/daftarasdos', 'Controller@storeregisterasdos');
 Route::get('/daftarasdos/isibio', 'Controller@isibio');
 Route::post('/daftarasdos/isibio', 'Controller@isibiostore');
 Route::get('/daftarasdos/calon-asdos-bio/{id}', 'Controller@biocaasdos');
-Route::get('/daftarasdos/isimatkul', 'Controller@isimatkul');
-Route::post('/daftarasdos/isimatkul', 'Controller@isimatkulstore');
-
+Route::get('/files/{file}', 'Controller@downloadberkas')->name('download');
 Route::group(['middleware' => 'admin'], function()
 {
     Route::get('/dashboard','HomeController@admin');
@@ -70,6 +70,7 @@ Route::delete('/admin/jadwal-praktikum/delete/{id}','JadwalPraktikumController@d
 //user
 Route::get('/admin/user','UserController@index');
 Route::get('/admin/applicant','UserController@daftarasdos');
+Route::get('/admin/asdos','UserController@dataasdos');
 
 Route::get('/admin/applicant/{id}','UserController@makeasdos');
 Route::delete('/admin/user/delete/{id}','UserController@delete');
@@ -83,7 +84,12 @@ Route::get('admin/gaji','GajiController@index');
 Route::get('admin/honor-asdos','GajiController@asdos_honor');
 Route::get('/admin/gaji/detail/{id}','GajiController@detailgaji');
 
-
+//sertifikat
+Route::get('admin/sertifikat','SertifikatController@index');
+Route::get('admin/sertifikat/add','SertifikatController@add');
+Route::post('/admin/sertifikat/store','SertifikatController@store');
+Route::get('admin/sertifikat/{file}', 'SertifikatController@downloadsertifikat')->name('download_sertifikat');
+Route::delete('/admin/sertifikat/delete/{id}','SertifikatController@delete');
 });
 Auth::routes();
 
@@ -91,8 +97,7 @@ Auth::routes();
 //jadwal praktek
 Route::group(['middleware' => 'asdos'], function()
 {
-    Route::get('/dashboard','HomeController@admin');
-
+   
     Route::get('/asdos/jadwal-praktikum','JadwalPraktikumController@asdosindex');
 Route::get('/asdos/jadwal-praktikum/add','JadwalPraktikumController@addasdos');
 Route::post('/asdos/jadwal-praktikum/store','JadwalPraktikumController@storeasdos');
@@ -121,4 +126,8 @@ Route::put('/asdos/profile/edit/{id}','AsdosController@update');
 
 //gaji
 Route::get('/asdos/gaji','GajiController@asdosindex');
+
+//sertifikat
+Route::get('/asdos/sertifikat/{id}','SertifikatController@sertifikatasdos');
+
 });

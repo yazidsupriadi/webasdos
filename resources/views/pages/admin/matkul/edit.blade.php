@@ -36,7 +36,7 @@
                      
                         <label for="slug">Dosen</label>
                           <select name="dosen_id" class="form-control">
-                          <option value="">Pilih Dosen Pengampu</option>
+                          <option value="">{{$matkul->dosen->nama}}</option>
                               @foreach($dosens as $dosen)
                               <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                               @endforeach

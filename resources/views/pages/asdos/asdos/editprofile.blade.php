@@ -4,7 +4,7 @@
   
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Tambah Nama Dosen Mata Kuliah</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Profile Asdos</h1>
           </div>
 
           @if($errors ->any())
@@ -27,29 +27,56 @@
                 @method('PUT')
                 <div class="form-group">
                   <input type="hidden" class="form-control" name="kode" placeholder="Masukan Nama Dosen Mata Kuliah" value="asdos">
+                  
+                  <input type="hidden" class="form-control" name="status" value="active">
                 </div>
                 <div class="form-group">
                   <label>Nama Calon Asisten Dosen</label>
                   <input type="hidden" class="form-control" name="user_id" placeholder="Masukan Nama Dosen Mata Kuliah" value="{{Auth::user()->id}}">
-                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Dosen Mata Kuliah" value="{{Auth::user()->name}}">
+                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Asisten Dosen" value="{{Auth::user()->name}}">
+                </div>
+                
+                <div class="form-group">
+                  <label>NIM </label>
+                  <input type="text" class="form-control" name="nim" placeholder="Masukan Nama Asisten Dosen" value="{{$asdos->nim}}">
+                </div>
+                
+                <div class="form-group">
+                  <label>No Handphone</label>
+                  <input type="text" class="form-control" name="no_hp" placeholder="Masukan Nama Asisten Dosen" value="{{$asdos->no_hp}}">
                 </div>
                 <div class="form-group">
                   <label>Tempat Lahir</label>
-                  <input type="text" class="form-control" name="birthday_place" placeholder="Masukan Tempat lahir" value="{{old('birthday_place')}}">
+                  <input type="text" class="form-control" name="birthday_place" placeholder="Masukan Tempat lahir" value="{{$asdos->birthday_place}}">
                 </div>
                 <div class="form-group">
                   <label>Tanggal Lahir</label>
-                  <input type="date" class="form-control" name="birthday">
+                  <input type="date" class="form-control" name="birthday" value="{{ old('birthday', date('Y-m-d')) }}" >
                 </div>
               
                 <div class="form-group">
                   <label>Angkatan</label>
-                  <input type="text" class="form-control" name="angkatan" placeholder="masukan tahun angkatan kamu">
+                  <input type="text" class="form-control" name="angkatan" placeholder="masukan tahun angkatan kamu"  value="{{$asdos->angkatan}}">
                 </div>
                 
                 <div class="form-group">
                   <label>Username ELEN</label>
-                  <input type="text" class="form-control" name="username_elen" placeholder="masukan username elen">
+                  <input type="text" class="form-control" name="username_elen" placeholder="masukan username elen"  value="{{$asdos->username_elen}}">
+                </div>
+                
+                <div class="form-group">
+                  <label>Nama Bank</label>
+                  <input type="text" class="form-control" name="bank" placeholder="Masukan Nama Bank" value="{{$asdos->bank}}">
+                </div>
+                
+                <div class="form-group">
+                  <label>No Rekening</label>
+                  <input type="text" class="form-control" name="norek" placeholder="Masukan Nomor Rekening" value="{{$asdos->norek}}">
+                </div>
+                
+                <div class="form-group">
+                  <label>No Rekening Atas Nama</label>
+                  <input type="text" class="form-control" name="atasnama" placeholder="Masukan Atas Nama Nomor Rekening" value="{{$asdos->atasnama}}">
                 </div>
               
                 <button type="submit" class="btn btn-primary">Submit</button>

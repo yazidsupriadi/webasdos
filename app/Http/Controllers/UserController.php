@@ -22,6 +22,12 @@ class UserController extends Controller
         $users = User::where('rules','applicant')->get();
         return view('pages.admin.user.asdos',compact('users'));
     }
+    public function dataasdos(){
+        $users = User::where('rules','asdos')->get();
+        return view('pages.admin.user.asdos',compact('users'));
+    }
+
+
 
 
     public function delete($id){

@@ -24,8 +24,7 @@
                   </thead>
                   <tbody>
                   
-                  <?php $i = 1; 
-                  ?>
+                  <?php $i = 1;?>
                   @forelse($total_gajis as $item)
                     <tr>
                   <?php $monthNum = $item->month;
@@ -83,17 +82,6 @@
                   
                     @endforelse
                     
-                    @foreach($gajis as $item)
-                    <?php $total_gaji += $item->total ?>
-                    
-                    @endforeach
-                    <tr>
-                    <td colspan="5"></td>
-                    <td class="bg-primary text-white">Total Gaji</td>
-                    <td>
-                      {{$total_gaji}}
-                    </td>
-                    </tr>
                     
                   </tbody>
                 </table>

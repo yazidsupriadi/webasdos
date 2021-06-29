@@ -37,7 +37,7 @@ class Controller extends BaseController
             'password' => bcrypt($data['password']),
         ]);
         User::create($tambahdata);
-        return redirect('/daftarasdos/isibio');
+        return redirect('/');
     
     }
     
@@ -59,26 +59,20 @@ class Controller extends BaseController
     }
     public function isibiostore(Request $request){
         $asdos = $request->all();
+        $asdos['berkas'] = $request->file('berkas')->store(
+            'assets/berkas','public'
+        );
         Asdos::create($asdos);
         return redirect('/');
     }
 
     
-    public function isimatkul()
-    {
-        
-        $dosens = Dosen::all();   
-        $asdos =  Auth::user()->asdos()->get();
-        return view('pages.applicant.isimatkul',compact('asdos','dosens'));
-    
-    }
 
-    public function isimatkulstore(Request $request){
-        $matkul = $request->all();
-        Matkul::create($matkul);
-        return redirect('/');
-    }
+    public function downloadberkas($file){
 
+
+        return response()->download(storage_path('/app/public/assets/berkas/'.$file));
+     }
 
 
 }

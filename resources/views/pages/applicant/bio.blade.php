@@ -38,12 +38,17 @@
                     <h5 class="card-header bg-primary text-white">Asdos Profile</h5>
                     <div class="card-body p-5">
                         @foreach($asdos as $item)
-                           
+                        <p class="card-text">NIM : {{$item->nim}}</p>
+                        <p class="card-text">No Handphone: {{$item->no_hp}}</p>
+                        <p class="card-text">Email : {{Auth::user()->email}}</p>
+                        
                             <p class="card-text">Kode : {{$item->kode}}</p>
                             <p class="card-text">Tempat,Tanggal Lahir :{{ucfirst(strtolower($item->birthday_place))}} , {{date('D -M- Y',strtotime($item->birthday))}}</p>
                             <p class="card-text">Angkatan : {{$item->angkatan}}</p>
                             <p class="card-text">Username ELEN : {{$item->username_elen}}</p>
-                            
+                            <p>Berkas Pendaftaran</p>
+                            <a  class="btn btn-primary" href="{!! route('download', $item->berkas) !!}" download> <i class="fa fa-download"></i> Download Berkas Pendaftaran</a>
+
                            
                          @endforeach
            

@@ -21,7 +21,7 @@
           <!-- Content Row -->
           <div class="card-shadow">
             <div class="card-body">
-              <form action="{{url('/daftarasdos/isibio')}}" method="post" >
+              <form action="{{url('/daftarasdos/isibio')}}" method="post" enctype="multipart/form-data" >
                 @csrf
                 
                 <div class="form-group">
@@ -30,8 +30,18 @@
                 <div class="form-group">
                   <label>Nama Calon Asisten Dosen</label>
                   <input type="hidden" class="form-control" name="user_id" placeholder="Masukan Nama Dosen Mata Kuliah" value="{{Auth::user()->id}}">
-                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Dosen Mata Kuliah" value="{{Auth::user()->name}}">
+                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Dosen Mata Kuliah" value="{{Auth::user()->name}}" disabled>
                 </div>
+                
+                <div class="form-group">
+                  <label>NIM Calon Asisten Dosen</label>
+                  <input type="text" class="form-control" name="nim" placeholder="Masukan Nim Anda" >
+                </div>
+                <div class="form-group">
+                  <label>Nomor Handphone</label>
+                  <input type="text" class="form-control" name="no_hp" placeholder="Masukan Nomor Handphone " >
+                </div>
+               
                 <div class="form-group">
                   <label>Tempat Lahir</label>
                   <input type="text" class="form-control" name="birthday_place" placeholder="Masukan Tempat lahir" value="{{old('birthday_place')}}">
@@ -68,6 +78,11 @@
                   
                   <input type="hidden" class="form-control" name="status" value="inactive">
                 </div>
+                <div class="form-group">
+                  <label>Berkas File Pendaftaran</label>
+                  <input type="file" class="form-control" name="berkas" >
+                </div>
+           
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>

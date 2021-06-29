@@ -23,14 +23,6 @@
           <span>Isi Bio</span></a>
       </li>
     @endif
-    @if(Auth::user()->rules == 'applicant')
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('daftarasdos/isimatkul')}}">
-          <i class="fas fa-fw fa-calendar"></i>
-          <span>Isi Mata Kuliah Ajar</span></a>
-      </li>
-    @endif
     
     @if(Auth::user()->rules == 'applicant')
       <!-- Nav Item - Dashboard -->
@@ -124,7 +116,7 @@
 
      @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/gaji')}}">
+        <a class="nav-link" href="{{url('admin/honor-asdos')}}">
           <i class="fas fa-fw fa-money-bill"></i>
           <span>Honor</span></a>
       </li>
@@ -146,11 +138,35 @@
       </li>
       @endif
 
+      @if(Auth::user()->rules == 'admin')
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('admin/sertifikat')}}">
+          <i class="fas fa-fw fa-address-card"></i>
+          <span>Sertifikat</span></a>
+      </li>
+      @endif
+
+      @if(Auth::user()->rules == 'asdos')
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/sertifikat',Auth::user()->id)}}">
+          <i class="fas fa-fw fa-money-check"></i>
+          <span>Sertifikat</span></a>
+      </li>
+      @endif
       
       @if(Auth::user()->rules == 'admin')
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/user')}}">
+          <i class="fas fa-fw fa-address-card"></i>
+          <span>Data User</span></a>
+      </li>
+      @endif
+      @if(Auth::user()->rules == 'admin')
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('admin/asdos')}}">
           <i class="fas fa-fw fa-address-card"></i>
           <span>Data Asdos</span></a>
       </li>
@@ -163,6 +179,7 @@
           <span>profile</span></a>
       </li>
       @endif
+    
 
       @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">

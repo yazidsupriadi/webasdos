@@ -15,7 +15,7 @@
 							 
 					 		<div class="col-12 col-lg-3 mt-4">
 					 			<ul class="list-unstyled ">
-					 				<li class="mt-3"><a href="#" title="">E-Library</a></li>
+								<li class="mt-3"><a href="#" title="">E-Library</a></li>
 					 					<li class="mt-3"><a href="#" title="">LPPM</a></li>
 					 					<li class="mt-3"><a href="#" title="">Jurnal</a></li>	
 					 			</ul>

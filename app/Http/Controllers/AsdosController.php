@@ -24,7 +24,7 @@ class AsdosController extends Controller
         $asdos = $request->all();
         $item = Asdos::findOrFail($id);
          $item->update($asdos);
-        return redirect('/dashboard');
+        return redirect('/asdos/profile/'.$id);
     
     }
 
