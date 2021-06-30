@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Asdos;
+use App\User;
 use Auth;
 class AsdosController extends Controller
 {
     //
     public function profile($id){
+        $user = User::where('id','=',$id)->get();
         $asdos =  Auth::user()->asdos()->get();
-        return view('pages.asdos.asdos.profile',compact('asdos'));
+        return view('pages.asdos.asdos.profile',compact('asdos','user'));
     }
 
     public function editprofile($id){

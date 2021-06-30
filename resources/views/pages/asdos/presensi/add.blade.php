@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                   <label>pertemuan</label>
-                  <input type="text" class="form-control" name="pertemuan" placeholder="Masukan Ruangan Praktek" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="pertemuan" placeholder="Masukan Pertemuan asistensi" value="{{old('location')}}">
                 </div>
                 <div class="form-group">
                   <label>Rekap Absen</label>
@@ -75,9 +75,12 @@
                            @endforeach
                        </select>
                        <input type="hidden" name="total" id="dpinsentif" value="">
-                       <p class="mt-4">Kategori 1 = kurang dari 35 mahasiswa</p>
-                    <p>Kategori 2 = kurang 70 mahasiswa</p>
-                    <p>Kategori 3 = lebih 70 mahasiswa</p>
+                       <ol class="mt-4">
+                        <li>Kategori Praktikum 1 = kurang dari 35 mahasiswa</li>
+                        <li>Kategori Praktikum 2 = kurang 70 mahasiswa</li>
+                        <li>Kategori Praktikum 3 = lebih 70 mahasiswa</li>
+                        <li>Link and Match</li>
+                       </ol>
                     
                        <select name="total" class="form-control" id="insentif" >
                      <option >Kategori</option>
