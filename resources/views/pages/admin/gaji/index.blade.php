@@ -4,10 +4,37 @@
   
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4 bg-primary p-4">
-            <h1 class="h3 mb-0 text-light">Informasi Honor Asdos</h1>
-          
+          @foreach($user as $item)
+            <h1 class="h3 mb-0 text-light">Informasi Honor Asdos : {{$item->name}}</h1>
+          @endforeach
           </div>
-
+          <table class="table table-bordered">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col" class="text-center">Bank</th>
+                      <th scope="col" class="text-center">No Rekening</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                  <?php $i = 1;?>
+                  @forelse($asdos as $item)
+                    <tr>
+                      <td class="text-center">{{$item->bank}}</td>
+                      <td class="text-center"> {{$item->norek}} a/n {{$item->atasnama}}</td>
+                      
+                    </tr>
+                    @empty
+                            <tr>
+                                <td class="text-center" colspan="7">Data Kosong</td>
+                          </tr> 
+                  
+                    @endforelse
+                    
+                  </tbody>
+                </table>
+          
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">

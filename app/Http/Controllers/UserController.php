@@ -20,8 +20,9 @@ class UserController extends Controller
     }
     
     public function profileasdos($id){
+        $user = User::where('id','=',$id)->get();
         $asdos = Asdos::where('user_id','=',$id)->get();
-        return view('pages.asdos.asdos.profile',compact('asdos'));
+        return view('pages.asdos.asdos.profile',compact('asdos','user'));
     }
 
     public function daftarasdos(){
@@ -30,7 +31,7 @@ class UserController extends Controller
     }
     public function dataasdos(){
         $users = User::where('rules','asdos')->get();
-        return view('pages.admin.user.asdos',compact('users'));
+        return view('pages.admin.user.caasdos',compact('users'));
     }
 
 

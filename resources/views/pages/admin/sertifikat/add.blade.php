@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                   <label>Nama</label>
-                  <input type="text" class="form-control" name="nama" placeholder="Masukan NIDN" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Asisten Dosen" value="{{old('location')}}">
                 </div>
                 
                 <div class="form-group">

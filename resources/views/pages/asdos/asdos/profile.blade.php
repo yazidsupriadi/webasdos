@@ -20,7 +20,9 @@
                      <div class="mt-4 ">
                 <ul>
                 
-                <h4 class="text-bold" style="font-size:16px;font-weight:bold;text-align:center;text-transform:capitalize;">Name : {{Auth::user()->name}}</h4>
+                @foreach($user as $item)
+                <h4 class="text-bold" style="font-size:16px;font-weight:bold;text-align:center;text-transform:capitalize;">Name : {{$item->name}}</h4>
+                @endforeach
                 @foreach($asdos as $item)
                              <li class="text-bold" style="list-style:none;font-size:16px;margin-left:30px;"> Mata Kuliah:  {{$item->matkul->nama}}</li>   
                  @endforeach
