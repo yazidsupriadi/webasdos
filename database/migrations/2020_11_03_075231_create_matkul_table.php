@@ -19,7 +19,7 @@ class CreateMatkulTable extends Migration
             $table->string('kodemk');
             $table->longText('keterangan')->nullable();
             $table->unsignedBigInteger('dosen_id');
-            $table->foreign('dosen_id')->references('id')->on('dosen');
+            $table->foreign('dosen_id')->references('id')->on('dosen')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

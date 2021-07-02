@@ -23,7 +23,7 @@ class CreateGajiTable extends Migration
             $table->enum('status',['accepted','progress','paid'])->nullable();
             $table->foreign('insentif_id')->references('id')->on('insentif');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('presensi_id')->nullable();
             $table->foreign('presensi_id')->references('id')->on('presensi')->onDelete('cascade');
 

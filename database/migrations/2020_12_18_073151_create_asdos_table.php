@@ -28,9 +28,9 @@ class CreateAsdosTable extends Migration
             $table->string('berkas')->nullable();
             $table->enum('status',['active','inactive'])->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('matkul_id');
-            $table->foreign('matkul_id')->references('id')->on('matkul');
+            $table->foreign('matkul_id')->references('id')->on('matkul')->onDelete('cascade');
             
             
             

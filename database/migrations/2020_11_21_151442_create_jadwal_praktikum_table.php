@@ -20,11 +20,11 @@ class CreateJadwalPraktikumTable extends Migration
             $table->string('ruangan');
             $table->string('rekap_absen')->nullable();
             $table->unsignedBigInteger('matkul_id');
-            $table->foreign('matkul_id')->references('id')->on('matkul');
+            $table->foreign('matkul_id')->references('id')->on('matkul')->onDelete('cascade');
             $table->unsignedBigInteger('kelas_id');
-            $table->foreign('kelas_id')->references('id')->on('kelas');
+            $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
           
             $table->timestamps();
         });
