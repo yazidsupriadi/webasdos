@@ -17,7 +17,8 @@ class CreateKelasTable extends Migration
             $table->bigIncrements('id');
             $table->string('kode_kelas');
             $table->string('prodi');
-            $table->string('angkatan');
+            $table->string('angkatan')->nullable();
+            $table->string('tahun_akademik');
             $table->integer('jumlah_mahasiswa');
             $table->timestamps();
         });

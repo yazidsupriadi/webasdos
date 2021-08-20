@@ -124,6 +124,22 @@
       @else
      @endif 
 
+     
+     @if(Auth::user()->rules == 'admin')
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('admin/ruangan')}}">
+          <i class="fas fa-fw fa-hotel"></i>
+          <span>Ruangan</span></a>
+      </li>
+      @elseif(Auth::user()->rules == 'asdos')
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/ruangan')}}">
+          <i class="fas fa-fw fa-hotel"></i>
+          <span>Ruangan</span></a>
+      </li>
+      @else
+     @endif 
+
      @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('admin/honor-asdos')}}">

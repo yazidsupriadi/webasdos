@@ -18,6 +18,7 @@
       <th scope="col">No</th>
       <th scope="col">Tipe Insentif</th>
       <th scope="col">Kategori</th>
+      <th scope="col">Tahun Akademik</th>
       <th scope="col">Nilai</th>
       <th scope="col">Action</th>
     </tr>
@@ -29,7 +30,7 @@
       <th scope="row">{{$i++}}</th>
       <td>{{$item->tipe_insentif}}</td>
       <td>{{$item->kategori}}</td>
-      
+      <td>{{$item->tahun_akademik}}</td> 
       <td>{{$item->nilai}}</td>
       
       <td>

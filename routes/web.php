@@ -52,6 +52,14 @@ Route::get('/admin/kelas/edit/{id}','KelasController@edit');
 Route::put('/admin/kelas/update/{id}','KelasController@update');
 Route::delete('/admin/kelas/delete/{id}','KelasController@delete');
 
+//ruangan
+Route::get('/admin/ruangan','RuanganController@index');
+Route::get('admin/ruangan/add','RuanganController@add');
+Route::post('/admin/ruangan/store','RuanganController@store');
+Route::get('/admin/ruangan/edit/{id}','RuanganController@edit');
+Route::put('/admin/ruangan/update/{id}','RuanganController@update');
+Route::delete('/admin/ruangan/delete/{id}','RuanganController@delete');
+
 //insentif
 Route::get('/admin/insentif','InsentifController@index');
 Route::get('admin/insentif/add','InsentifController@add');
@@ -108,6 +116,9 @@ Route::post('/asdos/jadwal-praktikum/store','JadwalPraktikumController@storeasdo
 
 //kelas
 Route::get('/asdos/kelas','KelasController@asdosindex');
+
+//ruangan
+Route::get('/asdos/ruangan','RuanganController@asdosindex');
 
 //matkul
 Route::get('/asdos/matkul','MatkulController@asdosindex');

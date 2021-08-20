@@ -23,6 +23,7 @@
       <th scope="col">Kode Kelas</th>
       <th scope="col">Prodi</th>
       <th scope="col">Angkatan</th>
+      <th scope="col">Tahun Akademik</th>
       <th scope="col">Jumlah Mahasiswa</th>
       <th scope="col">Action</th>
     </tr>
@@ -36,6 +37,7 @@
       <td>{{$item->prodi}}</td>
       
       <td>{{$item->angkatan}}</td>
+      <td>{{$item->tahun_akademik}}</td>
       <td>{{$item->jumlah_mahasiswa}}</td>
       <td>
       <a href="{{url('admin/kelas/edit',$item->id)}}"  class="btn btn-sm btn-info" title="">Edit</a>

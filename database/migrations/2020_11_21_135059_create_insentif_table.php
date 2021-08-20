@@ -18,6 +18,7 @@ class CreateInsentifTable extends Migration
             $table->string('tipe_insentif');
             $table->string('kategori')->nullable();
             $table->float('nilai');
+            $table->string('tahun_akademik')->nullable();
             $table->timestamps();
         });
     }

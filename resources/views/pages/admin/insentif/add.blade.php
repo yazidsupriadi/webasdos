@@ -30,6 +30,10 @@
                   <label>Kategori</label>
                   <input type="text" class="form-control" name="kategori" placeholder="Masukan Kategori" value="{{old('location')}}" required>
                 </div>
+                <div class="form-group">
+                  <label>Tahun Akademik</label>
+                  <input type="text" class="form-control" name="tahun_akademik" placeholder="Masukan tahun akademik" value="{{old('location')}}" required>
+                </div>
                 
              
                 <div class="form-group">

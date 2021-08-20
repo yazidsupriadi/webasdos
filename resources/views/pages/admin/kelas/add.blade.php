@@ -36,6 +36,10 @@
                   <label>Angkatan</label>
                   <input type="text" class="form-control" name="angkatan" placeholder="Masukan Angkatan" value="{{old('location')}}">
                 </div>
+                <div class="form-group">
+                  <label>Tahun Akademik</label>
+                  <input type="text" class="form-control" name="tahun_akademik" placeholder="Masukan Angkatan" value="{{old('location')}}">
+                </div>
                 
                 <div class="form-group">
                   <label>Jumlah Mahasiswa</label>
