@@ -7,7 +7,14 @@
             <h1 class="h3 mb-0 text-light">Daftar Dosen Mata Kuliah</h1>
             <a href="{{url('/admin/dosen/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm border-light"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Dosen Mata Kuliah</a>
           </div>
+          <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
+            <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $dosens->currentPage() }}</p>  <br/>
+	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $dosens->total() }}</p> <br/>
+            {{ $dosens->links() }} 
+          </div>
           
+
+
           <!-- Content Row -->
           <div class="row">
             
@@ -47,8 +54,6 @@
     @endforelse
   </tbody>
 </table>
-
-
               </div>
             </div>
           </div>

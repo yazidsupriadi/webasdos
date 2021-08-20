@@ -9,7 +9,7 @@ class DosenController extends Controller
     //
     public function index(){
 
-        $dosens = Dosen::all();
+        $dosens = Dosen::paginate(4);
         return view('pages.admin.dosen.index',compact('dosens'));
     
 

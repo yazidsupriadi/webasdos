@@ -82,6 +82,7 @@ Route::get('/admin/asdos-presensi','PresensiController@asdos_presensi');
 //gaji
 Route::get('admin/gaji','GajiController@index');
 Route::get('admin/honor-asdos','GajiController@asdos_honor');
+Route::get('/admin/honorasdos/updategaji/{id}','GajiController@updatestatusgaji');
 Route::get('/admin/gaji/detail/{id}','GajiController@detailgaji');
 
 //sertifikat

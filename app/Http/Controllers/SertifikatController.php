@@ -10,7 +10,7 @@ class SertifikatController extends Controller
 {
     //
     public function index(){
-        $sertifikats = Sertifikat::all();
+        $sertifikats = Sertifikat::paginate(3);
         return view('pages.admin.sertifikat.index',compact('sertifikats'));
     }
 

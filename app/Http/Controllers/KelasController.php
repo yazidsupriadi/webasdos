@@ -9,11 +9,11 @@ class KelasController extends Controller
 {
     //
     public function index(){
-        $kelass = Kelas::all();
+        $kelass = Kelas::paginate(5);
         return view('pages.admin.kelas.index',compact('kelass'));
     }
     public function asdosindex(){
-        $kelass = Kelas::all();
+        $kelass = Kelas::paginate(5);
         return view('pages.asdos.kelas.index',compact('kelass'));
     }
  

@@ -3,15 +3,20 @@
 @section('content')
   
   <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Daftar Kelas</h1>
+          <div class="d-sm-flex align-items-center justify-content-between bg-primary text-white p-3 mb-4">
+            <h1 class="h3 mb-0 text-white-800">Daftar Kelas</h1>
+          </div>
+          <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
+            <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $kelass->currentPage()}}</p>  <br/>
+	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $kelass->total() }}</p> <br/>
+            {{ $kelass->links() }} 
           </div>
 
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">
               
-              <table class="table">
+              <table id="data_asdos_kelas" class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">No</th>
@@ -46,5 +51,8 @@
               </div>
             </div>
           </div>
-         
+          <script>
+    $(document).ready(function() {
+    $('#data_asdos_kelas').DataTable();
+} );
 @endsection

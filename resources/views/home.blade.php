@@ -80,7 +80,7 @@
       </nav>
 
 
-      <section id="hero">
+      <section id="hero" data-aos="fade-up" data-aos-duration="1000">
           <div class="container">
               <div class="row header">
                 <div class="col">

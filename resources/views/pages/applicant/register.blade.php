@@ -66,6 +66,18 @@
                                 <input id="rules" type="hidden" class="form-control" name="rules" value="applicant">
                             </div>
                         </div>
+                                            <div class="form-group row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-6">
+                            {!! NoCaptcha::display() !!}
+                            {!! NoCaptcha::renderJs() !!}
+                            @error('g-recaptcha-response')
+                            <span class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

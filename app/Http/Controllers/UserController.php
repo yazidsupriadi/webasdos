@@ -9,13 +9,13 @@ class UserController extends Controller
 {
     //
     public function index(){
-        $users = User::all();
+        $users = User::paginate(5);
         return view('pages.admin.user.index',compact('users'));
     }
 
     
     public function asdos(){
-        $users = User::where('rules','asdos')->get();
+        $users = User::where('rules','asdos')->paginate(5);
         return view('pages.admin.user.asdos',compact('users'));
     }
     
@@ -26,12 +26,12 @@ class UserController extends Controller
     }
 
     public function daftarasdos(){
-        $users = User::where('rules','applicant')->get();
-        return view('pages.admin.user.asdos',compact('users'));
+        $users = User::where('rules','applicant')->paginate(5);
+        return view('pages.admin.user.caasdos',compact('users'));
     }
     public function dataasdos(){
-        $users = User::where('rules','asdos')->get();
-        return view('pages.admin.user.caasdos',compact('users'));
+        $users = User::where('rules','asdos')->paginate(5);
+        return view('pages.admin.user.asdos',compact('users'));
     }
 
 

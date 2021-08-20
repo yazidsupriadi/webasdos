@@ -7,6 +7,11 @@
             <h1 class="h3 mb-0 text-light">Daftar Mata Kuliah</h1>
             <a href="{{url('/admin/matkul/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary border-light shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Daftar Mata Kuliah</a>
           </div>
+          <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
+            <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $matkuls->currentPage() }}</p>  <br/>
+	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $matkuls->total() }}</p> <br/>
+            {{ $matkuls->links() }} 
+          </div>
 
           <!-- Content Row -->
           <div class="row">

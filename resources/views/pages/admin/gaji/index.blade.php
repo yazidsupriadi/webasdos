@@ -84,7 +84,7 @@
                       <th scope="col">Asdos</th>
                      
                       <th scope="col">Status </th>
-                      
+                     <th scope="col">Action</th> 
                     </tr>
                   </thead>
                   <tbody>
@@ -100,7 +100,18 @@
                       <td>{{$item->total}}</td> 
                       <td>{{$item->insentif->tipe_insentif}}</td>
                       <td>{{Auth::user()->name}}</td>
-                      <td > <span class="badge bg-success text-light    ">{{$item->status}}</span></td>
+                      <td > @if($item->status == 'accepted')
+                         <span class="badge bg-warning text-light">{{$item->status}}</span>
+                        @else
+                        <span class="badge bg-success text-light">{{$item->status}}</span>
+                      @endif
+                      </td>
+                      <td > @if($item->status == 'accepted')
+            <a href="{{url('/admin/honorasdos/updategaji/'.$item->id)}}" class="btn btn-primary btn-sm">Make paid</a>
+          @else
+            <a href="{{url('/admin/honorasdos/updategaji/'.$item->id)}}" class="btn btn-danger btn-sm ">Make other Rules</a>
+         @endif</td>
+                      
                     </tr>
                     @empty
                             <tr>

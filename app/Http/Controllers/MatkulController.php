@@ -9,12 +9,12 @@ class MatkulController extends Controller
 {
     //
     public function index(){
-        $matkuls = Matkul::orderBy('nama')->get();
+        $matkuls = Matkul::orderBy('nama')->paginate(4);
         return view('pages.admin.matkul.index',compact('matkuls'));
     }
 
     public function asdosindex(){
-        $matkuls = Matkul::orderBy('nama')->get();
+        $matkuls = Matkul::orderBy('nama')->paginate(4);
         return view('pages.asdos.matkul.index',compact('matkuls'));
     }
 

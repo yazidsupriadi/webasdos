@@ -62,7 +62,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                  
+                  <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
+            {{ $gajis->links() }} 
+          </div>
                   <?php $i = 1; 
                   $total_gaji = 0;
                   ?>
@@ -74,7 +76,11 @@
                       <td>{{$item->total}}</td> 
                       <td>{{$item->insentif->tipe_insentif}}</td>
                       <td>{{Auth::user()->name}}</td>
-                      <td > <span class="badge bg-success text-light    ">{{$item->status}}</span></td>
+                      <td >  @if($item->status == 'accepted')
+                         <span class="badge bg-warning text-light">{{$item->status}}</span>
+                        @else
+                        <span class="badge bg-success text-light">{{$item->status}}</span>
+                      @endif</td>
                     </tr>
                     @empty
                             <tr>
