@@ -43,4 +43,33 @@ class InsentifController extends Controller
         $insentif->delete();
         return redirect()->back();
     }
+
+    
+    public function tipe_insentif_search(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->tipe_insentif_search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$insentifs = Insentif::where('tipe_insentif','like',"%".$search."%")
+		->paginate(5);
+ 
+    		// mengirim data pegawai ke view index
+		return view('pages.admin.insentif.index',['insentifs' => $insentifs]);
+ 
+	}
+
+    public function tahun_akademik_search(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->tahun_akademik_search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$insentifs = Insentif::where('tahun_akademik','like',"%".$search."%")
+		->paginate(5);
+ 
+    		// mengirim data pegawai ke view index
+		return view('pages.admin.insentif.index',['insentifs' => $insentifs]);
+ 
+	}
 }

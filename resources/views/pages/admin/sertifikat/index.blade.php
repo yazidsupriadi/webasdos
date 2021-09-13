@@ -26,6 +26,7 @@
       <th scope="col">Nama</th>
       <th scope="col">Jabatan</th>
       <th scope="col">Mata Kuliah</th>
+      <th scope="col">Tahun Akademik</th>
       <th scope="col">Sertifikat File</th>     
       <th scope="col">Action</th>
     </tr>
@@ -40,6 +41,7 @@
       <td>{{$item->nama}}</td>
       <td>{{$item->jabatan}}</td>
       <td>{{$item->matkul}}</td>
+      <td>{{$item->tahun_akademik}}</td>
       <td> <a  class="btn btn-primary" href="{!! route('download_sertifikat', $item->sertifikat_file) !!}" download> <i class="fa fa-download"></i> Download Sertifikat</a>
     </td>
       

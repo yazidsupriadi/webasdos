@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Matkul;
 use App\Dosen;
+use App\Exports\MatkulExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 class MatkulController extends Controller
 {
     //
@@ -25,7 +28,20 @@ class MatkulController extends Controller
 
 
     }
-    
+    public function search(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$matkuls = Matkul::where('nama','like',"%".$search."%")
+        ->orWhere('kodemk','like','%'.$search."%")
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+		return view('pages.admin.matkul.index',['matkuls' => $matkuls]);
+ 
+	}
 
     public function store(Request $request){
         $matkul = $request->all();
@@ -54,4 +70,9 @@ class MatkulController extends Controller
         $matkul->delete();
         return redirect()->back();
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new MatkulExport, 'matkul.xlsx');
+	}
 }

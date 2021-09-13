@@ -7,6 +7,7 @@ use App\JadwalPraktikum;
 use App\Matkul;
 use App\Kelas;
 use App\User;
+use App\Ruangan;
 use Auth;
 class JadwalPraktikumController extends Controller
 {
@@ -21,7 +22,8 @@ class JadwalPraktikumController extends Controller
         $jadwals = JadwalPraktikum::all();
         $users = User::all();
         $kelas = Kelas::all();
-        return view('pages.admin.jadwal_praktek.add',compact('jadwals','matkuls','kelas','users'));
+        $ruangan = Ruangan::all();
+        return view('pages.admin.jadwal_praktek.add',compact('jadwals','matkuls','kelas','users','ruangan'));
     }
     public function addasdos(){
         $matkuls = Matkul::all();

@@ -12,6 +12,29 @@
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $ruangans->total() }}</p> <br/>
             {{ $ruangans->links() }} 
           </div>
+
+          <div class="container-fluid">
+              <div class="row">
+                    
+          <div class="input-group col-lg-4 mt-3">
+            <form action="/admin/ruangan/search" method="get" class="d-inline w-100" >
+            <div class="input-group">
+              <input type="search" class="form-control rounded" style="font-size:14px;" name="search" placeholder="Cari Berdasarkan Kode atau Nama Ruangan" aria-label="Search"
+               aria-describedby="search-addon" />
+              <button type="submit" style="font-size:14px;" class="btn btn-outline-primary">search</button>
+            </div>
+            </form>
+          </div>
+          
+          <div class="input-group col-lg-6 mt-3">
+          </div>
+          <div class="input-group col-lg-2 mt-3">
+            <a href="/admin/ruangan" class="btn btn-primary">Lihat Semua Data</a>
+          </div>
+              </div>
+          </div>
+  
+
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">

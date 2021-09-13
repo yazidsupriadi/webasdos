@@ -12,9 +12,34 @@
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $dosens->total() }}</p> <br/>
             {{ $dosens->links() }} 
           </div>
+
+          
+          <div class="container-fluid">
+              <div class="row">
+                    
+          <div class="input-group col-lg-4 mt-3">
+            <form action="/admin/dosen/search" method="get" class="d-inline w-100" >
+            <div class="input-group">
+              <input type="search" class="form-control rounded" style="font-size:14px;" name="search" placeholder="Cari Berdasarkan Nama Dosen atau NIDN" aria-label="Search"
+               aria-describedby="search-addon" />
+              <button type="submit" style="font-size:14px;" class="btn btn-outline-primary">search</button>
+            </div>
+            </form>
+          </div>
+          
+          <div class="input-group col-lg-6 mt-3">
+          </div>
+          <div class="input-group col-lg-2 mt-3">
+            <a href="/admin/dosen" class="btn btn-primary">Lihat Semua Data</a>
+          </div>
+              </div>
+          </div>
+  
           
 
 
+          <a href="/admin/dosen/export_excel" class="btn btn-success my-2 mx-4" target="_blank">EXPORT EXCEL</a>
+		
           <!-- Content Row -->
           <div class="row">
             

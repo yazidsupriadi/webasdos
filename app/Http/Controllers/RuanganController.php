@@ -45,4 +45,20 @@ class RuanganController extends Controller
         $ruangan->delete();
         return redirect()->back();
     }
+
+    
+    public function search(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$ruangans = Ruangan::where('kode_ruangan','like',"%".$search."%")
+        ->orWhere('nama_ruangan','like','%'.$search."%")
+		->paginate(5);
+ 
+    		// mengirim data pegawai ke view index
+		return view('pages.admin.ruangan.index',['ruangans' => $ruangans]);
+ 
+	}
 }

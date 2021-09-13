@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use App\Exports\DosenExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 class DosenController extends Controller
 {
     //
@@ -20,6 +23,22 @@ class DosenController extends Controller
     
 
     }
+
+    
+    public function search(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$dosens = Dosen::where('nama','like',"%".$search."%")
+        ->orWhere('nidn','like','%'.$search."%")
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+		return view('pages.admin.dosen.index',['dosens' => $dosens]);
+ 
+	}
 
     public function store(Request $request){
         $dosen = $request->all();
@@ -46,4 +65,10 @@ class DosenController extends Controller
         $dosen->delete();
         return redirect()->back();
     }
+
+
+    public function export_excel()
+	{
+		return Excel::download(new DosenExport, 'dosen.xlsx');
+	}
 }

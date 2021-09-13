@@ -8,7 +8,7 @@ class JadwalPraktikum extends Model
 {
     //
     protected $table = 'jadwal_praktikum';
-    protected $fillable = ['hari','jam','ruangan','rekap_absen','matkul_id','kelas_id','user_id'];
+    protected $fillable = ['hari','jam','ruangan_id','rekap_absen','matkul_id','kelas_id','user_id'];
 
     public function matkul(){
     	return $this->belongsTo(Matkul::class);

@@ -41,6 +41,10 @@
                   <label>Mata Kuliah</label>
                   <input type="text" class="form-control" name="matkul" placeholder="Masukan Mata Kuliah" value="{{old('location')}}">
                 </div>
+                <div class="form-group">
+                  <label>Tahun Akademik</label>
+                  <input type="text" class="form-control" name="tahun_akademik" placeholder="Masukan Mata Kuliah" value="{{old('location')}}">
+                </div>
               
                 <div class="form-group">
                      

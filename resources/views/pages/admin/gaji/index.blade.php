@@ -58,7 +58,7 @@
               $dateObj = DateTime::createFromFormat('!m', $monthNum);
               $monthName = $dateObj->format('F');?>
                       <th scope="row">{{$i++}}</th>
-                      <td>{{$monthName}}</td>
+                      <td>{{$monthName}} {{$item->year}}</td>
                       <td>{{$item->total_amount}}</td>
                       
                     </tr>

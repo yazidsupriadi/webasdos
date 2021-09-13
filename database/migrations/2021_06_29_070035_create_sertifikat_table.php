@@ -20,6 +20,7 @@ class CreateSertifikatTable extends Migration
             $table->string('jabatan');
             $table->string('matkul')->nullable();
             $table->string('sertifikat_file');
+            $table->string('tahun_akademik');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

@@ -17,7 +17,8 @@ class CreateJadwalPraktikumTable extends Migration
             $table->bigIncrements('id');
             $table->string('hari');
             $table->time('jam');
-            $table->string('ruangan');
+            $table->unsignedBigInteger('ruangan_id');
+            $table->foreign('ruangan_id')->references('id')->on('ruangan')->onDelete('cascade');
             $table->string('rekap_absen')->nullable();
             $table->unsignedBigInteger('matkul_id');
             $table->foreign('matkul_id')->references('id')->on('matkul')->onDelete('cascade');

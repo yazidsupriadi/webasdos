@@ -8,6 +8,7 @@ use App\Dosen;
 use App\Kelas;
 use App\User;
 use App\Presensi;
+use App\Ruangan;
 use DB;
 use Auth;
 class HomeController extends Controller
@@ -45,8 +46,9 @@ class HomeController extends Controller
         $matkul = Matkul::distinct()->get(['nama']);
         $dosen = Dosen::all();
         $kelas = Kelas::all();
+        $ruangan = Ruangan::all();
         $user = User::where('rules','asdos')->get();
-        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user'));
+        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user','ruangan'));
     }
     
     public function asdos(){
@@ -55,6 +57,7 @@ class HomeController extends Controller
         $kelas = Kelas::all();
         $presensi = Presensi::where('user_id','=',Auth::user()->id)->get();
         $user = User::where('rules','asdos')->get();
-        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user','presensi'));
+        $ruangan = Ruangan::all();
+        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user','presensi','ruangan'));
     }
 }

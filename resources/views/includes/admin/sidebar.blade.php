@@ -3,7 +3,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
 
         <div class="sidebar-brand-text mx-3">
         
@@ -84,61 +84,6 @@
 
       @endif      
 
-      @if(Auth::user()->rules == 'admin')
-      
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/dosen')}}">
-          <i class="fas fa-fw fa-chalkboard-teacher"></i>
-          <span>Dosen</span></a>
-      </li>
-      @endif
-
-      @if(Auth::user()->rules == 'admin')
-      
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/matkul')}}">
-          <i class="fas fa-fw fa-book"></i>
-          <span>Mata Kuliah</span></a>
-      </li>
-      @elseif(Auth::user()->rules == 'asdos')
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('asdos/matkul')}}">
-          <i class="fas fa-fw fa-book"></i>
-          <span>Mata Kuliah</span></a>
-      </li>
-      @else
-
-     @endif 
-      @if(Auth::user()->rules == 'admin')
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/kelas')}}">
-          <i class="fas fa-fw fa-graduation-cap"></i>
-          <span>Kelas</span></a>
-      </li>
-      @elseif(Auth::user()->rules == 'asdos')
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('asdos/kelas')}}">
-          <i class="fas fa-fw fa-graduation-cap"></i>
-          <span>Kelas</span></a>
-      </li>
-      @else
-     @endif 
-
-     
-     @if(Auth::user()->rules == 'admin')
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/ruangan')}}">
-          <i class="fas fa-fw fa-hotel"></i>
-          <span>Ruangan</span></a>
-      </li>
-      @elseif(Auth::user()->rules == 'asdos')
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('asdos/ruangan')}}">
-          <i class="fas fa-fw fa-hotel"></i>
-          <span>Ruangan</span></a>
-      </li>
-      @else
-     @endif 
 
      @if(Auth::user()->rules == 'admin')
       <li class="nav-item active">
@@ -155,14 +100,29 @@
       @else
      @endif 
 
-     
-     @if(Auth::user()->rules == 'admin')
+      @if(Auth::user()->rules == 'asdos')
       <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/insentif')}}">
-          <i class="fas fa-fw fa-money-check"></i>
-          <span>Insentif</span></a>
-      </li>
+        <a class="nav-link" href="{{url('asdos/matkul')}}">
+          <i class="fas fa-fw fa-book"></i>
+          <span>Mata Kuliah</span></a>
+        </li>
+      @endif          
+
+      @if(Auth::user()->rules == 'asdos')
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/kelas')}}">
+          <i class="fas fa-fw fa-school"></i>
+          <span>Kelas</span></a>
+        </li>
       @endif
+      @if(Auth::user()->rules == 'asdos')
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('asdos/ruangan')}}">
+          <i class="fas fa-fw fa-building"></i>
+          <span>Ruangan</span></a>
+        </li>
+     
+      @endif               
 
       @if(Auth::user()->rules == 'admin')
       <!-- Nav Item - Dashboard -->
@@ -180,23 +140,6 @@
           <span>Sertifikat</span></a>
       </li>
       @endif
-      
-      @if(Auth::user()->rules == 'admin')
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/user')}}">
-          <i class="fas fa-fw fa-address-card"></i>
-          <span>Data User</span></a>
-      </li>
-      @endif
-      @if(Auth::user()->rules == 'admin')
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/asdos')}}">
-          <i class="fas fa-fw fa-address-card"></i>
-          <span>Data Asdos</span></a>
-      </li>
-      @endif
 
       @if(Auth::user()->rules == 'asdos')
       <li class="nav-item active">
@@ -207,20 +150,69 @@
       @endif
     
 
-      @if(Auth::user()->rules == 'admin')
-      <li class="nav-item active">
-        <a class="nav-link" href="{{url('admin/applicant')}}">
-          <i class="fas fa-fw fa-money-check"></i>
-          <span>Daftar Calon Asdos</span></a>
-      </li>
-      @endif
 
+      
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
+      @if(Auth::user()->rules == 'admin')
+      <li class="nav-item active">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                     aria-controls="collapseTwo" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Data Master</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Data Master</h6>
+                        @if(Auth::user()->rules == 'admin')
+                        <a class="collapse-item" href="/admin/dosen"><i class="fa fa-chalkboard-teacher text-primary"></i> Dosen</a>
+                        @endif
 
+                        @if(Auth::user()->rules == 'admin')
+                        <a class="collapse-item" href="/admin/matkul"><i class="fa fa-book text-primary"></i> Mata Kuliah</a>
+                        @endif
+
+                        @if(Auth::user()->rules == 'admin')
+                        <a class="collapse-item" href="/admin/kelas"><i class="fa fa-school text-primary"></i> Kelas</a>
+                        @endif
+
+                        
+                        @if(Auth::user()->rules == 'admin')
+                        <a class="collapse-item" href="/admin/insentif"><i class="fa fa-credit-card text-primary"></i> Insentif</a>
+                        @endif
+
+                        
+                        @if(Auth::user()->rules == 'admin')
+                        <a class="collapse-item" href="/admin/ruangan"><i class="fa fa-building text-primary"></i> Ruangan</a>
+                        @endif
+
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                     aria-controls="collapseTwo" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Data User Master</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Data User Master</h6>
+                        @if(Auth::user()->rules == 'admin')
+                        <a class="collapse-item" href="/admin/user"><i class="fa fa-user text-primary"></i> Daftar User</a>
+                        <a class="collapse-item" href="/admin/asdos"><i class="fa fa-address-card text-primary"></i> Daftar Asdos</a>
+                        <a class="collapse-item" href="/admin/applicant"><i class="fa fa-chalkboard-teacher text-primary"></i> Daftar Calon Asdos</a>
+                        @endif
+
+                    </div>
+                </div>
+            </li>
+      @endif      
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-
+      
     </ul>
+    

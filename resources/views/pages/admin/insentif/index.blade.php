@@ -8,6 +8,53 @@
             <a href="{{url('/admin/insentif/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm border-light"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Insentif</a>
           </div>
 
+          
+          <div class="container-fluid">
+              <div class="row">
+                    
+          
+          <div class="input-group col-lg-3 mt-3">
+          <form action="/admin/insentif/search/tipe-insentif" method="get" class="d-inline w-100" >
+            <div class="input-group">
+                       <select name="tipe_insentif_search" class="form-control" style="font-size:12px;">
+                     
+                       
+                       <option value="">Cari Sesuai Tipe Insentif</option>
+                           @foreach(App\Insentif::distinct()->get(['tipe_insentif']) as $item)
+                           <option value="{{$item->tipe_insentif}}">{{$item->tipe_insentif}}</option>
+                           @endforeach
+                       </select> 
+         
+            <button type="submit" style="font-size:14px;" class="btn btn-outline-primary">search</button>
+            </div>
+            </form>
+         
+          </div>
+         
+          <div class="input-group col-lg-4 mt-3">
+          <form action="/admin/insentif/search/tahun-akademik" method="get" class="d-inline w-100" >
+            <div class="input-group">
+                       <select name="tahun_akademik_search" class="form-control" style="font-size:12px;">
+                     
+                       
+                       <option value="">Cari Sesuai Tahun Akademik</option>
+                           @foreach(App\Kelas::distinct()->get(['tahun_akademik']) as $item)
+                           <option value="{{$item->tahun_akademik}}">{{$item->tahun_akademik}}</option>
+                           @endforeach
+                       </select> 
+         
+            <button type="submit" style="font-size:14px;" class="btn btn-outline-primary">search</button>
+            </div>
+            </form>
+         
+          </div>
+          <div class="input-group col-lg-2 mt-3">
+            <a href="/admin/insentif" class="btn btn-primary">Lihat Semua Data</a>
+          </div>
+              </div>
+          </div>
+  
+
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">

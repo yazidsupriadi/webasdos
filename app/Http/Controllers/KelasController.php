@@ -46,4 +46,46 @@ class KelasController extends Controller
         $kelas->delete();
         return redirect()->back();
     }
+    
+    public function kode_search(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->kode_search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$kelass = Kelas::where('kode_kelas','like',"%".$search."%")
+		->paginate(5);
+ 
+    		// mengirim data pegawai ke view index
+		return view('pages.admin.kelas.index',['kelass' => $kelass]);
+ 
+	}
+
+    public function prodi_search(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->prodi_search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$kelass = Kelas::where('prodi','like',"%".$search."%")
+		->paginate(5);
+ 
+    		// mengirim data pegawai ke view index
+		return view('pages.admin.kelas.index',['kelass' => $kelass]);
+ 
+	}
+
+    public function tahun_akademik_search(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->tahun_akademik_search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$kelass = Kelas::where('tahun_akademik','like',"%".$search."%")
+		->paginate(5);
+ 
+    		// mengirim data pegawai ke view index
+		return view('pages.admin.kelas.index',['kelass' => $kelass]);
+ 
+	}
 }

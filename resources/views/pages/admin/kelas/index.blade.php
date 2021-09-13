@@ -12,6 +12,63 @@
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $kelass->total() }}</p> <br/>
             {{ $kelass->links() }} 
           </div>
+
+          <div class="container-fluid">
+              <div class="row">
+                    
+          <div class="input-group col-lg-3 mt-3">
+            <form action="/admin/kelas/search/kode" method="get" class="d-inline w-100" >
+            <div class="input-group">
+              <input type="search" class="form-control rounded" style="font-size:14px;" name="kode_search" placeholder="Cari Berdasarkan Kode Kelas" aria-label="Search"
+               aria-describedby="search-addon" />
+              <button type="submit" style="font-size:12px;" class="btn btn-outline-primary">search</button>
+            </div>
+            </form>
+          </div>
+          
+          <div class="input-group col-lg-3 mt-3">
+          <form action="/admin/kelas/search/prodi" method="get" class="d-inline w-100" >
+            <div class="input-group">
+                       <select name="prodi_search" class="form-control" style="font-size:12px;">
+                     
+                       
+                       <option value="">Cari Sesuai Program Studi</option>
+                           @foreach(App\Kelas::distinct()->get(['prodi']) as $item)
+                           <option value="{{$item->prodi}}">{{$item->prodi}}</option>
+                           @endforeach
+                       </select> 
+         
+            <button type="submit" style="font-size:14px;" class="btn btn-outline-primary">search</button>
+            </div>
+            </form>
+         
+          </div>
+         
+          <div class="input-group col-lg-4 mt-3">
+          <form action="/admin/kelas/search/tahun-akademik" method="get" class="d-inline w-100" >
+            <div class="input-group">
+                       <select name="tahun_angkatan_search" class="form-control" style="font-size:12px;">
+                     
+                       
+                       <option value="">Cari Sesuai Tahun Akademik</option>
+                           @foreach(App\Kelas::distinct()->get(['tahun_akademik']) as $item)
+                           <option value="{{$item->tahun_akademik}}">{{$item->tahun_akademik}}</option>
+                           @endforeach
+                       </select> 
+         
+            <button type="submit" style="font-size:14px;" class="btn btn-outline-primary">search</button>
+            </div>
+            </form>
+         
+          </div>
+          <div class="input-group col-lg-2 mt-3">
+            <a href="/admin/kelas" class="btn btn-primary">Lihat Semua Data</a>
+          </div>
+              </div>
+          </div>
+  
+
+         
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">

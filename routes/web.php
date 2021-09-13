@@ -34,7 +34,8 @@ Route::post('/admin/dosen/store','DosenController@store');
 Route::get('/admin/dosen/edit/{id}','DosenController@edit');
 Route::put('/admin/dosen/update/{id}','DosenController@update');
 Route::delete('/admin/dosen/delete/{id}','DosenController@delete');
-
+Route::get('/admin/dosen/search','DosenController@search');
+Route::get('/admin/dosen/export_excel', 'DosenController@export_excel');
 //matkul
 
 Route::get('/admin/matkul','MatkulController@index');
@@ -42,8 +43,9 @@ Route::delete('/admin/matkul/delete/{id}','MatkulController@delete');
 Route::get('/admin/matkul/add','MatkulController@add');
 Route::post('/admin/matkul/store','MatkulController@store');
 Route::get('/admin/matkul/edit/{id}','MatkulController@edit');
-Route::put('/admin/matkul/update/{id}','DosenController@update');
-
+Route::put('/admin/matkul/update/{id}','MatkulController@update');
+Route::get('/admin/matkul/search','MatkulController@search');
+Route::get('/admin/matkul/export_excel', 'MatkulController@export_excel');
 //kelas
 Route::get('/admin/kelas','KelasController@index');
 Route::get('admin/kelas/add','KelasController@add');
@@ -51,6 +53,9 @@ Route::post('/admin/kelas/store','KelasController@store');
 Route::get('/admin/kelas/edit/{id}','KelasController@edit');
 Route::put('/admin/kelas/update/{id}','KelasController@update');
 Route::delete('/admin/kelas/delete/{id}','KelasController@delete');
+Route::get('/admin/kelas/search/kode','KelasController@kode_search');
+Route::get('/admin/kelas/search/prodi','KelasController@prodi_search');
+Route::get('/admin/kelas/search/tahun-akademik','KelasController@tahun_akademik_search');
 
 //ruangan
 Route::get('/admin/ruangan','RuanganController@index');
@@ -59,7 +64,7 @@ Route::post('/admin/ruangan/store','RuanganController@store');
 Route::get('/admin/ruangan/edit/{id}','RuanganController@edit');
 Route::put('/admin/ruangan/update/{id}','RuanganController@update');
 Route::delete('/admin/ruangan/delete/{id}','RuanganController@delete');
-
+Route::get('/admin/ruangan/search','RuanganController@search');
 //insentif
 Route::get('/admin/insentif','InsentifController@index');
 Route::get('admin/insentif/add','InsentifController@add');
@@ -67,6 +72,8 @@ Route::post('/admin/insentif/store','InsentifController@store');
 Route::delete('/admin/insentif/delete/{id}','InsentifController@delete');
 Route::get('/admin/insentif/edit/{id}','InsentifController@edit');
 Route::put('/admin/insentif/update/{id}','InsentifController@update');
+Route::get('/admin/insentif/search/tipe-insentif','InsentifController@tipe_insentif_search');
+Route::get('/admin/insentif/search/tahun-akademik','InsentifController@tahun_akademik_search');
 
 //jadwal praktek
 Route::get('/admin/jadwal-praktikum','JadwalPraktikumController@index');

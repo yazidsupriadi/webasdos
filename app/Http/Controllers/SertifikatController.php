@@ -30,8 +30,7 @@ class SertifikatController extends Controller
 
     public function downloadsertifikat($file){
 
-        
-        return response()->download(storage_path('public/assets/sertifikat/'.$file));
+        return Storage::disk('local')->download('public/'.$file);
      }
      public function delete($id){
         $sertifikat = Sertifikat::find($id);

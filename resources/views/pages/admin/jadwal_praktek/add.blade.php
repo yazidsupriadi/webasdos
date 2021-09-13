@@ -24,17 +24,39 @@
               <form action="{{url('/admin/jadwal-praktikum/store')}}" method="post" >
                 @csrf
                 <div class="form-group">
-                  <label>hari</label>
-                  <input type="text" class="form-control" name="hari" placeholder="Masukan Hari Praktikum" value="{{old('title')}}">
+                  
+                <label for="slug">Hari Praktikum</label>
+                          <select name="hari" class="form-control">
+                        
+                          
+                          <option value="">Pilih Hari Praktikum</option>
+                              
+                              <option value="Senin">Senin</option>
+                              <option value="Selasa">Selasa</option>
+                              <option value="Rabu">Rabu</option>
+                              <option value="Kamis">Kamis</option>
+                              <option value="Jumat">Jumat</option>
+                              <option value="Sabtu">Sabtu</option>
+                          </select>
                 </div>
                 <div class="form-group">
                   <label>jam</label>
                   <input type="time" class="form-control" name="jam"  value="{{old('location')}}">
                 </div>
                 <div class="form-group">
-                  <label>ruangan</label>
-                  <input type="text" class="form-control" name="ruangan" placeholder="Masukan Ruangan Praktek" value="{{old('location')}}">
-                </div>
+                     
+                     <label for="slug">Ruangan</label>
+                       <select name="ruangan_id" class="form-control">
+                     
+                       
+                       <option value="">Pilih Ruangan</option>
+                           @foreach($ruangan as $item)
+                           <option value="{{$item->id}}">{{$item->nama_ruangan}}</option>
+                           @endforeach
+                       </select>
+                   
+                   </div>
+
                 <div class="form-group">
                   <label>Rekap Absen</label>
                   <input type="text" class="form-control" name="rekap_absen" placeholder="Masukan Link Rekap Absen" value="{{old('location')}}">
