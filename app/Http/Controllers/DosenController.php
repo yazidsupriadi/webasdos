@@ -7,6 +7,7 @@ use App\Dosen;
 use App\Exports\DosenExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use Alert;
 class DosenController extends Controller
 {
     //
@@ -43,6 +44,7 @@ class DosenController extends Controller
     public function store(Request $request){
         $dosen = $request->all();
         Dosen::create($dosen);
+        Alert::success('Data Dosen Berhasil Ditambahkan','Data Berhasil ditambahkan!');
         return redirect('/admin/dosen');
     }
 
@@ -57,6 +59,7 @@ class DosenController extends Controller
         $dosen = $request->all();
         $item = Dosen::findOrFail($id);
          $item->update($dosen);
+         Alert::success('Data Dosen Berhasil Diupdate','Data Berhasil diupdate!'); 
         return redirect('/admin/dosen');
     
     }

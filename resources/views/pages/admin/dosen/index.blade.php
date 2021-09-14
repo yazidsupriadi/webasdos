@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
+@include('sweetalert::alert')
+
   
   <!-- Page Heading -->
           <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4 text-primary bg-primary p-4"> 

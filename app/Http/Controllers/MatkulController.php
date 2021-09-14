@@ -8,6 +8,7 @@ use App\Dosen;
 use App\Exports\MatkulExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use Alert;
 class MatkulController extends Controller
 {
     //
@@ -46,6 +47,7 @@ class MatkulController extends Controller
     public function store(Request $request){
         $matkul = $request->all();
         Matkul::create($matkul);
+        Alert::success('Data Mata Kuliah Berhasil Ditambahkan','Data Berhasil ditambahkan!'); 
         return redirect('/admin/matkul');
     }
 
@@ -61,6 +63,7 @@ class MatkulController extends Controller
         $matkul = $request->all();
         $item = Matkul::findOrFail($id);
          $item->update($matkul);
+         Alert::success('Data Mata Kuliah Berhasil Diupdate','Data Berhasil diupdate!'); 
         return redirect('/admin/matkul');
     
     }

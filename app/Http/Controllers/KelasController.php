@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kelas;
-
+use App\Exports\KelasExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Alert;
 class KelasController extends Controller
 {
     //
@@ -23,6 +25,7 @@ class KelasController extends Controller
     public function store(Request $request){
         $kelas = $request->all();
         Kelas::create($kelas);
+        Alert::success('Data Kelas Berhasil Ditambahkan','Data Berhasil ditambahkan!');
         return redirect('/admin/kelas');
     }
 
@@ -37,6 +40,8 @@ class KelasController extends Controller
         $kelas = $request->all();
         $item = Kelas::findOrFail($id);
          $item->update($kelas);
+         
+        Alert::success('Data Kelas Berhasil Diupdate','Data Berhasil diupdate!');
         return redirect('/admin/kelas');
     
     }
@@ -87,5 +92,9 @@ class KelasController extends Controller
     		// mengirim data pegawai ke view index
 		return view('pages.admin.kelas.index',['kelass' => $kelass]);
  
+	}
+    public function export_excel()
+	{
+		return Excel::download(new KelasExport, 'kelas.xlsx');
 	}
 }

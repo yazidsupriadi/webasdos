@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-  
+@include('sweetalert::alert')
+
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Daftar User </h1>
@@ -52,7 +53,7 @@
 <form action="{{url('admin/user/delete',$item->id)}}" method="post" class="d-inline">
   @csrf
   @method('delete')
-  <button class="btn btn-sm btn-danger"></i>Delete</button>
+  <button onclick="confirm('yakin untuk menghapus data.?')" class="btn btn-sm btn-danger"></i>Delete</button>
 </form>
 @endif
  @else

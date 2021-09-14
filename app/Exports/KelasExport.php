@@ -2,14 +2,13 @@
 
 namespace App\Exports;
 
-use App\Matkul;
-use App\Dosen;
+use App\Kelas;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class MatkulExport implements FromCollection,
+class KelasExport implements FromCollection,
 ShouldAutoSize,WithHeadings
 {
     /**
@@ -17,28 +16,27 @@ ShouldAutoSize,WithHeadings
     */
     public function collection()
     {
-     $matkul = Matkul::with('dosen')->get();
+     $kelas = Kelas::all();
     
-     return $matkul;
+     return $kelas;
     }
 
     public function headings(): array
     {
         return [
             'No',
-            'Nama',
-            'Kode MK',
-            'Keterangan',
-            'Dosen Pengampu',
-            '#',
+            'Kode Kelas',
+            'Program Studi',
+            'Angkatan',
+            'Tahun Akademik',
+            'Jumlah Mahasiswa',
             'Created at',
             'Updated at'
         ];
     }
-    public function map($matkul):array{
+    public function map($kelas):array{
         return[
-            $matkul->id,$matkul->nama,$matkul->kodemk,$matkul->dosen->nidn
+            $kelas->id,$kelas->prodi,$kelas->angkatan,$kelas->tahun_akademik,$kelas->jumlah_mahasiswa
         ];
     }
-
 }

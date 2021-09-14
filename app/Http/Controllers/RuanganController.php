@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ruangan;
+use App\Exports\RuanganExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Alert;
 class RuanganController extends Controller
 {
     //
@@ -22,6 +25,7 @@ class RuanganController extends Controller
     public function store(Request $request){
         $ruangan = $request->all();
         Ruangan::create($ruangan);
+        Alert::success('Data Ruangan Berhasil Ditambahkan','Data Berhasil ditambahkan!'); 
         return redirect('/admin/ruangan');
     }
 
@@ -36,6 +40,7 @@ class RuanganController extends Controller
         $ruangan = $request->all();
         $item = ruangan::findOrFail($id);
          $item->update($ruangan);
+         Alert::success('Data Ruangan Berhasil Diupdate','Data Berhasil diupdate!'); 
         return redirect('/admin/ruangan');
     
     }
@@ -43,6 +48,8 @@ class RuanganController extends Controller
     public function delete($id){
         $ruangan = Ruangan::find($id);
         $ruangan->delete();
+        
+        Alert::success('Data Ruangan Berhasil Dihapus','Data Berhasil dihapus!'); 
         return redirect()->back();
     }
 
@@ -60,5 +67,9 @@ class RuanganController extends Controller
     		// mengirim data pegawai ke view index
 		return view('pages.admin.ruangan.index',['ruangans' => $ruangans]);
  
+	}
+    public function export_excel()
+	{
+		return Excel::download(new RuanganExport, 'ruangan-data-master.xlsx');
 	}
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Asdos;
+use Alert;
 class UserController extends Controller
 {
     //
@@ -48,12 +49,16 @@ class UserController extends Controller
         $users = User::find($id);
         if($users->rules == 'asdos'){
             $change_status = 'admin';
+            
+        Alert::success('User berhasil diubah menjadi admin','Data Berhasil diubah!');
         }
         else {
             $change_status = 'asdos';
+            
+        Alert::success('User berhasil diubah menjadi bukan admin','Data Berhasil diubah!');
         }
 
-        User::where('id',$id)->update(['rules' => $change_status]);
+        User::where('id',$id)->update(['rules' => $change_status]); 
         return redirect('admin/user');
     }
 
@@ -62,9 +67,11 @@ class UserController extends Controller
         $users = User::find($id);
         if($users->rules == 'applicant'){
             $change_status = 'asdos';
+            Alert::success('User berhasil diubah menjadi Asisten Dosen','Data Berhasil diubah!');
         }
         else {
             $change_status = 'applicant';
+            Alert::success('User berhasil diubah menjadi Pendaftar','Data Berhasil diubah!');
         }
 
         User::where('id',$id)->update(['rules' => $change_status]);

@@ -56,6 +56,7 @@ Route::delete('/admin/kelas/delete/{id}','KelasController@delete');
 Route::get('/admin/kelas/search/kode','KelasController@kode_search');
 Route::get('/admin/kelas/search/prodi','KelasController@prodi_search');
 Route::get('/admin/kelas/search/tahun-akademik','KelasController@tahun_akademik_search');
+Route::get('/admin/kelas/export_excel', 'KelasController@export_excel');
 
 //ruangan
 Route::get('/admin/ruangan','RuanganController@index');
@@ -65,6 +66,8 @@ Route::get('/admin/ruangan/edit/{id}','RuanganController@edit');
 Route::put('/admin/ruangan/update/{id}','RuanganController@update');
 Route::delete('/admin/ruangan/delete/{id}','RuanganController@delete');
 Route::get('/admin/ruangan/search','RuanganController@search');
+Route::get('/admin/ruangan/export_excel', 'RuanganController@export_excel');
+
 //insentif
 Route::get('/admin/insentif','InsentifController@index');
 Route::get('admin/insentif/add','InsentifController@add');
@@ -74,12 +77,15 @@ Route::get('/admin/insentif/edit/{id}','InsentifController@edit');
 Route::put('/admin/insentif/update/{id}','InsentifController@update');
 Route::get('/admin/insentif/search/tipe-insentif','InsentifController@tipe_insentif_search');
 Route::get('/admin/insentif/search/tahun-akademik','InsentifController@tahun_akademik_search');
+Route::get('/admin/insentif/export_excel', 'InsentifController@export_excel');
 
 //jadwal praktek
 Route::get('/admin/jadwal-praktikum','JadwalPraktikumController@index');
 Route::get('/admin/jadwal-praktikum/add','JadwalPraktikumController@add');
 Route::post('/admin/jadwal-praktikum/store','JadwalPraktikumController@store');
 Route::delete('/admin/jadwal-praktikum/delete/{id}','JadwalPraktikumController@delete');
+Route::get('/admin/jadwal-praktikum/search-by-date','JadwalPraktikumController@search_by_date');
+Route::get('/admin/jadwal-praktikum/search-by-tahun-akademik','JadwalPraktikumController@search_by_tahun_akademik');
 
 //user
 Route::get('/admin/user','UserController@index');
@@ -106,6 +112,16 @@ Route::get('admin/sertifikat/add','SertifikatController@add');
 Route::post('/admin/sertifikat/store','SertifikatController@store');
 Route::get('admin/sertifikat/{file}', 'SertifikatController@downloadsertifikat')->name('download_sertifikat');
 Route::delete('/admin/sertifikat/delete/{id}','SertifikatController@delete');
+
+
+//tahun akademik
+Route::get('admin/tahun-akademik','TahunAkademikController@index');
+Route::get('admin/tahun-akademik/add','TahunAkademikController@add');
+Route::post('admin/tahun-akademik/store','TahunAkademikController@store');
+Route::delete('/admin/tahun-akademik/delete/{id}','TahunAkademikController@delete');
+Route::get('/admin/tahun-akademik/search/tahun','TahunAkademikController@tahun_search');
+Route::get('/admin/tahun-akademik/edit/{id}','TahunAkademikController@edit');
+Route::put('/admin/tahun-akademik/update/{id}','TahunAkademikController@update');
 });
 Auth::routes();
 

@@ -185,6 +185,10 @@
                         @if(Auth::user()->rules == 'admin')
                         <a class="collapse-item" href="/admin/ruangan"><i class="fa fa-building text-primary"></i> Ruangan</a>
                         @endif
+                        
+                        @if(Auth::user()->rules == 'admin')
+                        <a class="collapse-item" href="/admin/tahun-akademik"><i class="fa fa-building text-primary"></i> Tahun Akademik</a>
+                        @endif
 
                     </div>
                 </div>

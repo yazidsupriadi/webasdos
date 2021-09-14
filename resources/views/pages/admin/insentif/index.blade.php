@@ -1,12 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
-  
+@include('sweetalert::alert')
+
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between bg-primary p-4 mb-4">
             <h1 class="h3 mb-0 text-light">Daftar Insentif</h1>
             <a href="{{url('/admin/insentif/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm border-light"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Insentif</a>
           </div>
+
+          <a href="/admin/insentif/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>
 
           
           <div class="container-fluid">

@@ -41,9 +41,18 @@
                   <input type="time" class="form-control" name="jam"  value="{{old('location')}}" required>
                 </div>
                 <div class="form-group">
-                  <label>ruangan</label>
-                  <input type="text" class="form-control" name="ruangan" placeholder="Masukan Ruangan Praktek" value="{{old('location')}}" required>
-                </div>
+                     
+                     <label for="slug">Ruangan</label>
+                       <select name="ruangan_id" class="form-control">
+                     
+                       
+                       <option value="">Pilih Ruangan</option>
+                           @foreach($ruangan as $item)
+                           <option value="{{$item->id}}">{{$item->nama_ruangan}}</option>
+                           @endforeach
+                       </select>
+                   
+                   </div>
                 <div class="form-group">
                   <label>Rekap Absen</label>
                   <input type="text" class="form-control" name="rekap_absen" placeholder="Masukan Link Rekap Absen" value="{{old('location')}}">
@@ -62,6 +71,21 @@
                       </div>
                       <div class="form-group">
                      
+                   <div class="form-group">
+                     
+                     <label for="slug">Tahun Akademik</label>
+                       <select name="tahun_akademik_id" class="form-control">
+                     
+                       
+                       <option value="">Pilih tahun Akademik</option>
+                           @foreach($tahun_akademik as $item)
+                           <option value="{{$item->id}}">{{$item->kode_tahun_akademik}}-({{$item->tahun}})</option>
+                           @endforeach
+                       </select>
+                   
+                   </div>
+
+
                      <label for="slug">Kelas</label>
                        <select name="kelas_id" class="form-control" required>
                      

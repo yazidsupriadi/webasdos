@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Insentif;
+use App\Exports\InsentifExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Alert;
 class InsentifController extends Controller
 {
     //
@@ -19,6 +22,7 @@ class InsentifController extends Controller
     public function store(Request $request){
         $insentif = $request->all();
         Insentif::create($insentif);
+        Alert::success('Data Insentif Berhasil Ditambahkan','Data Berhasil ditambahkan!'); 
         return redirect('/admin/insentif');
 
     }
@@ -34,6 +38,7 @@ class InsentifController extends Controller
         $insentif = $request->all();
         $item = Insentif::findOrFail($id);
          $item->update($insentif);
+         Alert::success('Data Insentif Berhasil Diupdate','Data Berhasil diupdate!'); 
         return redirect('/admin/insentif');
     
     }
@@ -71,5 +76,9 @@ class InsentifController extends Controller
     		// mengirim data pegawai ke view index
 		return view('pages.admin.insentif.index',['insentifs' => $insentifs]);
  
+	}
+    public function export_excel()
+	{
+		return Excel::download(new InsentifExport, 'insentif-data.xlsx');
 	}
 }

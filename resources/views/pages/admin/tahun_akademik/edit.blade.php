@@ -4,7 +4,7 @@
   
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Edit Data Ruangan</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Data Tahun Akademik</h1>
           </div>
 
           @if($errors ->any())
@@ -21,23 +21,18 @@
           <!-- Content Row -->
           <div class="card-shadow">
             <div class="card-body">
-              <form action="{{url('/admin/ruangan/update',$ruangan->id)}}" method="post" >
+              <form action="{{url('/admin/tahun-akademik/update',$tahun_akademik->id)}}" method="post" >
               @csrf
                 @method('PUT')
                 <div class="form-group">
-                  <label>Kode Ruangan</label>
-                  <input type="text" class="form-control" name="kode_ruangan" placeholder="Masukan Nama  Kode Ruangan" value="{{$ruangan->kode_ruangan}}">
+                  <label>Kode Tahun Akademik</label>
+                  <input type="text" class="form-control" name="kode_tahun_akademik" placeholder="Masukan Nama  Kode tahun akademik" value="{{$tahun_akademik->kode_tahun_akademik}}">
                 </div>
                 <div class="form-group">
-                  <label>Nama Ruangan</label>
-                  <input type="text" class="form-control" name="nama_ruangan" placeholder="Masukan Nama Ruangan" value="{{$ruangan->nama_ruangan}}">
+                  <label>Tahun</label>
+                  <input type="text" class="form-control" name="tahun" placeholder="Masukan Tahun Akademik" value="{{$tahun_akademik->tahun}}">
                 </div>
                 
-                <div class="form-group">
-                  <label>Kapasitas Ruangan</label>
-                  <input type="text" class="form-control" name="kapasitas_ruangan" placeholder="Masukan Kapasitas Ruangan" value="{{$ruangan->kapasitas_ruangan}}">
-                </div>
-           
               
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>

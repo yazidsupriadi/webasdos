@@ -89,6 +89,22 @@
                    </div>
 
                    
+                   <div class="form-group">
+                     
+                     <label for="slug">Tahun Akademik</label>
+                       <select name="tahun_akademik_id" class="form-control">
+                     
+                       
+                       <option value="">Pilih tahun Akademik</option>
+                           @foreach($tahun_akademik as $item)
+                           <option value="{{$item->id}}">{{$item->kode_tahun_akademik}}-({{$item->tahun}})</option>
+                           @endforeach
+                       </select>
+                   
+                   </div>
+
+
+                   
                    <label for="slug">Asdos</label>
                        <select name="user_id" class="form-control">
                        

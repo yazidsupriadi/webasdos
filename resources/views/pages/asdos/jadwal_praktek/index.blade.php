@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+@include('sweetalert::alert')
   
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4 bg-primary p-4">

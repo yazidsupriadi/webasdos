@@ -21,6 +21,8 @@ class CreatePresensiTable extends Migration
             $table->longText('keterangan')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('tahun_akademik_id');
+            $table->foreign('tahun_akademik_id')->references('id')->on('tahun_akademik')->onDelete('cascade');
             $table->unsignedBigInteger('jadwal_praktikum_id')->nullable();
             $table->foreign('jadwal_praktikum_id')->references('id')->on('jadwal_praktikum')->onDelete('cascade');
             $table->timestamps();

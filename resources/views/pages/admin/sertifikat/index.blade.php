@@ -50,7 +50,7 @@
 <form action="{{url('admin/sertifikat/delete',$item->id)}}" method="post" class="d-inline">
   @csrf
   @method('delete')
-  <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"></i>Delete</button>
+  <button onclick="confirm('yakin untuk menghapus data.?')" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"></i>Delete</button>
 </form>
       </td>
     </tr>

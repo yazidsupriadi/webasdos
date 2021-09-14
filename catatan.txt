@@ -3,7 +3,7 @@ Prioritas 1:
 - fitur admin, klo bisa disediakan pagingnya, search dll, setiap list harus ada list/pagingnya, jangan ditampilkan langsung semua
     -paging (v)
     -search (v)
-- download file rekap presensi file excel/kalau bisa ada export dari rekap dan fitur list 
+- download file rekap presensi file excel/kalau bisa ada export dari rekap dan fitur list(data master sudah)
 - 1 akun asdos, bisa lebih dari 1 mata kuliah
 - tambah verifikasi email (kalau user daftar bisa pakai email ac.id) & captcha (v)
 - ada status sudah dibayar jika dihonor(v)
@@ -13,3 +13,4 @@ Prioritas 2
 - tampilan jadwal praktikum versi kalender 
 - insentif kalau bisa ada masternya, jadi tiap semester kalau ganti kebijakan tidak perlu buka source (v)
 -download sertifikat
+-filtering menggunakan tahun akademik(v)

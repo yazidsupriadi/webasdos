@@ -2,14 +2,13 @@
 
 namespace App\Exports;
 
-use App\Matkul;
-use App\Dosen;
+use App\Insentif;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class MatkulExport implements FromCollection,
+class InsentifExport implements FromCollection,
 ShouldAutoSize,WithHeadings
 {
     /**
@@ -17,28 +16,26 @@ ShouldAutoSize,WithHeadings
     */
     public function collection()
     {
-     $matkul = Matkul::with('dosen')->get();
+     $insentif = Insentif::all();
     
-     return $matkul;
+     return $insentif;
     }
 
     public function headings(): array
     {
         return [
             'No',
-            'Nama',
-            'Kode MK',
-            'Keterangan',
-            'Dosen Pengampu',
-            '#',
+            'Tipe Insentif',
+            'Kategori',
+            'Tahun Akademik',
+            'Nilai',
             'Created at',
             'Updated at'
         ];
     }
-    public function map($matkul):array{
+    public function map($insentif):array{
         return[
-            $matkul->id,$matkul->nama,$matkul->kodemk,$matkul->dosen->nidn
+            $insentif->id,$insentif->tipe_insentif,$insentif->kategori,$insentif->tahun_akademik,$insentif->nilai
         ];
     }
-
 }

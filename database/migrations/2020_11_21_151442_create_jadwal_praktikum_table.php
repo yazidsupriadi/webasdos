@@ -24,6 +24,8 @@ class CreateJadwalPraktikumTable extends Migration
             $table->foreign('matkul_id')->references('id')->on('matkul')->onDelete('cascade');
             $table->unsignedBigInteger('kelas_id');
             $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
+            $table->unsignedBigInteger('tahun_akademik_id');
+            $table->foreign('tahun_akademik_id')->references('id')->on('tahun_akademik')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
           

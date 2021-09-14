@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-  
+@include('sweetalert::alert')  
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4 bg-primary p-4">
             <h1 class="h3 mb-0 text-light">Daftar Kelas</h1>
@@ -12,6 +12,8 @@
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $kelass->total() }}</p> <br/>
             {{ $kelass->links() }} 
           </div>
+          <a href="/admin/kelas/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>
+
 
           <div class="container-fluid">
               <div class="row">
@@ -102,7 +104,7 @@
 <form action="{{url('admin/kelas/delete',$item->id)}}" method="post" class="d-inline">
   @csrf
   @method('delete')
-  <button class="btn btn-sm btn-danger"></i>Delete</button>
+  <button onclick="confirm('yakin untuk menghapus data.?')" class="btn btn-sm btn-danger"></i>Delete</button>
 </form>
       </td>
     </tr>
