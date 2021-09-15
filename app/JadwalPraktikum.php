@@ -13,7 +13,9 @@ class JadwalPraktikum extends Model
     public function matkul(){
     	return $this->belongsTo(Matkul::class);
     }
-
+    public function ruangan(){
+    	return $this->belongsTo(Ruangan::class);
+    }
     public function kelas(){
     	return $this->belongsTo(Kelas::class);
     }

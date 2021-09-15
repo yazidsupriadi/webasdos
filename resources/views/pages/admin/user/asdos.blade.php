@@ -12,7 +12,11 @@
             <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $users->currentPage() }}</p>  <br/>
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $users->total() }}</p> <br/>
             {{ $users->links() }} 
+            <p> Showing {{($users->currentpage()-1)*$users->perpage()+1}} to {{$users->currentpage()*$users->perpage()}}
+            of  {{$users->total()}} entries
+            </p>
           </div>
+          <a href="/admin/asdos/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>
 
           <!-- Content Row -->
           <div class="row">

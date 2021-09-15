@@ -13,6 +13,9 @@
             <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $dosens->currentPage() }}</p>  <br/>
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $dosens->total() }}</p> <br/>
             {{ $dosens->links() }} 
+            <p> Showing {{($dosens->currentpage()-1)*$dosens->perpage()+1}} to {{$dosens->currentpage()*$dosens->perpage()}}
+            of  {{$dosens->total()}} entries
+            </p>
           </div>
 
           

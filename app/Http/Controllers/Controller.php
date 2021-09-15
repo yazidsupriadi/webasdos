@@ -70,9 +70,6 @@ class Controller extends BaseController
     }
     public function isibiostore(Request $request){
         $asdos = $request->all();
-        $asdos['berkas'] = $request->file('berkas')->store(
-            'assets/berkas','public'
-        );
         Asdos::create($asdos);
         return redirect('/');
     }

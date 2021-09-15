@@ -47,7 +47,7 @@
                             <p class="card-text">Angkatan : {{$item->angkatan}}</p>
                             <p class="card-text">Username ELEN : {{$item->username_elen}}</p>
                             <p>Berkas Pendaftaran</p>
-                            <a  class="btn btn-primary" href="{!! route('download', $item->berkas) !!}" download> <i class="fa fa-download"></i> Download Berkas Pendaftaran</a>
+                            <a  class="btn btn-primary" href="{{$item->berkas}}" target="_blank"> <i class="fa fa-download"></i> Download Berkas Pendaftaran</a>
 
                            
                          @endforeach

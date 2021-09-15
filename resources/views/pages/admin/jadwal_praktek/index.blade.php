@@ -8,6 +8,8 @@
             <h1 class="h3 mb-0 text-light">Daftar Jadwal Praktikum</h1>
             <a href="{{url('/admin/jadwal-praktikum/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm border-light"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Jadwal Praktikum</a>
           </div>
+          <a href="/admin/jadwal-praktikum/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>
+
           <div class="container-fluid">
             <div class="row">
                 
@@ -83,7 +85,7 @@
                       <th scope="row">{{$i++}}</th>
                       <td>{{$item->hari}}</td>
                       <td>{{date('H:i:s',strtotime($item->jam))}}</td>
-                      <td>{{$item->ruangan}}</td> 
+                      <td>{{$item->ruangan->nama_ruangan}}</td> 
                       <td>{{$item->matkul->nama}}</td>
                       <td>{{$item->kelas->kode_kelas}}-{{$item->kelas->angkatan}}</td>
                       <td>{{$item->tahun_akademik->kode_tahun_akademik}}</td>

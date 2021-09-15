@@ -11,11 +11,11 @@ class KelasController extends Controller
 {
     //
     public function index(){
-        $kelass = Kelas::paginate(5);
+        $kelass = Kelas::paginate(10);
         return view('pages.admin.kelas.index',compact('kelass'));
     }
     public function asdosindex(){
-        $kelass = Kelas::paginate(5);
+        $kelass = Kelas::paginate(10);
         return view('pages.asdos.kelas.index',compact('kelass'));
     }
  
@@ -59,7 +59,7 @@ class KelasController extends Controller
  
     		// mengambil data dari table pegawai sesuai pencarian data
 		$kelass = Kelas::where('kode_kelas','like',"%".$search."%")
-		->paginate(5);
+		->paginate(10);
  
     		// mengirim data pegawai ke view index
 		return view('pages.admin.kelas.index',['kelass' => $kelass]);
@@ -73,7 +73,7 @@ class KelasController extends Controller
  
     		// mengambil data dari table pegawai sesuai pencarian data
 		$kelass = Kelas::where('prodi','like',"%".$search."%")
-		->paginate(5);
+		->paginate(10);
  
     		// mengirim data pegawai ke view index
 		return view('pages.admin.kelas.index',['kelass' => $kelass]);
@@ -87,7 +87,7 @@ class KelasController extends Controller
  
     		// mengambil data dari table pegawai sesuai pencarian data
 		$kelass = Kelas::where('tahun_akademik','like',"%".$search."%")
-		->paginate(5);
+		->paginate(10);
  
     		// mengirim data pegawai ke view index
 		return view('pages.admin.kelas.index',['kelass' => $kelass]);

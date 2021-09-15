@@ -11,7 +11,10 @@
           <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
             <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $users->currentPage() }}</p>  <br/>
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $users->total() }}</p> <br/>
-            {{ $users->links() }} 
+            {{ $users->links() }}
+            <p> Showing {{($users->currentpage()-1)*$users->perpage()+1}} to {{$users->currentpage()*$users->perpage()}}
+            of  {{$users->total()}} entries
+            </p> 
           </div>
 
           <!-- Content Row -->

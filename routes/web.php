@@ -86,12 +86,13 @@ Route::post('/admin/jadwal-praktikum/store','JadwalPraktikumController@store');
 Route::delete('/admin/jadwal-praktikum/delete/{id}','JadwalPraktikumController@delete');
 Route::get('/admin/jadwal-praktikum/search-by-date','JadwalPraktikumController@search_by_date');
 Route::get('/admin/jadwal-praktikum/search-by-tahun-akademik','JadwalPraktikumController@search_by_tahun_akademik');
-
+Route::get('/admin/jadwal-praktikum/export_excel', 'JadwalPraktikumController@export_excel');
 //user
 Route::get('/admin/user','UserController@index');
 Route::get('/admin/applicant','UserController@daftarasdos');
 Route::get('/admin/asdos','UserController@dataasdos');
 Route::get('/admin/profileasdos/{id}','UserController@profileasdos');
+Route::get('/admin/asdos/export_excel', 'UserController@export_excel');
 
 Route::get('/admin/applicant/{id}','UserController@makeasdos');
 Route::delete('/admin/user/delete/{id}','UserController@delete');
@@ -110,8 +111,8 @@ Route::get('/admin/gaji/detail/{id}','GajiController@detailgaji');
 Route::get('admin/sertifikat','SertifikatController@index');
 Route::get('admin/sertifikat/add','SertifikatController@add');
 Route::post('/admin/sertifikat/store','SertifikatController@store');
-Route::get('admin/sertifikat/{file}', 'SertifikatController@downloadsertifikat')->name('download_sertifikat');
 Route::delete('/admin/sertifikat/delete/{id}','SertifikatController@delete');
+Route::get('/admin/sertifikat/export_excel', 'SertifikatController@export_excel');
 
 
 //tahun akademik

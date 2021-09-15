@@ -11,11 +11,11 @@ class RuanganController extends Controller
 {
     //
     public function index(){
-        $ruangans = Ruangan::paginate(5);
+        $ruangans = Ruangan::paginate(10);
         return view('pages.admin.ruangan.index',compact('ruangans'));
     }
     public function asdosindex(){
-        $ruangans = Ruangan::paginate(5);
+        $ruangans = Ruangan::paginate(10);
         return view('pages.asdos.ruangan.index',compact('ruangans'));
     }
  

@@ -5,18 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Asdos;
+use App\Exports\AsdosExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Alert;
 class UserController extends Controller
 {
     //
     public function index(){
-        $users = User::paginate(5);
+        $users = User::paginate(10);
         return view('pages.admin.user.index',compact('users'));
     }
 
     
     public function asdos(){
-        $users = User::where('rules','asdos')->paginate(5);
+        $users = User::where('rules','asdos')->paginate(10);
         return view('pages.admin.user.asdos',compact('users'));
     }
     
@@ -27,11 +29,11 @@ class UserController extends Controller
     }
 
     public function daftarasdos(){
-        $users = User::where('rules','applicant')->paginate(5);
+        $users = User::where('rules','applicant')->paginate(10);
         return view('pages.admin.user.caasdos',compact('users'));
     }
     public function dataasdos(){
-        $users = User::where('rules','asdos')->paginate(5);
+        $users = User::where('rules','asdos')->paginate(10);
         return view('pages.admin.user.asdos',compact('users'));
     }
 
@@ -77,5 +79,10 @@ class UserController extends Controller
         User::where('id',$id)->update(['rules' => $change_status]);
         return redirect('admin/applicant');
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new AsdosExport, 'asdos-data-master.xlsx');
+	}
 
 }

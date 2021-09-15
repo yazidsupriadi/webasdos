@@ -13,7 +13,7 @@ class GajiController extends Controller
     //
 
     public function asdos_honor(){
-        $users = User::where('rules','asdos')->paginate(5);
+        $users = User::where('rules','asdos')->paginate(10);
         return view('pages.admin.gaji.honor_asdos',compact('users'));
     }
 
@@ -53,7 +53,7 @@ class GajiController extends Controller
     }
     public function asdosindex(){
        
-        $gajis = Auth::user()->gaji()->paginate(4);
+        $gajis = Auth::user()->gaji()->paginate(10);
         $total_gajis = DB::select('select year(created_at) as year, month(created_at) as month, sum(total) as total_amount from gaji group by year(created_at), month(created_at)');
       
         return view('pages.asdos.gaji.index',compact('gajis','total_gajis'));

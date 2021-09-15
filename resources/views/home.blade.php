@@ -86,7 +86,7 @@
                 <div class="col">
                 <h3>Selamat Datang di Website Asisten Dosen Nurul Fikri</h3>    
                 <p>This website inform you  all activities about lecture Assistant activities such learning activities , news about lecture asistant, and lecture assistant recruitment.</p>
-                <button class="btn btn-ptimary btn-lg">Learn More</button>
+                <a href="#about-us" class="btn btn-primary btn-lg">Learn More</a>
                 </div>
                 <div class="col">
                     <img class="img-fluid" src="{{url('backend/img/header.jpg')}}" alt="" srcset="">

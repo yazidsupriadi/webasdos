@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Sertifikat;
+use App\Exports\SertifikatExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Auth;
 class SertifikatController extends Controller
 {
     //
     public function index(){
-        $sertifikats = Sertifikat::paginate(3);
+        $sertifikats = Sertifikat::paginate(10);
         return view('pages.admin.sertifikat.index',compact('sertifikats'));
     }
 
@@ -20,9 +22,6 @@ class SertifikatController extends Controller
     }
     public function store(Request $request){
         $sertifikat = $request->all();
-        $sertifikat['sertifikat_file'] = $request->file('sertifikat_file')->store(
-            'assets/sertifikat','public'
-        );
         Sertifikat::create($sertifikat);
        
         return redirect('/admin/sertifikat');
@@ -42,6 +41,11 @@ class SertifikatController extends Controller
         $sertifikats = Sertifikat::where('user_id','=',Auth::user()->id)->get();
         return view('pages.asdos.sertifikat.index',compact('sertifikats'));
     }
+    public function export_excel()
+	{
+		return Excel::download(new SertifikatExport, 'sertifikat-data-master.xlsx');
+	}
+    
 
 
 }

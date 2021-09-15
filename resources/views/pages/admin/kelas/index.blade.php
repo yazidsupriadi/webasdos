@@ -11,6 +11,9 @@
             <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $kelass->currentPage() }}</p>  <br/>
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $kelass->total() }}</p> <br/>
             {{ $kelass->links() }} 
+            <p> Showing {{($kelass->currentpage()-1)*$kelass->perpage()+1}} to {{$kelass->currentpage()*$kelass->perpage()}}
+            of  {{$kelass->total()}} entries
+            </p>
           </div>
           <a href="/admin/kelas/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>
 

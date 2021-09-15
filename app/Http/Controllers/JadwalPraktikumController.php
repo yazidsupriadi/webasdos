@@ -11,11 +11,13 @@ use App\Ruangan;
 use App\TahunAkademik;
 use Auth;
 use Alert;
+use App\Exports\JadwalPraktikumExport;
+use Maatwebsite\Excel\Facades\Excel;
 class JadwalPraktikumController extends Controller
 {
     //
     public function index(){
-        $jadwals = JadwalPraktikum::where('hari','=','Senin')->get();
+        $jadwals = JadwalPraktikum::where('hari','=','Senin')->paginate(10);
         return view('pages.admin.jadwal_praktek.index',compact('jadwals'));
     }
 
@@ -87,6 +89,11 @@ class JadwalPraktikumController extends Controller
     		// mengirim data pegawai ke view index
 		return view('pages.admin.jadwal_praktek.index',['jadwals' => $jadwals]);
  
+	}
+
+    public function export_excel()
+	{
+		return Excel::download(new JadwalPraktikumExport, 'jadwal-praktek.xlsx');
 	}
 
 }

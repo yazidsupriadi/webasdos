@@ -11,8 +11,13 @@
           <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
             <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $sertifikats->currentPage() }}</p>  <br/>
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $sertifikats->total() }}</p> <br/>
-            {{ $sertifikats->links() }} 
+            {{ $sertifikats->links() }}
+            <p> Showing {{($sertifikats->currentpage()-1)*$sertifikats->perpage()+1}} to {{$sertifikats->currentpage()*$sertifikats->perpage()}}
+            of  {{$sertifikats->total()}} entries 
           </div>
+          
+          <a href="/admin/sertifikat/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>
+
 
           <!-- Content Row -->
           <div class="row">
@@ -42,7 +47,7 @@
       <td>{{$item->jabatan}}</td>
       <td>{{$item->matkul}}</td>
       <td>{{$item->tahun_akademik}}</td>
-      <td> <a  class="btn btn-primary" href="{!! route('download_sertifikat', $item->sertifikat_file) !!}" download> <i class="fa fa-download"></i> Download Sertifikat</a>
+      <td> <a  class="btn btn-primary" href="{{$item->sertifikat_file}}" target="_blank"> <i class="fa fa-download"></i> Download Sertifikat</a>
     </td>
       
 

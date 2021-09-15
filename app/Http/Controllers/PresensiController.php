@@ -14,7 +14,7 @@ class PresensiController extends Controller
 {
     //
     public function asdos_presensi(){
-        $users = User::where('rules','asdos')->paginate(5);
+        $users = User::where('rules','asdos')->paginate(10);
         return view('pages.admin.presensi.presensi_asdos',compact('users'));
     }
 
@@ -26,7 +26,7 @@ class PresensiController extends Controller
     
     public function indexasdos(){
         $insentif = Insentif::paginate(8);
-        $presensis = Auth::user()->presensi()->paginate(8);
+        $presensis = Auth::user()->presensi()->paginate(10);
         return view('pages.asdos.presensi.index',compact('presensis','insentif'));
     }
 

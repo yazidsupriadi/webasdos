@@ -13,7 +13,7 @@ class DosenController extends Controller
     //
     public function index(){
 
-        $dosens = Dosen::paginate(4);
+        $dosens = Dosen::paginate(10);
         return view('pages.admin.dosen.index',compact('dosens'));
     
 
@@ -34,7 +34,7 @@ class DosenController extends Controller
     		// mengambil data dari table pegawai sesuai pencarian data
 		$dosens = Dosen::where('nama','like',"%".$search."%")
         ->orWhere('nidn','like','%'.$search."%")
-		->paginate();
+		->paginate(10);
  
     		// mengirim data pegawai ke view index
 		return view('pages.admin.dosen.index',['dosens' => $dosens]);

@@ -60,7 +60,7 @@
                       </div>   
                <div class="form-group">
                   <label>Sertifikat File</label>
-                  <input type="file" class="form-control" name="sertifikat_file" >
+                  <input type="text" class="form-control" name="sertifikat_file" placeholder="masukan link sertifikat" >
                 </div>
            
                 <button type="submit" class="btn btn-primary">Submit</button>
