@@ -9,11 +9,12 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Concerns\WithEvents;
 
 class SertifikatExport implements  ShouldAutoSize,
 WithMapping,
 WithHeadings,
-FromQuery
+FromQuery,WithEvents
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -46,5 +47,18 @@ FromQuery
             'Tahun Akademik',
             'Sertifikat File'
             ];
+    }
+
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class    => function(AfterSheet $event) {
+   
+                $event->sheet->getDelegate()->getStyle('A1:G1')
+                                ->getFont()
+                                ->setBold(true);
+   
+            },
+        ];
     }
 }

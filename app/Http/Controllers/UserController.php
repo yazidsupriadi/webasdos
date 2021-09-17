@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Asdos;
 use App\Exports\AsdosExport;
+use App\Exports\CalonAsdosExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Alert;
 class UserController extends Controller
@@ -84,5 +85,10 @@ class UserController extends Controller
 	{
 		return Excel::download(new AsdosExport, 'asdos-data-master.xlsx');
 	}
+    public function export_applicant_excel()
+	{
+		return Excel::download(new CalonAsdosExport, 'calon-asdos-data-master.xlsx');
+	}
+
 
 }

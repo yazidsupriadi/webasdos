@@ -19,6 +19,9 @@ class Matkul extends Model
     public function user(){
     	return $this->belongsTo(User::class);
     }
+    public function history_asdos(){ 
+        return $this->hasMany(HistoryAsdos::class); 
+    }
 
     public function jadwal_praktek(){ 
         return $this->hasMany(JadwalPraktikum::class); 

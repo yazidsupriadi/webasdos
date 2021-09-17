@@ -22,6 +22,9 @@ Route::get('/daftarasdos/isibio', 'Controller@isibio');
 Route::post('/daftarasdos/isibio', 'Controller@isibiostore');
 Route::get('/daftarasdos/calon-asdos-bio/{id}', 'Controller@biocaasdos');
 Route::get('/files/{file}', 'Controller@downloadberkas')->name('download');
+Route::get('/daftarasdos/daftar-matkul/{id}', 'Controller@daftar_matkul');
+Route::get('/daftarasdos/daftar-matkul-caasdos/{id}', 'Controller@daftar_matkul_caasdos');
+
 Route::group(['middleware' => 'admin'], function()
 {
 Route::get('/dashboard','HomeController@admin');
@@ -93,6 +96,7 @@ Route::get('/admin/applicant','UserController@daftarasdos');
 Route::get('/admin/asdos','UserController@dataasdos');
 Route::get('/admin/profileasdos/{id}','UserController@profileasdos');
 Route::get('/admin/asdos/export_excel', 'UserController@export_excel');
+Route::get('/admin/asdos/export_applicant_excel', 'UserController@export_applicant_excel');
 
 Route::get('/admin/applicant/{id}','UserController@makeasdos');
 Route::delete('/admin/user/delete/{id}','UserController@delete');
@@ -161,6 +165,8 @@ Route::delete('/asdos/presensi/presensidelete/{id}','PresensiController@presensi
 Route::get('/asdos/profile/{id}','AsdosController@profile');
 Route::get('/asdos/profile/edit/{id}','AsdosController@editprofile');
 Route::put('/asdos/profile/edit/{id}','AsdosController@update');
+Route::get('/asdos/profile/edit-photo/{id}','AsdosController@editphoto');
+Route::put('/asdos/profile/edit-photo/{id}','AsdosController@updatephoto');
 
 
 //gaji

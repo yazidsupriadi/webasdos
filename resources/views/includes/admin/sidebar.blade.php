@@ -23,12 +23,21 @@
           <span>Isi Bio</span></a>
       </li>
     @endif
+    @if(Auth::user()->rules == 'applicant')
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('daftarasdos/daftar-matkul',Auth::user()->id)}}">
+          <i class="fas fa-fw fa-book"></i>
+          <span>Daftar Mata Kuliah</span></a>
+      </li>
+    @endif
+    
     
     @if(Auth::user()->rules == 'applicant')
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{url('daftarasdos/calon-asdos-bio',Auth::user()->id)}}">
-          <i class="fas fa-fw fa-calendar"></i>
+          <i class="fas fa-fw fa-user"></i>
           <span>Biodata Calon Asdos</span></a>
       </li>
     @endif

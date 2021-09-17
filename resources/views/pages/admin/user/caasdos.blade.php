@@ -15,6 +15,8 @@
             of  {{$users->total()}} entries
             </p>
           </div>
+          <a href="/admin/asdos/export_applicant_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>
+
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">

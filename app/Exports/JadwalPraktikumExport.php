@@ -13,11 +13,12 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Concerns\WithEvents;
 
 class JadwalPraktikumExport implements ShouldAutoSize,
 WithMapping,
 WithHeadings,
-FromQuery
+FromQuery,WithEvents
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -59,5 +60,18 @@ FromQuery
             'Asisten Dosen',
             'Rekap Absen'
             ];
+    }
+
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class    => function(AfterSheet $event) {
+   
+                $event->sheet->getDelegate()->getStyle('A1:J1')
+                                ->getFont()
+                                ->setBold(true);
+   
+            },
+        ];
     }
 }

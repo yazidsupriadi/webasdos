@@ -7,10 +7,11 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Concerns\WithEvents;
 
 
 class RuanganExport implements FromCollection,
-ShouldAutoSize,WithHeadings
+ShouldAutoSize,WithHeadings,WithEvents
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -36,6 +37,19 @@ ShouldAutoSize,WithHeadings
     public function map($ruangan):array{
         return[
             $ruangan->id,$ruangan->kode_ruangan,$ruangan->nama_ruangan,$ruangan->kapasitas_ruangan
+        ];
+    }
+
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class    => function(AfterSheet $event) {
+   
+                $event->sheet->getDelegate()->getStyle('A1:H1')
+                                ->getFont()
+                                ->setBold(true);
+   
+            },
         ];
     }
 }

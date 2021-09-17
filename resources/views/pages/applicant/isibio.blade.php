@@ -60,19 +60,11 @@
                   <label>Username ELEN</label>
                   <input type="text" class="form-control" name="username_elen" placeholder="masukan username elen">
                 </div>
-                
                 <div class="form-group">
-                     
-                        <label for="slug">Mata Kuliah Yang ingin dipilih</label>
-                          <select name="matkul_id" class="form-control">
-                        
-                          
-                          <option value="">Pilih mata Kuliah</option>
-                              @foreach($matkuls as $item)
-                              <option value="{{$item->id}}">{{$item->nama}}</option>
-                              @endforeach
-                          </select> 
-                      </div>   
+                  <label>Foto</label>
+                  <input type="file" class="form-control" name="foto">
+                </div> 
+               
                 
                       <div class="form-group">
                   

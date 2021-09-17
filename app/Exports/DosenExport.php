@@ -7,8 +7,9 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Concerns\WithEvents;
 
-class DosenExport implements FromCollection,WithHeadings,ShouldAutoSize
+class DosenExport implements FromCollection,WithHeadings,ShouldAutoSize,WithEvents
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -22,6 +23,18 @@ class DosenExport implements FromCollection,WithHeadings,ShouldAutoSize
         return [
             'NIDN',
             'Name',
+        ];
+    }
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class    => function(AfterSheet $event) {
+   
+                $event->sheet->getDelegate()->getStyle('A1:C1')
+                                ->getFont()
+                                ->setBold(true);
+   
+            },
         ];
     }
 

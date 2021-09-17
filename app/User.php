@@ -58,5 +58,9 @@ class User extends Authenticatable
     public function sertifikat(){
     	return $this->hasMany(Sertifikat::class);
     }
+
+    public function history_asdos(){
+    	return $this->hasMany(HistoryAsdos::class);
+    }
     
 }

@@ -9,11 +9,12 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Concerns\WithEvents;
 
 class MatkulExport implements  ShouldAutoSize,
 WithMapping,
 WithHeadings,
-FromQuery
+FromQuery,WithEvents
 {
     
    
@@ -44,6 +45,17 @@ FromQuery
             'Created at',
             ];
     }
- 
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class    => function(AfterSheet $event) {
+   
+                $event->sheet->getDelegate()->getStyle('A1:F1')
+                                ->getFont()
+                                ->setBold(true);
+   
+            },
+        ];
+    }
 
 }

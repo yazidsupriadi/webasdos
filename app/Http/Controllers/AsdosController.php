@@ -29,5 +29,23 @@ class AsdosController extends Controller
         return redirect('/asdos/profile/'.$id);
     
     }
+    public function editphoto($id){
+        $asdos =  Asdos::find($id);
+        return view('pages.asdos.asdos.editphoto',compact('asdos'));
+    }
+
+    
+    public function updatephoto(Request $request, $id)
+    {
+        //
+        $asdos = $request->all();
+        $asdos['foto'] = $request->file('foto')->store(
+            'assets/foto','public'
+        );
+        $item = Asdos::findOrFail($id);
+        $item->update($asdos);
+        return redirect('/asdos/profile/'.$id);
+    
+    }
 
 }

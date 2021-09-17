@@ -31,7 +31,7 @@
                   <input type="hidden" class="form-control" name="status" value="active">
                 </div>
                 <div class="form-group">
-                  <label>Nama Calon Asisten Dosen</label>
+                  <label>Nama Asisten Dosen</label>
                   <input type="hidden" class="form-control" name="user_id" placeholder="Masukan Nama Dosen Mata Kuliah" value="{{Auth::user()->id}}">
                   <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Asisten Dosen" value="{{Auth::user()->name}}">
                 </div>

@@ -12,6 +12,7 @@ use App\User;
 use App\Asdos;
 use App\Dosen;
 use App\Matkul;
+use App\HistoryAsdos;
 use Auth;
 class Controller extends BaseController
 {
@@ -68,8 +69,29 @@ class Controller extends BaseController
         return view('pages.applicant.bio',compact('asdos'));
     
     }
+    
+    public function daftar_matkul($id)
+    {
+        
+        $asdos =  Auth::user()->asdos()->get();
+        $history_asdos = HistoryAsdos::where('user_id','=',$id)->get();
+        return view('pages.applicant.daftar_matkul',compact('asdos','history_asdos'));
+    
+    }
+    public function daftar_matkul_caasdos($id)
+    {
+        
+        $asdos =  Auth::user()->asdos()->get();
+        $history_asdos = HistoryAsdos::where('user_id','=',$id)->get();
+        $matkuls = Matkul::all();
+        return view('pages.applicant.daftar_matkul_caasdos',compact('asdos','history_asdos','matkuls'));
+    
+    }
     public function isibiostore(Request $request){
         $asdos = $request->all();
+        $asdos['foto'] = $request->file('foto')->store(
+            'assets/foto','public'
+        );
         Asdos::create($asdos);
         return redirect('/');
     }

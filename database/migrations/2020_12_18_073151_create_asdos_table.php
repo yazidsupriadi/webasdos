@@ -25,12 +25,11 @@ class CreateAsdosTable extends Migration
             $table->string('bank')->nullable();
             $table->string('norek')->nullable();
             $table->string('atasnama')->nullable();
+            $table->string('foto')->nullable();
             $table->string('berkas')->nullable();
             $table->enum('status',['active','inactive'])->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('matkul_id');
-            $table->foreign('matkul_id')->references('id')->on('matkul')->onDelete('cascade');
             
             
             
