@@ -153,7 +153,7 @@
       @if(Auth::user()->rules == 'asdos')
       <li class="nav-item active">
         <a class="nav-link" href="{{url('asdos/profile',Auth::user()->id)}}">
-          <i class="fas fa-fw fa-money-check"></i>
+          <i class="fas fa-fw fa-user"></i>
           <span>profile</span></a>
       </li>
       @endif
