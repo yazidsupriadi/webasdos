@@ -12,7 +12,9 @@ use App\User;
 use App\Asdos;
 use App\Dosen;
 use App\Matkul;
+use App\TahunAkademik;
 use App\HistoryAsdos;
+use App\Testimonial;
 use Auth;
 class Controller extends BaseController
 {
@@ -31,7 +33,8 @@ class Controller extends BaseController
 
 
     public function home(){
-        return view('home');
+        $testimonials = Testimonial::paginate(4);
+        return view('home',compact('testimonials'));
     }
     public function daftar(){
         return view('daftar');
@@ -66,7 +69,8 @@ class Controller extends BaseController
     {
         
         $asdos =  Auth::user()->asdos()->get();
-        return view('pages.applicant.bio',compact('asdos'));
+        $history_asdos = HistoryAsdos::where('user_id','=',$id)->get();
+        return view('pages.applicant.bio',compact('asdos','history_asdos'));
     
     }
     
@@ -84,8 +88,15 @@ class Controller extends BaseController
         $asdos =  Auth::user()->asdos()->get();
         $history_asdos = HistoryAsdos::where('user_id','=',$id)->get();
         $matkuls = Matkul::all();
-        return view('pages.applicant.daftar_matkul_caasdos',compact('asdos','history_asdos','matkuls'));
+        $tahun_akademiks = TahunAkademik::all();
+        return view('pages.applicant.daftar_matkul_caasdos',compact('asdos','history_asdos','matkuls','tahun_akademiks'));
     
+    }
+    
+    public function daftar_matkul_caasdos_store(Request $request,$id){
+        $asdos = $request->all();
+        HistoryAsdos::create($asdos);
+        return redirect('/');
     }
     public function isibiostore(Request $request){
         $asdos = $request->all();

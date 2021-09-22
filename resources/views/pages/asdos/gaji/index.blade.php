@@ -26,13 +26,13 @@
                   
                   <?php $i = 1; 
                   ?>
-                  @forelse($total_gajis as $item)
+            @forelse($total_gajis as $item)
                     <tr>
                   <?php $monthNum = $item->month;
               $dateObj = DateTime::createFromFormat('!m', $monthNum);
               $monthName = $dateObj->format('F');?>
                       <th scope="row">{{$i++}}</th>
-                      <td>{{$monthName}}</td>
+                      <td>{{$monthName}} {{$item->year}}</td>
                       <td>{{$item->total_amount}}</td>
                       
                     </tr>

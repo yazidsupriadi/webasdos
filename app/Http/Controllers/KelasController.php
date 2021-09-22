@@ -49,6 +49,7 @@ class KelasController extends Controller
     public function delete($id){
         $kelas = Kelas::find($id);
         $kelas->delete();
+        Alert::success('Data Kelas Berhasil Dihapus','Data Berhasil dihapus!');
         return redirect()->back();
     }
     

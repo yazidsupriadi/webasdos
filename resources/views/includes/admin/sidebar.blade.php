@@ -46,7 +46,7 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{url('dashboard')}}">
-          <i class="fas fa-fw fa-tasks"></i>
+          <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
       
@@ -54,7 +54,7 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{url('/asdos/dashboard')}}">
-          <i class="fas fa-fw fa-tasks"></i>
+          <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
       
@@ -196,9 +196,12 @@
                         @endif
                         
                         @if(Auth::user()->rules == 'admin')
-                        <a class="collapse-item" href="/admin/tahun-akademik"><i class="fa fa-building text-primary"></i> Tahun Akademik</a>
+                        <a class="collapse-item" href="/admin/tahun-akademik"><i class="far fa-calendar-alt text-primary"></i> Tahun Akademik</a>
                         @endif
 
+                        @if(Auth::user()->rules == 'admin')
+                    <a class="collapse-item" href="/admin/testimonial"><i class="fa fa-quote-left text-primary" aria-hidden="true"></i> Testimoni</a>
+                        @endif
                     </div>
                 </div>
             </li>
@@ -215,13 +218,17 @@
                         @if(Auth::user()->rules == 'admin')
                         <a class="collapse-item" href="/admin/user"><i class="fa fa-user text-primary"></i> Daftar User</a>
                         <a class="collapse-item" href="/admin/asdos"><i class="fa fa-address-card text-primary"></i> Daftar Asdos</a>
-                        <a class="collapse-item" href="/admin/applicant"><i class="fa fa-chalkboard-teacher text-primary"></i> Daftar Calon Asdos</a>
+                        <a class="collapse-item" href="/admin/applicant"><i class="fas fa-user-plus text-primary"></i> Daftar Calon Asdos</a>
+                        <a class="collapse-item" href="/admin/daftar-asistensi"><i class="fa fa-users text-primary"></i> Daftar Asistensi</a>
                         @endif
 
                     </div>
                 </div>
             </li>
-      @endif      
+      @endif    
+      <!-- Nav Item - Dashboard -->
+    
+      
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

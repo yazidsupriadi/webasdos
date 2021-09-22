@@ -30,6 +30,7 @@
       <th scope="col">Pertemuan</th>
       <th scope="col">Rekap Absen</th>
       <th scope="col">Keterangan</th>
+      <th scope="col">Tahun Akademik</th>
       <th scope="col">Action</th>
    
     </tr>
@@ -45,8 +46,9 @@
       
       <td>{{date('D , d - M - Y',strtotime($item->tanggal_praktek))}}</td>
       <td>{{$item->pertemuan}}</td>
-      <td></td>
-      <td></td>
+      <td>{{$item->rekap_absen}}</td>
+      <td>{{$item->keterangan}}</td>
+      <td>{{$item->tahun_akademik->kode_tahun_akademik}}</td>
       <td><form action="{{url('asdos/presensi/presensidelete',$item->id)}}" method="post" class="d-inline">
   @csrf
   @method('delete')

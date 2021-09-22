@@ -3,10 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class HistoryAsdos extends Model
+
+class HistoryAsdos extends Model implements Auditable
 {
     //
+    
+    use \OwenIt\Auditing\Auditable;
+    
     protected $table = 'history_asdos';
     protected $fillable = ['status','user_id','matkul_id','tahun_akademik_id'];
 

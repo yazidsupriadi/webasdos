@@ -12,7 +12,8 @@
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $users->total() }}</p> <br/>
             {{ $users->links() }} 
           </div>
-
+          <a href="/admin/gaji/export_excel" class="btn btn-success my-2 mx-4" target="_blank">EXPORT SEMUA DATA HONOR EXCEL</a>
+		
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">

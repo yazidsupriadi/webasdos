@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use App\Asdos;
 use App\User;
 use Auth;
+use App\HistoryAsdos;
 class AsdosController extends Controller
 {
     //
     public function profile($id){
         $user = User::where('id','=',$id)->get();
         $asdos =  Auth::user()->asdos()->get();
-        return view('pages.asdos.asdos.profile',compact('asdos','user'));
+        $history_asdos = HistoryAsdos::where('user_id','=',$id)->get();
+        return view('pages.asdos.asdos.profile',compact('asdos','user','history_asdos'));
     }
 
     public function editprofile($id){

@@ -25,31 +25,31 @@
                 @csrf
                 <div class="form-group">
                   <label>No Sertifikat</label>
-                  <input type="text" class="form-control" name="no_sertifikat" placeholder="Masukan No Sertifikat" value="{{old('title')}}">
+                  <input type="text" class="form-control" name="no_sertifikat" placeholder="Masukan No Sertifikat" value="{{old('title')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Nama</label>
-                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Asisten Dosen" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Asisten Dosen" value="{{old('location')}}" required>
                 </div>
                 
                 <div class="form-group">
                   <label>Jabatan</label>
-                  <input type="text" class="form-control" name="jabatan" placeholder="Masukan Jabatan" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="jabatan" placeholder="Masukan Jabatan" value="{{old('location')}}" required>
                 </div>
               
                 <div class="form-group">
                   <label>Mata Kuliah</label>
-                  <input type="text" class="form-control" name="matkul" placeholder="Masukan Mata Kuliah" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="matkul" placeholder="Masukan Mata Kuliah" value="{{old('location')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Tahun Akademik</label>
-                  <input type="text" class="form-control" name="tahun_akademik" placeholder="Masukan Mata Kuliah" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="tahun_akademik" placeholder="Masukan Mata Kuliah" value="{{old('location')}}" required>
                 </div>
               
                 <div class="form-group">
                      
                         <label for="slug">Asdos User</label>
-                          <select name="user_id" class="form-control">
+                          <select name="user_id" class="form-control" required>
                         
                           
                           <option value="">Pilih user</option>
@@ -60,7 +60,7 @@
                       </div>   
                <div class="form-group">
                   <label>Sertifikat File</label>
-                  <input type="text" class="form-control" name="sertifikat_file" placeholder="masukan link sertifikat" >
+                  <input type="text" class="form-control" name="sertifikat_file" placeholder="masukan link sertifikat" required>
                 </div>
            
                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -40,7 +40,7 @@
                 </div>
                 
                  
-                <div class="col-1g-6">
+                <div class="col-lg-8">
                 <div class="card">
                     <h5 class="card-header bg-primary text-white">Asdos Profile</h5>
                     <div class="card-body p-5">
@@ -70,5 +70,53 @@
           </div>
          
           </div>
+          <div class="container-fluid">
+		
+    <!-- Content Row -->
+    <div class="row">
+    
+      
+      <div class="card-body text-gray-800 ">
+        
+       
+      <table class="table ">
+<thead class="thead-dark bg-primary">
+<tr>
+<th scope="col">No</th>
+<th scope="col">Nama Mata Kuliah</th>
+<th scope="col">Tahun Akademik</th>
+<th scope="col">Status</th>
+</tr>
+</thead>
+<tbody>
+<?php $i = 1 ?>
+@forelse($history_asdos as $item)
+
+<tr>
+<th scope="row">{{$i++}}</th>
+<td>{{$item->matkul->nama}}</td>
+<td>{{$item->tahun_akademik->kode_tahun_akademik}}</td>
+<td>@if($item->status == 'active')
+                   <span class="badge bg-success text-light ">{{$item->status}}</span>
+                  @elseif($item->status == 'inactive')
+                  <span class="badge bg-warning text-light">{{$item->status}}</span>
+                  @else
+                  <span class="badge bg-danger text-light">{{$item->status}}</span>
+               
+                @endif</td>
+
+</tr>
+
+@empty
+      <tr>
+          <td class="text-center" colspan="7">Data Kosong</td>
+     </tr> 
+@endforelse
+</tbody>
+</table>
+        </div>
+      </div>
+    </div>
+   
           
 @endsection

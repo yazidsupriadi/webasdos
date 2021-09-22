@@ -35,34 +35,34 @@
                 
                 <div class="form-group">
                   <label>NIM Calon Asisten Dosen</label>
-                  <input type="text" class="form-control" name="nim" placeholder="Masukan Nim Anda" >
+                  <input type="text" class="form-control" name="nim" placeholder="Masukan Nim Anda" required >
                 </div>
                 <div class="form-group">
                   <label>Nomor Handphone</label>
-                  <input type="text" class="form-control" name="no_hp" placeholder="Masukan Nomor Handphone " >
+                  <input type="text" class="form-control" name="no_hp" placeholder="Masukan Nomor Handphone " required>
                 </div>
                
                 <div class="form-group">
                   <label>Tempat Lahir</label>
-                  <input type="text" class="form-control" name="birthday_place" placeholder="Masukan Tempat lahir" value="{{old('birthday_place')}}">
+                  <input type="text" class="form-control" name="birthday_place" placeholder="Masukan Tempat lahir" value="{{old('birthday_place')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Tanggal Lahir</label>
-                  <input type="date" class="form-control" name="birthday">
+                  <input type="date" class="form-control" name="birthday" required>
                 </div>
               
                 <div class="form-group">
                   <label>Angkatan</label>
-                  <input type="text" class="form-control" name="angkatan" placeholder="masukan tahun angkatan kamu">
+                  <input type="text" class="form-control" name="angkatan" placeholder="masukan tahun angkatan kamu" required>
                 </div>
                 
                 <div class="form-group">
                   <label>Username ELEN</label>
-                  <input type="text" class="form-control" name="username_elen" placeholder="masukan username elen">
+                  <input type="text" class="form-control" name="username_elen" placeholder="masukan username elen" >
                 </div>
                 <div class="form-group">
                   <label>Foto</label>
-                  <input type="file" class="form-control" name="foto">
+                  <input type="file" class="form-control" name="foto" required>
                 </div> 
                
                 
@@ -72,7 +72,7 @@
                 </div>
                 <div class="form-group">
                   <label>Berkas File Pendaftaran</label>
-                  <input type="text" class="form-control" name="berkas" placeholder="Masukan link berkas pendaftaran">
+                  <input type="text" class="form-control" name="berkas" placeholder="Masukan link berkas pendaftaran" required>
                 </div>
            
                 <button type="submit" class="btn btn-primary">Submit</button>

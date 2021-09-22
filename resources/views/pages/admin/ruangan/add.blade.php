@@ -25,11 +25,11 @@
                 @csrf
                 <div class="form-group">
                   <label>Kode Ruangan</label>
-                  <input type="text" class="form-control" name="kode_ruangan" placeholder="Masukan Nama  Kode Ruangan" value="{{old('kode_ruangan')}}">
+                  <input type="text" class="form-control" name="kode_ruangan" placeholder="Masukan Nama  Kode Ruangan" value="{{old('kode_ruangan')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Nama Ruangan</label>
-                  <input type="text" class="form-control" name="nama_ruangan" placeholder="Masukan Nama Ruangan" value="{{old('nama_ruangan')}}">
+                  <input type="text" class="form-control" name="nama_ruangan" placeholder="Masukan Nama Ruangan" value="{{old('nama_ruangan')}}" required>
                 </div>
                 
                 <div class="form-group">

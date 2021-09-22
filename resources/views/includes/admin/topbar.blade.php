@@ -1,9 +1,5 @@
   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+ 
 
 
           <!-- Topbar Navbar -->
@@ -45,5 +41,21 @@
             </li>
 
           </ul>
+          @auth
+          <!--mobile button-->
+            <form class="form-inline d-sm-block d-md-none" method="POST" action="{{url('logout')}}">
+              @csrf
+              <button class="btn btn-login my-2 my-sm-0 px-4" type="submit" >Keluar</button>
+            </form>
+          <!--desktop button-->
 
+            <form class="form-inline my-2 my-lg-0 d-none d-md-block" method="POST" action="{{url('logout')}}">
+              @csrf
+              <button type="submit" class="btn btn-login my-2 my-sm-0 px-3 btn-danger btn-sm" style="font-size:12px" >Logout</button>
+            </form>
+      @endauth
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
         </nav>

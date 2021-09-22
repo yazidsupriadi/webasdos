@@ -48,7 +48,8 @@ class HomeController extends Controller
         $kelas = Kelas::all();
         $ruangan = Ruangan::all();
         $user = User::where('rules','asdos')->get();
-        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user','ruangan'));
+        $audits = DB::select('select * from audits');
+        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user','ruangan','audits'));
     }
     
     public function asdos(){
@@ -58,6 +59,7 @@ class HomeController extends Controller
         $presensi = Presensi::where('user_id','=',Auth::user()->id)->get();
         $user = User::where('rules','asdos')->get();
         $ruangan = Ruangan::all();
-        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user','presensi','ruangan'));
+        $audits = DB::select('select * from audits order by created_at DESC');
+        return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user','presensi','ruangan','audits'));
     }
 }

@@ -74,7 +74,7 @@
                    <div class="form-group">
                      
                      <label for="slug">Tahun Akademik</label>
-                       <select name="tahun_akademik_id" class="form-control">
+                       <select name="tahun_akademik_id" class="form-control" required>
                      
                        
                        <option value="">Pilih tahun Akademik</option>

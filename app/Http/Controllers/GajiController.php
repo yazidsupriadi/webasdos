@@ -8,6 +8,9 @@ use DB;
 use Auth;
 use App\User;
 use App\Asdos;
+use App\Exports\GajiExport;
+use App\Exports\GajiAsdosExport;
+use Maatwebsite\Excel\Facades\Excel;
 class GajiController extends Controller
 {
     //
@@ -53,10 +56,20 @@ class GajiController extends Controller
     }
     public function asdosindex(){
        
-        $gajis = Auth::user()->gaji()->paginate(10);
-        $total_gajis = DB::select('select year(created_at) as year, month(created_at) as month, sum(total) as total_amount from gaji group by year(created_at), month(created_at)');
+        $gajis = Gaji::where('user_id','=',Auth::user()->id)->paginate(10);
+        $total_gajis = DB::select('select year(created_at) as year, month(created_at) as month, sum(total) as total_amount from gaji where gaji.user_id = ? group by year(created_at), month(created_at)',array(Auth::user()->id));
       
         return view('pages.asdos.gaji.index',compact('gajis','total_gajis'));
         
     }
+    public function export_excel()
+	{
+		return Excel::download(new GajiExport(2021,'08'), 'honor-data.xlsx');
+	}
+    public function export_excel_asdos($id)
+	{
+        
+        $user = User::where('id','=',$id)->get();
+		return Excel::download(new GajiExport(2021,'09',$id), 'honor-data-asdos.xlsx');
+	}
 }

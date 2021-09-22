@@ -9,7 +9,11 @@ use App\JadwalPraktikum;
 use App\Gaji;
 use App\Insentif;
 use App\User;
+use App\TahunAkademik;
+use App\Exports\PresensiExport;
+use Maatwebsite\Excel\Facades\Excel;
 use DB;
+use Alert;
 class PresensiController extends Controller
 {
     //
@@ -34,8 +38,9 @@ class PresensiController extends Controller
         
         $insentif = Insentif::all();
         $presensis = Presensi::all();
+        $tahun_akademik = TahunAkademik::all();
         $jadwals = Auth::user()->jadwal_praktek()->get();
-        return view('pages.asdos.presensi.add',compact('presensis','jadwals','insentif'));
+        return view('pages.asdos.presensi.add',compact('presensis','jadwals','insentif','tahun_akademik'));
     }
 
     
@@ -46,6 +51,7 @@ class PresensiController extends Controller
         $presensi->rekap_absen = $request->rekap_absen;
         $presensi->keterangan = $request->keterangan;
         $presensi->user_id = $request->user_id;
+        $presensi->tahun_akademik_id = $request->tahun_akademik_id;
         $presensi->jadwal_praktikum_id = $request->jadwal_praktikum_id;
         $presensi->save();
 
@@ -67,6 +73,13 @@ class PresensiController extends Controller
     public function presensidelete($id){
         DB::table("presensi")->where("id", $id)->delete();
         DB::table("gaji")->where("presensi_id", $id)->delete();
+        Alert::success('Data Presensi Berhasil Dihapus','Data Berhasil dihapus!');
         return redirect()->back();
     }
+
+    
+    public function export_excel()
+	{
+		return Excel::download(new PresensiExport, 'presensi-data.xlsx');
+	}
 }

@@ -16,10 +16,7 @@
           <div class="col-lg-12 ml-1">
             <div class="card" style="">
   <div class="card-body p-4">
-    @forelse($history_asdos as $item)  
-    <h5 class="card-text text-center">Nama Calon Asisten : {{$item->user->name}} </h5>
-    
-    @endforeach
+    <h5 class="card-text text-center">Nama Calon Asisten : {{Auth::user()->name}} </h5>
   </div>
 </div>
             </div>

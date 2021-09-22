@@ -26,11 +26,11 @@
                 @csrf
                 <div class="form-group">
                   <label>Tanggal Praktikum</label>
-                  <input type="date" class="form-control" name="tanggal_praktek">
+                  <input type="date" class="form-control" name="tanggal_praktek" required>
                 </div>
                 <div class="form-group">
-                  <label>pertemuan</label>
-                  <input type="text" class="form-control" name="pertemuan" placeholder="Masukan Pertemuan asistensi" value="{{old('location')}}">
+                  <label>Pertemuan</label>
+                  <input type="text" class="form-control" name="pertemuan" placeholder="Masukan Pertemuan asistensi" value="{{old('location')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Rekap Absen</label>
@@ -50,6 +50,20 @@
                   <label>Keterangan</label>
                   <textarea name="keterangan" class="form-control" cols="15" rows="10"></textarea>
                   </div>
+                  
+                  <div class="form-group">
+                     
+                        <label for="slug">Tahun Akademik </label>
+                          <select name="tahun_akademik_id" class="form-control">
+                        
+                          
+                          <option value="">Pilih Tahun Akademik</option>
+                              @foreach($tahun_akademik as $item)
+                              <option value="{{$item->id}}">{{$item->kode_tahun_akademik}}</option>
+                              @endforeach
+                          </select>
+                      
+                      </div>
                   <div class="form-group">
                      
                         <label for="slug">Jadwal Praktikum</label>

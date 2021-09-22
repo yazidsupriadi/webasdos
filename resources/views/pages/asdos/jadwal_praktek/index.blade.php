@@ -37,7 +37,7 @@
                       <th scope="row">{{$i++}}</th>
                       <td>{{$item->hari}}</td>
                       <td>{{date('H:i:s',strtotime($item->jam))}}</td>
-                      <td>{{$item->ruangan}}</td> 
+                      <td>{{$item->ruangan->nama_ruangan}}</td> 
                       <td>{{$item->matkul->nama}}</td>
                       <td>{{$item->kelas->kode_kelas}}-{{$item->kelas->angkatan}}</td>
                       <td>{{$item->user->name}}</td>

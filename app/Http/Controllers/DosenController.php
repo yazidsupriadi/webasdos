@@ -66,6 +66,7 @@ class DosenController extends Controller
     public function delete($id){
         $dosen = Dosen::find($id);
         $dosen->delete();
+        Alert::success('Data Dosen Berhasil Dihapus','Data Berhasil dihapus!');
         return redirect()->back();
     }
 

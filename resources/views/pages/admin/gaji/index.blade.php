@@ -34,7 +34,6 @@
                     
                   </tbody>
                 </table>
-          
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">
@@ -72,7 +71,12 @@
                   </tbody>
                 </table>
               <h3 style="margin-bottom:45px;margin-top:45px;text-align:center;background:blue; color:white; padding:20px 45px;">Detail Gaji Asisten Dosen</h3>              
-                <table class="table mt-3">
+              
+              @foreach($user as $item)
+                <a href="{{url('/admin/gaji/export_excel_asdos/'.$item->id)}}" target="_blank" class="btn btn-primary btn-sm">export excel</a>
+          @endforeach
+                  
+              <table class="table mt-3">
                   <thead class="thead-dark">
                     <tr>
                       <th scope="col">No</th>
@@ -109,7 +113,7 @@
                       <td > @if($item->status == 'accepted')
             <a href="{{url('/admin/honorasdos/updategaji/'.$item->id)}}" class="btn btn-primary btn-sm">Make paid</a>
           @else
-            <a href="{{url('/admin/honorasdos/updategaji/'.$item->id)}}" class="btn btn-danger btn-sm ">Make other Rules</a>
+            <a href="{{url('/admin/honorasdos/updategaji/'.$item->id)}}" class="btn btn-danger btn-sm ">Make other Status</a>
          @endif</td>
                       
                     </tr>

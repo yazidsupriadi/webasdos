@@ -158,7 +158,7 @@
                                 <li>Calon asisten dosen memilih mata kuliah yang ingin diajarkan</li>
                                 <li>Calon asisten dosen menunggu jadwal interview yang akan dikabarkan lebih lanjut oleh panitia recruitment asisten dosen</li>
                                 <li>Calon asisten dosen melakukan interview dengan panitia recruitment</li>
-                                <li>Calon asisten dosen menunggu pengumuman yang dapat diakses di link berikut: </li>
+                                <li>Calon asisten dosen menunggu pengumuman yang dapat diakses pada halaman ini </li>
                                 <li>Calon asisten dosen yang diterima dimohon untuk segera menghubungi dosen yang bersangkutan untuk melakukan micro teaching dan persiapan untuk melakukan asistensi dengan mahasiswa </li>
                             </ol>
                         			

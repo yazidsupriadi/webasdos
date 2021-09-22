@@ -16,6 +16,9 @@
             of  {{$users->total()}} entries
             </p>
           </div>
+          
+          <a href="/admin/presensi/export_excel" class="btn btn-success my-2 mx-4" target="_blank">EXPORT EXCEL</a>
+		
 
           <!-- Content Row -->
           <div class="row">

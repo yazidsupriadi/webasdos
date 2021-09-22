@@ -41,12 +41,12 @@
                 </div>
                 <div class="form-group">
                   <label>jam</label>
-                  <input type="time" class="form-control" name="jam"  value="{{old('location')}}">
+                  <input type="time" class="form-control" name="jam"  value="{{old('location')}}" required>
                 </div>
                 <div class="form-group">
                      
                      <label for="slug">Ruangan</label>
-                       <select name="ruangan_id" class="form-control">
+                       <select name="ruangan_id" class="form-control" required>
                      
                        
                        <option value="">Pilih Ruangan</option>
@@ -64,7 +64,7 @@
                 <div class="form-group">
                      
                         <label for="slug">Mata Kuliah</label>
-                          <select name="matkul_id" class="form-control">
+                          <select name="matkul_id" class="form-control" required>
                         
                           
                           <option value="">Pilih mata Kuliah</option>
@@ -77,7 +77,7 @@
                       <div class="form-group">
                      
                      <label for="slug">Kelas</label>
-                       <select name="kelas_id" class="form-control">
+                       <select name="kelas_id" class="form-control" required>
                      
                        
                        <option value="">Pilih Kelas</option>
@@ -92,10 +92,10 @@
                    <div class="form-group">
                      
                      <label for="slug">Tahun Akademik</label>
-                       <select name="tahun_akademik_id" class="form-control">
+                       <select name="tahun_akademik_id" class="form-control" required>
                      
                        
-                       <option value="">Pilih tahun Akademik</option>
+                       <option value="">Pilih Tahun Akademik</option>
                            @foreach($tahun_akademik as $item)
                            <option value="{{$item->id}}">{{$item->kode_tahun_akademik}}-({{$item->tahun}})</option>
                            @endforeach
@@ -106,7 +106,7 @@
 
                    
                    <label for="slug">Asdos</label>
-                       <select name="user_id" class="form-control">
+                       <select name="user_id" class="form-control" required>
                        
                        <option value="">Pilih asdos</option>
                            @foreach($users as $item)

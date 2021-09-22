@@ -38,16 +38,16 @@
                 
                 <div class="form-group">
                   <label>NIM </label>
-                  <input type="text" class="form-control" name="nim" placeholder="Masukan Nama Asisten Dosen" value="{{$asdos->nim}}">
+                  <input type="text" class="form-control" name="nim" placeholder="Masukan Nama Asisten Dosen" value="{{$asdos->nim}}" >
                 </div>
                 
                 <div class="form-group">
                   <label>No Handphone</label>
-                  <input type="text" class="form-control" name="no_hp" placeholder="Masukan Nama Asisten Dosen" value="{{$asdos->no_hp}}">
+                  <input type="text" class="form-control" name="no_hp" placeholder="Masukan Nama Asisten Dosen" value="{{$asdos->no_hp}}" >
                 </div>
                 <div class="form-group">
                   <label>Tempat Lahir</label>
-                  <input type="text" class="form-control" name="birthday_place" placeholder="Masukan Tempat lahir" value="{{$asdos->birthday_place}}">
+                  <input type="text" class="form-control" name="birthday_place" placeholder="Masukan Tempat lahir" value="{{$asdos->birthday_place}}" >
                 </div>
                 <div class="form-group">
                   <label>Tanggal Lahir</label>

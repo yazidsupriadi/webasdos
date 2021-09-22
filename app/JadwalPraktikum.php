@@ -4,9 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class JadwalPraktikum extends Model
+use OwenIt\Auditing\Contracts\Auditable;
+
+class JadwalPraktikum extends Model implements Auditable
 {
     //
+    
+    use \OwenIt\Auditing\Auditable;
+    
     protected $table = 'jadwal_praktikum';
     protected $fillable = ['hari','jam','ruangan_id','rekap_absen','matkul_id','tahun_akademik_id','kelas_id','user_id'];
 

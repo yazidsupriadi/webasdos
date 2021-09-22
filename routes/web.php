@@ -24,6 +24,7 @@ Route::get('/daftarasdos/calon-asdos-bio/{id}', 'Controller@biocaasdos');
 Route::get('/files/{file}', 'Controller@downloadberkas')->name('download');
 Route::get('/daftarasdos/daftar-matkul/{id}', 'Controller@daftar_matkul');
 Route::get('/daftarasdos/daftar-matkul-caasdos/{id}', 'Controller@daftar_matkul_caasdos');
+Route::post('/daftarasdos/daftar-matkul-caasdos/store/{id}', 'Controller@daftar_matkul_caasdos_store');
 
 Route::group(['middleware' => 'admin'], function()
 {
@@ -90,13 +91,16 @@ Route::delete('/admin/jadwal-praktikum/delete/{id}','JadwalPraktikumController@d
 Route::get('/admin/jadwal-praktikum/search-by-date','JadwalPraktikumController@search_by_date');
 Route::get('/admin/jadwal-praktikum/search-by-tahun-akademik','JadwalPraktikumController@search_by_tahun_akademik');
 Route::get('/admin/jadwal-praktikum/export_excel', 'JadwalPraktikumController@export_excel');
+
 //user
 Route::get('/admin/user','UserController@index');
 Route::get('/admin/applicant','UserController@daftarasdos');
 Route::get('/admin/asdos','UserController@dataasdos');
+Route::get('/admin/daftar-asistensi',"UserController@daftar_asistensi");
 Route::get('/admin/profileasdos/{id}','UserController@profileasdos');
 Route::get('/admin/asdos/export_excel', 'UserController@export_excel');
 Route::get('/admin/asdos/export_applicant_excel', 'UserController@export_applicant_excel');
+Route::get('/admin/asdos/update-status-matkul/{id}', 'UserController@update_status_matkul');
 
 Route::get('/admin/applicant/{id}','UserController@makeasdos');
 Route::delete('/admin/user/delete/{id}','UserController@delete');
@@ -104,12 +108,15 @@ Route::get('/admin/user/rules/{id}','UserController@makeadmin');
 //presensi
 Route::get('/admin/presensi/detail/{id}','PresensiController@detailpresensi');
 Route::get('/admin/asdos-presensi','PresensiController@asdos_presensi');
+Route::get('/admin/presensi/export_excel', 'PresensiController@export_excel');
 
 //gaji
 Route::get('admin/gaji','GajiController@index');
 Route::get('admin/honor-asdos','GajiController@asdos_honor');
 Route::get('/admin/honorasdos/updategaji/{id}','GajiController@updatestatusgaji');
 Route::get('/admin/gaji/detail/{id}','GajiController@detailgaji');
+Route::get('/admin/gaji/export_excel', 'GajiController@export_excel');
+Route::get('/admin/gaji/export_excel_asdos/{id}', 'GajiController@export_excel_asdos');
 
 //sertifikat
 Route::get('admin/sertifikat','SertifikatController@index');
@@ -127,6 +134,15 @@ Route::delete('/admin/tahun-akademik/delete/{id}','TahunAkademikController@delet
 Route::get('/admin/tahun-akademik/search/tahun','TahunAkademikController@tahun_search');
 Route::get('/admin/tahun-akademik/edit/{id}','TahunAkademikController@edit');
 Route::put('/admin/tahun-akademik/update/{id}','TahunAkademikController@update');
+
+//testimonial
+Route::get('admin/testimonial','TestimonialController@index');
+Route::get('admin/testimonial/add','TestimonialController@add');
+Route::post('admin/testimonial/store','TestimonialController@store');
+Route::delete('/admin/testimonial/delete/{id}','TestimonialController@delete');
+Route::get('/admin/testimonial/edit/{id}','TestimonialController@edit');
+Route::put('/admin/testimonial/update/{id}','TestimonialController@update');
+
 });
 Auth::routes();
 

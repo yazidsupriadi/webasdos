@@ -55,6 +55,7 @@ class JadwalPraktikumController extends Controller
     public function delete($id){
         $jadwal = JadwalPraktikum::find($id);
         $jadwal->delete();
+        Alert::success('Data Jadwal Praktikum Berhasil Dihapus','Data Berhasil dihapus!');
         return redirect()->back();
     }
 

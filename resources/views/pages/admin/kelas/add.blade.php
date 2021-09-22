@@ -25,25 +25,25 @@
                 @csrf
                 <div class="form-group">
                   <label>Kode Kelas</label>
-                  <input type="text" class="form-control" name="kode_kelas" placeholder="Masukan Nama  Kode Kelas" value="{{old('title')}}">
+                  <input type="text" class="form-control" name="kode_kelas" placeholder="Masukan Nama  Kode Kelas" value="{{old('title')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Program Studi</label>
-                  <input type="text" class="form-control" name="prodi" placeholder="Masukan Program Studi" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="prodi" placeholder="Masukan Program Studi" value="{{old('location')}}" required>
                 </div>
                 
                 <div class="form-group">
                   <label>Angkatan</label>
-                  <input type="text" class="form-control" name="angkatan" placeholder="Masukan Angkatan" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="angkatan" placeholder="Masukan Angkatan" value="{{old('location')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Tahun Akademik</label>
-                  <input type="text" class="form-control" name="tahun_akademik" placeholder="Masukan Angkatan" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="tahun_akademik" placeholder="Masukan Angkatan" value="{{old('location')}}" required>
                 </div>
                 
                 <div class="form-group">
                   <label>Jumlah Mahasiswa</label>
-                  <input type="text" class="form-control" name="jumlah_mahasiswa" placeholder="Masukan JUmlah Mahasiswa" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="jumlah_mahasiswa" placeholder="Masukan Jumlah Mahasiswa" value="{{old('location')}}">
                 </div>
               
                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -25,11 +25,11 @@
                 @csrf
                 <div class="form-group">
                   <label>Kode Tahun Akademik</label>
-                  <input type="text" class="form-control" name="kode_tahun_akademik" placeholder="Masukan Kode Tahun Akademik" value="{{old('kode_tahun_akademik')}}">
+                  <input type="text" class="form-control" name="kode_tahun_akademik" placeholder="Masukan Kode Tahun Akademik" value="{{old('kode_tahun_akademik')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Tahun</label>
-                  <input type="text" class="form-control" name="tahun" placeholder="Masukan Tahun Akademik" value="{{old('tahun')}}">
+                  <input type="text" class="form-control" name="tahun" placeholder="Masukan Tahun Akademik" value="{{old('tahun')}}" required>
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Submit</button>

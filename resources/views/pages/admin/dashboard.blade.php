@@ -6,6 +6,7 @@
           <div class="jumbotron bg-primary text-light">
            <h1 class="display-4 text-center">Selamat datang di website asisten dosen STT Nurul Fikri </h1>
           </div>
+          
           <!-- Content Row -->
           <div class="row">
       
@@ -111,8 +112,43 @@
               </div>
             </div>
             @endif
-
-
+  
+            <table class="table" class="mx-5">
+  <thead class="thead-dark" style="font-size:10px;">
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Nama User</th>
+      <th scope="col">Type User</th>
+      <th scope="col">Event</th>
+      <th scope="col">Url</th>
+      <th scope="col">IP Address</th>
+      <th scope="col">User Agent</th>
+      <th scope="col">Tanggal Dibuat</th>
+    </tr>
+  </thead>
+  <tbody style="font-size:10px;">
+  <?php $i = 1 ?>
+  @forelse($audits as $item)
+    <tr>
+      <th scope="row">{{$i++}}</th>
+      <td>{{$item->user_id}}</td>
+      <td>{{$item->user_type}}</td>
+      <td>{{$item->event}}</td>
+      <td>{{$item->url}}</td>
+      <td>{{$item->ip_address}}</td>
+      <td>{{$item->user_agent}}</td>
+      <td>{{$item->created_at}}</td>
+      
+      
+    </tr>
+   
+    @empty
+            <tr>
+                <td class="text-center" colspan="7">Data Kosong</td>
+           </tr> 
+    @endforelse
+  </tbody>
+</table>
           
           </div>
         

@@ -25,16 +25,16 @@
                 @csrf
                 <div class="form-group">
                   <label>Nama Mata Kuliah</label>
-                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama  Mata Kuliah" value="{{old('title')}}">
+                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama  Mata Kuliah" value="{{old('title')}}" required>
                 </div>
                 <div class="form-group">
                   <label>Kode MK</label>
-                  <input type="text" class="form-control" name="kodemk" placeholder="Masukan Kode MK" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="kodemk" placeholder="Masukan Kode MK" value="{{old('location')}}" required>
                 </div>
                 <div class="form-group">
                      
                         <label for="slug">Dosen</label>
-                          <select name="dosen_id" class="form-control">
+                          <select name="dosen_id" class="form-control" required>
                         
                           
                           <option value="">Pilih Dosen Pengampu</option>

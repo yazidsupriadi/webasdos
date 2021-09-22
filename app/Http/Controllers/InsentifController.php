@@ -46,6 +46,7 @@ class InsentifController extends Controller
     public function delete($id){
         $insentif = Insentif::find($id);
         $insentif->delete();
+        Alert::success('Data Dosen Insentif Dihapus','Data Berhasil dihapus!');
         return redirect()->back();
     }
 

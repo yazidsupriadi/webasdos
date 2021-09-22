@@ -28,6 +28,7 @@ class TahunAkademikController extends Controller
     public function delete($id){
         $tahun_akademik = TahunAkademik::find($id);
         $tahun_akademik->delete();
+        Alert::success('Data Tahun Akademik Berhasil Dihapus','Data Berhasil dihapus!');
         return redirect()->back();
     }
     public function edit($id){

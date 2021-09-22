@@ -71,6 +71,7 @@ class MatkulController extends Controller
     public function delete($id){
         $matkul = Matkul::find($id);
         $matkul->delete();
+        Alert::success('Data Mata Kuliah Berhasil Dihapus','Data Berhasil dihapus!');
         return redirect()->back();
     }
 

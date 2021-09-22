@@ -8,6 +8,7 @@ use App\Asdos;
 use App\Exports\AsdosExport;
 use App\Exports\CalonAsdosExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\HistoryAsdos;
 use Alert;
 class UserController extends Controller
 {
@@ -26,7 +27,8 @@ class UserController extends Controller
     public function profileasdos($id){
         $user = User::where('id','=',$id)->get();
         $asdos = Asdos::where('user_id','=',$id)->get();
-        return view('pages.asdos.asdos.profile',compact('asdos','user'));
+        $history_asdos = HistoryAsdos::where('user_id','=',$id)->get();
+        return view('pages.asdos.asdos.profile',compact('asdos','user','history_asdos'));
     }
 
     public function daftarasdos(){
@@ -89,6 +91,28 @@ class UserController extends Controller
 	{
 		return Excel::download(new CalonAsdosExport, 'calon-asdos-data-master.xlsx');
 	}
+
+    public function update_status_matkul($id)
+    {
+        $history_asdos = HistoryAsdos::find($id);
+        if($history_asdos->status == 'active'){
+            $change_status = 'inactive';
+            Alert::success('Status Asistensi Berhasil Diubah','Data Berhasil diubah!');
+        }
+        else {
+            $change_status = 'active';
+            Alert::success('Status Asistensi Berhasil Diubah','Data Berhasil diubah!');
+        }
+
+        HistoryAsdos::where('id',$id)->update(['status' => $change_status]);
+        return redirect()->back();
+    }
+
+    public function daftar_asistensi(){
+        $daftar_asistensi_aktif = HistoryAsdos::where('status','=','active')->paginate(10);
+        return view('pages.admin.user.daftar_asistensi',compact('daftar_asistensi_aktif'));     
+    }
+
 
 
 }

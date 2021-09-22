@@ -3,10 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Matkul extends Model
+class Matkul extends Model implements Auditable
 {
     //
+    
+    use \OwenIt\Auditing\Auditable;
     protected $table = 'matkul';
 
     protected $fillable = ['nama','kodemk','keterangan','dosen_id','user_id'];

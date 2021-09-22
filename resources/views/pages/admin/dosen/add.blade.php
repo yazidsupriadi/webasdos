@@ -25,11 +25,11 @@
                 @csrf
                 <div class="form-group">
                   <label>Nama Dosen Mata Kuliah</label>
-                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Dosen Mata Kuliah" value="{{old('title')}}">
+                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Dosen Mata Kuliah" value="{{old('title')}}" required>
                 </div>
                 <div class="form-group">
                   <label>NIDN</label>
-                  <input type="text" class="form-control" name="nidn" placeholder="Masukan NIDN" value="{{old('location')}}">
+                  <input type="text" class="form-control" name="nidn" placeholder="Masukan NIDN" value="{{old('location')}}" required>
                 </div>
               
                 <button type="submit" class="btn btn-primary">Submit</button>
