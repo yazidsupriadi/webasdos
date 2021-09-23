@@ -41,8 +41,8 @@
                      
                        
                        <option value="">Cari Sesuai Tahun Akademik</option>
-                           @foreach(App\Kelas::distinct()->get(['tahun_akademik']) as $item)
-                           <option value="{{$item->tahun_akademik}}">{{$item->tahun_akademik}}</option>
+                           @foreach(App\TahunAkademik::all() as $item)
+                           <option value="{{$item->kode_tahun_akademik}}">{{$item->kode_tahun_akademik}}</option>
                            @endforeach
                        </select> 
          

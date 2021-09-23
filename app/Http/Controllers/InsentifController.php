@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Insentif;
+use App\TahunAkademik;
 use App\Exports\InsentifExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Alert;
@@ -12,7 +13,8 @@ class InsentifController extends Controller
     //
     public function index(){
         $insentifs = Insentif::all();
-        return view('pages.admin.insentif.index',compact('insentifs'));
+        $tahun_akademiks = TahunAkademik::all();
+        return view('pages.admin.insentif.index',compact('insentifs','tahun_akademiks'));
     }
 
     public function add(){

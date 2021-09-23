@@ -44,6 +44,20 @@ class Controller extends BaseController
     }
     public function storeregisterasdos(Request $data)
     {
+        $data->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required','string','min:10','regex:/[a-z]/',
+
+            'regex:/[A-Z]/',
+    
+            'regex:/[a-z]/',
+    
+            'regex:/[0-9]/',
+    
+            ],
+            'g-recaptcha-response' => 'required|captcha',
+        ]);
         $tambahdata = ([
             'name' => $data['name'],
             'username' => $data['username'],

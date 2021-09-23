@@ -48,7 +48,7 @@ class HomeController extends Controller
         $kelas = Kelas::all();
         $ruangan = Ruangan::all();
         $user = User::where('rules','asdos')->get();
-        $audits = DB::select('select * from audits');
+        $audits = DB::select('select * from audits order by created_at DESC');
         return view('pages.admin.dashboard',compact('matkul','dosen','kelas','user','ruangan','audits'));
     }
     

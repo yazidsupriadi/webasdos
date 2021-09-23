@@ -73,7 +73,7 @@
               <h3 style="margin-bottom:45px;margin-top:45px;text-align:center;background:blue; color:white; padding:20px 45px;">Detail Gaji Asisten Dosen</h3>              
               
               @foreach($user as $item)
-                <a href="{{url('/admin/gaji/export_excel_asdos/'.$item->id)}}" target="_blank" class="btn btn-primary btn-sm">export excel</a>
+                <a href="{{url('/admin/gaji/export_excel_asdos/'.$item->id)}}" target="_blank" class="btn btn-success btn-sm">export excel</a>
           @endforeach
                   
               <table class="table mt-3">
