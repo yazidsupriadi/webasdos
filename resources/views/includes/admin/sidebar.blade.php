@@ -176,33 +176,33 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Master</h6>
                         @if(Auth::user()->rules == 'admin')
-                        <a class="collapse-item" href="/admin/dosen"><i class="fa fa-chalkboard-teacher text-primary"></i> Dosen</a>
+                        <a class="collapse-item" href="/admin/dosen"><i class="fa fa-chalkboard-teacher  mr-1 text-primary"></i> Dosen</a>
                         @endif
 
                         @if(Auth::user()->rules == 'admin')
-                        <a class="collapse-item" href="/admin/matkul"><i class="fa fa-book text-primary"></i> Mata Kuliah</a>
+                        <a class="collapse-item" href="/admin/matkul"><i class="fa fa-book text-primary mr-1"></i> Mata Kuliah</a>
                         @endif
 
                         @if(Auth::user()->rules == 'admin')
-                        <a class="collapse-item" href="/admin/kelas"><i class="fa fa-school text-primary"></i> Kelas</a>
-                        @endif
-
-                        
-                        @if(Auth::user()->rules == 'admin')
-                        <a class="collapse-item" href="/admin/insentif"><i class="fa fa-credit-card text-primary"></i> Insentif</a>
+                        <a class="collapse-item" href="/admin/kelas"><i class="fa fa-school mr-1 text-primary"></i> Kelas</a>
                         @endif
 
                         
                         @if(Auth::user()->rules == 'admin')
-                        <a class="collapse-item" href="/admin/ruangan"><i class="fa fa-building text-primary"></i> Ruangan</a>
+                        <a class="collapse-item" href="/admin/insentif"><i class="fa fa-credit-card mr-1 text-primary"></i> Insentif</a>
+                        @endif
+
+                        
+                        @if(Auth::user()->rules == 'admin')
+                        <a class="collapse-item" href="/admin/ruangan"><i class="fa fa-building mr-1 text-primary"></i> Ruangan</a>
                         @endif
                         
                         @if(Auth::user()->rules == 'admin')
-                        <a class="collapse-item" href="/admin/tahun-akademik"><i class="far fa-calendar-alt text-primary"></i> Tahun Akademik</a>
+                        <a class="collapse-item" href="/admin/tahun-akademik"><i class="far fa-calendar-alt mr-1 text-primary"></i> Tahun Akademik</a>
                         @endif
 
                         @if(Auth::user()->rules == 'admin')
-                    <a class="collapse-item" href="/admin/testimonial"><i class="fa fa-quote-left text-primary" aria-hidden="true"></i> Testimoni</a>
+                    <a class="collapse-item" href="/admin/testimonial"><i class="fa fa-quote-left text-primary mr-1" aria-hidden="true"></i> Testimoni</a>
                         @endif
                     </div>
                 </div>
@@ -218,11 +218,11 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data User Master</h6>
                         @if(Auth::user()->rules == 'admin')
-                        <a class="collapse-item" href="/admin/user"><i class="fa fa-user text-primary"></i> Daftar User</a>
-                        <a class="collapse-item" href="/admin/asdos"><i class="fa fa-address-card text-primary"></i> Daftar Asdos</a>
-                        <a class="collapse-item" href="/admin/applicant"><i class="fas fa-user-plus text-primary"></i> Daftar Calon Asdos</a>
-                        <a class="collapse-item" href="/admin/daftar-asistensi"><i class="fa fa-users text-primary"></i> Daftar Asistensi</a>
-                        <a class="collapse-item" href="/admin/daftar-asistensi-tidak-aktif"><i class="fa fa-users text-primary"></i> Daftar Asistensi Tidak Aktif</a> 
+                        <a class="collapse-item" href="/admin/user"><i class="fa fa-user text-primary mr-1"></i>Daftar User</a>
+                        <a class="collapse-item" href="/admin/asdos"><i class="fa fa-address-card text-primary mr-1"></i>Daftar Asdos</a>
+                        <a class="collapse-item" href="/admin/applicant"><i class="fas fa-user-plus text-primary mr-1"></i>Daftar Calon Asdos</a>
+                        <a class="collapse-item" href="/admin/daftar-asistensi"><i class="fa fa-users text-primary mr-1"></i>Daftar Asistensi</a>
+                        <a class="collapse-item" href="/admin/daftar-asistensi-tidak-aktif"><i class="fa fa-users text-primary mr-1"></i>Asistensi Non Aktif</a> 
                         @endif
 
                     </div>
