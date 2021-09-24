@@ -97,6 +97,7 @@ Route::get('/admin/user','UserController@index');
 Route::get('/admin/applicant','UserController@daftarasdos');
 Route::get('/admin/asdos','UserController@dataasdos');
 Route::get('/admin/daftar-asistensi',"UserController@daftar_asistensi");
+Route::get('/admin/daftar-asistensi-tidak-aktif',"UserController@daftar_asistensi_nonaktif");
 Route::get('/admin/profileasdos/{id}','UserController@profileasdos');
 Route::get('/admin/asdos/export_excel', 'UserController@export_excel');
 Route::get('/admin/asdos/export_applicant_excel', 'UserController@export_applicant_excel');

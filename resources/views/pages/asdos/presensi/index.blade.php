@@ -46,7 +46,11 @@
       
       <td>{{date('D , d - M - Y',strtotime($item->tanggal_praktek))}}</td>
       <td>{{$item->pertemuan}}</td>
-      <td>{{$item->rekap_absen}}</td>
+      @if($item->rekap_absen == null)
+                      <td><p class="badge badge-warning text-center">Kosong</p></td>
+                      @else
+                      <td>  <a  class="btn btn-primary btn-sm " style="font-size:10px;" href="{{$item->rekap_absen}}" target="_blank"> <i class="fa fa-download"></i> Download Rekap Absen</a>
+                      @endif
       <td>{{$item->keterangan}}</td>
       <td>{{$item->tahun_akademik->kode_tahun_akademik}}</td>
       <td><form action="{{url('asdos/presensi/presensidelete',$item->id)}}" method="post" class="d-inline">

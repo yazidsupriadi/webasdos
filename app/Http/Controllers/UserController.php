@@ -112,6 +112,10 @@ class UserController extends Controller
         $daftar_asistensi_aktif = HistoryAsdos::where('status','=','active')->paginate(10);
         return view('pages.admin.user.daftar_asistensi',compact('daftar_asistensi_aktif'));     
     }
+    public function daftar_asistensi_nonaktif(){
+        $daftar_asistensi_nonaktif = HistoryAsdos::where('status','=','inactive')->paginate(10);
+        return view('pages.admin.user.daftar_asistensi_non_aktif',compact('daftar_asistensi_nonaktif'));     
+    }
 
 
 

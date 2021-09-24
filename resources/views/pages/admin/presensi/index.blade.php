@@ -34,9 +34,16 @@
       
       <td>{{date('D , d - M - Y',strtotime($item->tanggal_praktek))}}</td>
       <td>{{$item->pertemuan}}</td>
-      <td></td>
-      <td>
-    </td>
+      @if($item->rekap_absen == null)
+                      <td><p class="badge badge-warning text-center">Kosong</p></td>
+                      @else
+                      <td>  <a  class="btn btn-primary btn-sm " style="font-size:10px;" href="{{$item->rekap_absen}}" target="_blank"> <i class="fa fa-download"></i> Download Rekap Absen</a>
+                      @endif
+                      @if($item->keterangan == null)
+                      <td><p class="badge badge-warning text-center">Kosong</p></td>
+                      @else
+                      <td>  <a  class="btn btn-primary btn-sm " style="font-size:10px;" href="{{$item->rekap_absen}}" target="_blank"> <i class="fa fa-download"></i> Download Rekap Absen</a>
+                      @endif
     
     </tr>
    

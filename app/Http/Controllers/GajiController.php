@@ -66,10 +66,10 @@ class GajiController extends Controller
 	{
 		return Excel::download(new GajiExport(2021,'08'), 'honor-data.xlsx');
 	}
-    public function export_excel_asdos($id)
+    public function export_excel_asdos(Request $request,$id)
 	{
         
         $user = User::where('id','=',$id)->get();
-		return Excel::download(new GajiExport(2021,'09',$id), 'honor-data-asdos.xlsx');
+		return Excel::download(new GajiExport($request->tahun,$request->bulan,$id), 'honor-data-asdos.xlsx');
 	}
 }

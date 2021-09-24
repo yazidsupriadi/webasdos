@@ -11,10 +11,11 @@
           <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
             <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $matkuls->currentPage() }}</p>  <br/>
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $matkuls->total() }}</p> <br/>
-            {{ $matkuls->links() }} 
+           
             <p> Showing {{($matkuls->currentpage()-1)*$matkuls->perpage()+1}} to {{$matkuls->currentpage()*$matkuls->perpage()}}
             of  {{$matkuls->total()}} entries
             </p>
+            {{ $matkuls->links() }} 
           </div>
   
           <a href="/admin/matkul/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>

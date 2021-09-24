@@ -11,10 +11,11 @@
           <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
             <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $ruangans->currentPage() }}</p>  <br/>
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $ruangans->total() }}</p> <br/>
-            {{ $ruangans->links() }} 
+           
             <p> Showing {{($ruangans->currentpage()-1)*$ruangans->perpage()+1}} to {{$ruangans->currentpage()*$ruangans->perpage()}}
             of  {{$ruangans->total()}} entries
             </p>
+            {{ $ruangans->links() }} 
           </div>
           <a href="/admin/ruangan/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>
 

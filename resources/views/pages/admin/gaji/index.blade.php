@@ -73,8 +73,38 @@
               <h3 style="margin-bottom:45px;margin-top:45px;text-align:center;background:blue; color:white; padding:20px 45px;">Detail Gaji Asisten Dosen</h3>              
               
               @foreach($user as $item)
-                <a href="{{url('/admin/gaji/export_excel_asdos/'.$item->id)}}" target="_blank" class="btn btn-success btn-sm">export excel</a>
-          @endforeach
+              <form action="{{url('/admin/gaji/export_excel_asdos/'.$item->id)}}" method="get">
+              <div class="form-row">
+              <div class="col-sm-3 my-1">
+      <label class="sr-only" for="inlineFormInputGroupUsername">Tahun</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Tahun</div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" name="tahun" placeholder="Masukan Nilai Tahun">
+      </div>
+    </div>
+              <select name="bulan" class="form-row p-1 ml-3">
+                <option value="">Pilih Bulan</option>
+                
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Jali</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+            <button type="submit" class="btn btn-success btn-sm ml-3">Export Laporan Excel</button>
+            
+              </div>
+            </form>     
+              @endforeach
                   
               <table class="table mt-3">
                   <thead class="thead-dark">

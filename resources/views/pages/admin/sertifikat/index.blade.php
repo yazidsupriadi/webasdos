@@ -11,9 +11,10 @@
           <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
             <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $sertifikats->currentPage() }}</p>  <br/>
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $sertifikats->total() }}</p> <br/>
-            {{ $sertifikats->links() }}
+   
             <p> Showing {{($sertifikats->currentpage()-1)*$sertifikats->perpage()+1}} to {{$sertifikats->currentpage()*$sertifikats->perpage()}}
             of  {{$sertifikats->total()}} entries 
+            {{ $sertifikats->links() }}
           </div>
           
           <a href="/admin/sertifikat/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>

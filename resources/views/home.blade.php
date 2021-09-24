@@ -54,8 +54,13 @@
                </form>              
                 @elseif(Auth::user()->rules == 'applicant')
                 <li class="nav-item mr-3">
+                <?php 
+                $users = App\Asdos::where('user_id','=',Auth::user()->id)->get();
+                ?>
+                @if($users)
                   <a class="nav-link" style="background-color:blue;color:white;padding:5px 20px 5px 20px;" href="/daftarasdos/isibio">isi Bio</a>
                 </li>
+                @endif
                 <li class="nav-item mr-3">
                   <a class="nav-link" style="background-color:green;color:white;padding:5px 20px 5px 20px;" href="{{url('daftarasdos/calon-asdos-bio',Auth::user()->id)}}">Bio Applicant</a>
                 </li>

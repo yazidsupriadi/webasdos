@@ -31,11 +31,13 @@ class TahunAkademikController extends Controller
         Alert::success('Data Tahun Akademik Berhasil Dihapus','Data Berhasil dihapus!');
         return redirect()->back();
     }
+  
     public function edit($id){
         $tahun_akademik = TahunAkademik::find($id);
         return view('pages.admin.tahun_akademik.edit',compact('tahun_akademik'));
 
     }  
+  
     public function update(Request $request, $id)
     {
         //

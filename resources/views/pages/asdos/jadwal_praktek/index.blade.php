@@ -41,7 +41,11 @@
                       <td>{{$item->matkul->nama}}</td>
                       <td>{{$item->kelas->kode_kelas}}-{{$item->kelas->angkatan}}</td>
                       <td>{{$item->user->name}}</td>
-                      <td>{{$item->rekap_absen}}</td>
+                      @if($item->rekap_absen == null)
+                      <td><p class="badge badge-warning text-center">Kosong</p></td>
+                      @else
+                      <td>  <a  class="btn btn-primary btn-sm " style="font-size:10px;" href="{{$item->rekap_absen}}" target="_blank"> <i class="fa fa-download"></i> Download Rekap Absen</a>
+                      @endif
                       
                       <td>
 

@@ -117,7 +117,7 @@
   <thead class="thead-dark" style="font-size:10px;">
     <tr>
       <th scope="col">No</th>
-      <th scope="col">Nama User</th>
+      <th scope="col">ID User</th>
       <th scope="col">Type User</th>
       <th scope="col">Event</th>
       <th scope="col">Url</th>

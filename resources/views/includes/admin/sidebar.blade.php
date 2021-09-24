@@ -14,8 +14,10 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider my-5">
-
-      @if(Auth::user()->rules == 'applicant')
+      <?php 
+      $users = App\Asdos::where('user_id','=',Auth::user()->rules)->get();
+      ?>
+      @if(Auth::user()->rules == 'applicant' && $users == null )
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{url('daftarasdos/isibio')}}">
@@ -220,6 +222,7 @@
                         <a class="collapse-item" href="/admin/asdos"><i class="fa fa-address-card text-primary"></i> Daftar Asdos</a>
                         <a class="collapse-item" href="/admin/applicant"><i class="fas fa-user-plus text-primary"></i> Daftar Calon Asdos</a>
                         <a class="collapse-item" href="/admin/daftar-asistensi"><i class="fa fa-users text-primary"></i> Daftar Asistensi</a>
+                        <a class="collapse-item" href="/admin/daftar-asistensi-tidak-aktif"><i class="fa fa-users text-primary"></i> Daftar Asistensi Tidak Aktif</a> 
                         @endif
 
                     </div>
