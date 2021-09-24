@@ -8,13 +8,12 @@
             <h1 class="h3 mb-0 text-light">Daftar Jadwal Praktikum</h1>
             <a href="{{url('/admin/jadwal-praktikum/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm border-light"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Jadwal Praktikum</a>
           </div>
-          <a href="/admin/jadwal-praktikum/export_excel" class="btn btn-sm btn-success my-2 mx-3" target="_blank">EXPORT EXCEL</a>
 
           <div class="container-fluid">
             <div class="row">
                 
 
-<form action="/admin/jadwal-praktikum/search-by-date" method="get" class="d-inline w-100 form-inline m-3" >
+<form action="/admin/jadwal-praktikum/search-by-date" method="get" class="d-inline w-100 form-inline m-2" >
   <div class="row">
              <select name="hari_search" class="form-control" style="font-size:12px;">
            
@@ -45,6 +44,23 @@
 
             </div>
           </div>
+          <hr>
+          
+          <form action="/admin/jadwal-praktikum/export_excel"  method="get">
+              <div class="form-row">
+
+              <select name="tahun_akademik" class="form-select p-1 ml-3">
+              <option value=""> Pilih Tahun Akademik</option>
+              
+              @forelse(App\TahunAkademik::all() as $tahun_akademik)
+              <option value="{{$tahun_akademik->id}}"> {{$tahun_akademik->kode_tahun_akademik}}</option>
+              @empty
+              @endforelse
+            </select>
+            <button type="submit" style="font-size:12px"class="btn btn-success btn-sm ml-3">Export Laporan per Tahun Akademik Excel</button>
+            
+              </div>
+            </form>     
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">

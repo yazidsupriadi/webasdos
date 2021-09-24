@@ -91,9 +91,9 @@ class JadwalPraktikumController extends Controller
  
 	}
 
-    public function export_excel()
+    public function export_excel(Request $request)
 	{
-		return Excel::download(new JadwalPraktikumExport, 'jadwal-praktek.xlsx');
+		return Excel::download(new JadwalPraktikumExport($request->tahun_akademik), 'jadwal-praktek.xlsx');
 	}
 
 }

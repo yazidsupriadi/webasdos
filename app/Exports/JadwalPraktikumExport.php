@@ -23,9 +23,16 @@ FromQuery,WithEvents
     /**
     * @return \Illuminate\Support\Collection
     */
+
+    public function __construct(int $tahun_akademik)
+    {
+        $this->tahun_akademik = $tahun_akademik;
+    }
     public function query()
     {
-        return JadwalPraktikum::query()->with('matkul','kelas','ruangan','tahun_akademik','user');
+        return JadwalPraktikum::query()
+        ->with('matkul','kelas','ruangan','tahun_akademik','user')
+        ->where('tahun_akademik_id',$this->tahun_akademik);
     }
     public function map($jadwal): array
     {
