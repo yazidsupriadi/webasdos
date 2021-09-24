@@ -13,9 +13,8 @@
           <div class="container-fluid">
             <div class="row">
                 
-          <div class="input-group col-lg-3 mt-3">
 
-<form action="/admin/jadwal-praktikum/search-by-date" method="get" class="d-inline w-100 form-inline" >
+<form action="/admin/jadwal-praktikum/search-by-date" method="get" class="d-inline w-100 form-inline m-3" >
   <div class="row">
              <select name="hari_search" class="form-control" style="font-size:12px;">
            
@@ -41,8 +40,6 @@
   <button type="submit" style="font-size:14px;" class="btn btn-outline-primary">search</button>
   </div>
   </form>
-
-</div>
 
 
 

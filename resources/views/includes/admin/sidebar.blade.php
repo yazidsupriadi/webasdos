@@ -209,12 +209,12 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                     aria-controls="collapseTwo" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                     aria-controls="collapseThree" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Data User Master</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data User Master</h6>
                         @if(Auth::user()->rules == 'admin')
