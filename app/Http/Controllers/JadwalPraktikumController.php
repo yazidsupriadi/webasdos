@@ -67,11 +67,10 @@ class JadwalPraktikumController extends Controller
     
     public function search_by_date(Request $request)
 	{
-		// menangkap data pencarian
-		$search = $request->hari_search;
  
     		// mengambil data dari table pegawai sesuai pencarian data
-		$jadwals = JadwalPraktikum::where('hari','like',"%".$search."%")
+		$jadwals = JadwalPraktikum::where('hari','like',"%".$request->hari_search."%")
+        ->where('tahun_akademik_id','like','%'.$request->tahun_akademik_search.'%')
 		->paginate(5);
  
     		// mengirim data pegawai ke view index

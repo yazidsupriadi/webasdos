@@ -15,8 +15,8 @@
                 
           <div class="input-group col-lg-3 mt-3">
 
-<form action="/admin/jadwal-praktikum/search-by-date" method="get" class="d-inline w-100" >
-  <div class="input-group">
+<form action="/admin/jadwal-praktikum/search-by-date" method="get" class="d-inline w-100 form-inline" >
+  <div class="row">
              <select name="hari_search" class="form-control" style="font-size:12px;">
            
              
@@ -29,30 +29,22 @@
                  <option value="Jumat">Jum'at</option>
                  <option value="Sabtu">Sabtu</option>
              </select> 
-
-  <button type="submit" style="font-size:14px;" class="btn btn-outline-primary">search</button>
-  </div>
-  </form>
-
-</div>
-
-<div class="input-group col-lg-3 mt-3">
-<form action="/admin/jadwal-praktikum/search-by-tahun-akademik" method="get" class="d-inline w-100" >
-  <div class="input-group">
              <select name="tahun_akademik_search" class="form-control" style="font-size:12px;">
            
              
-             <option value="">Cari Sesuai Tahun Akademik</option>
-                 @foreach(App\TahunAkademik::all() as $item)
-                 <option value="{{$item->id}}">{{$item->kode_tahun_akademik}}</option>
-                 @endforeach
-             </select> 
+           <option value="">Cari Sesuai Tahun Akademik</option>
+               @foreach(App\TahunAkademik::all() as $item)
+               <option value="{{$item->id}}">{{$item->kode_tahun_akademik}}</option>
+               @endforeach
+           </select> 
 
   <button type="submit" style="font-size:14px;" class="btn btn-outline-primary">search</button>
   </div>
   </form>
 
 </div>
+
+
 
             </div>
           </div>
