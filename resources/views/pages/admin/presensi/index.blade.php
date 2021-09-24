@@ -11,6 +11,7 @@
           </div>
 
           @foreach($user as $item)
+          @if($item->id == $presensis->user_id)
               <form action="{{url('/admin/presensi/export_excel_asdos/'.$item->id)}}" method="get">
               <div class="form-row">
               <div class="col-sm-3 my-1">
@@ -42,6 +43,7 @@
             
               </div>
             </form>     
+            @endif
               @endforeach
 
           <!-- Content Row -->
