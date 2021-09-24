@@ -12,6 +12,37 @@
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $users->total() }}</p> <br/>
             {{ $users->links() }} 
           </div>
+          <form action="/admin/gaji/export_excel" method="get" class="my-3">
+              <div class="form-row">
+              <div class="col-sm-3 my-1">
+      <label class="sr-only" for="inlineFormInputGroupUsername">Tahun</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Tahun</div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" value="{{date('Y')}}" name="tahun" placeholder="Masukan Nilai Tahun">
+      </div>
+    </div>
+              <select name="bulan" class="form-row p-1 ml-3">
+                <option value="0">Pilih Bulan</option>
+                
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Jali</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+            <button type="submit" class="btn btn-success btn-sm ml-3">Export Laporan Presensi Excel</button>
+            
+              </div>
+            </form>     
           <a href="/admin/gaji/export_excel" class="btn btn-success my-2 mx-4" target="_blank">EXPORT SEMUA DATA HONOR EXCEL</a>
 		
           <!-- Content Row -->

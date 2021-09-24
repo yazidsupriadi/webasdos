@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Concerns\WithEvents;
 
-class PresensiExport implements ShouldAutoSize,
+class PresensiAsdosExport implements ShouldAutoSize,
 WithMapping,
 WithHeadings,
 FromQuery,WithEvents
@@ -18,8 +18,7 @@ FromQuery,WithEvents
     /**
     * @return \Illuminate\Support\Collection
     */
-    
-    public function __construct(int $year, int $month)
+    public function __construct(int $year, int $month,int $user)
     {
         $this->month = $month;
         $this->year  = $year;
@@ -28,7 +27,8 @@ FromQuery,WithEvents
     {
         return  Presensi::query()->with('user','tahun_akademik','jadwal_praktek')
         ->whereYear('tanggal_praktek', $this->year)
-        ->whereMonth('tanggal_praktek', $this->month);
+        ->whereMonth('tanggal_praktek', $this->month)
+        ->where('user_id',$this->user);
     }
 
     public function map($presensi): array

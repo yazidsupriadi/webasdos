@@ -81,7 +81,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text">Tahun</div>
         </div>
-        <input type="text" class="form-control" id="inlineFormInputGroupUsername" name="tahun" placeholder="Masukan Nilai Tahun">
+        <input type="text" class="form-control" value="{{date('Y')}}" id="inlineFormInputGroupUsername" name="tahun" placeholder="Masukan Nilai Tahun">
       </div>
     </div>
               <select name="bulan" class="form-row p-1 ml-3">

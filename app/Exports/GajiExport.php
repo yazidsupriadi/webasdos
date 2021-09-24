@@ -19,19 +19,17 @@ FromQuery,WithEvents
     * @return \Illuminate\Support\Collection
     */
 
-    public function __construct(int $year, int $month, int $user)
+    public function __construct(int $year, int $month)
     {
         $this->month = $month;
         $this->year  = $year;
-        $this->user  = $user;
     }
     public function query()
     {
         return  Gaji::query()
         ->with('insentif','user')
         ->whereYear('created_at', $this->year)
-        ->whereMonth('created_at', $this->month)
-        ->where('user_id','=',$this->user);
+        ->whereMonth('created_at', $this->month);
     }
 
     public function map($gaji): array

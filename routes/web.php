@@ -110,7 +110,7 @@ Route::get('/admin/user/rules/{id}','UserController@makeadmin');
 Route::get('/admin/presensi/detail/{id}','PresensiController@detailpresensi');
 Route::get('/admin/asdos-presensi','PresensiController@asdos_presensi');
 Route::get('/admin/presensi/export_excel', 'PresensiController@export_excel');
-
+Route::get('/admin/presensi/export_excel_asdos/{id}', 'PresensiController@export_excel_asdos');
 //gaji
 Route::get('admin/gaji','GajiController@index');
 Route::get('admin/honor-asdos','GajiController@asdos_honor');

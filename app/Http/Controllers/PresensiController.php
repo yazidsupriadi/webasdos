@@ -23,8 +23,10 @@ class PresensiController extends Controller
     }
 
     public function detailpresensi($id){
+        
+        $user = User::where('id','=',$id)->get();
         $presensis = Presensi::where('user_id','=',$id)->get();
-        return view('pages.admin.presensi.index',compact('presensis'));
+        return view('pages.admin.presensi.index',compact('presensis','user'));
     }
 
     
@@ -78,8 +80,15 @@ class PresensiController extends Controller
     }
 
     
-    public function export_excel()
+    public function export_excel(Request $request)
 	{
-		return Excel::download(new PresensiExport, 'presensi-data.xlsx');
+		return Excel::download(new PresensiExport($request->tahun,$request->bulan), 'presensi-asdos.xlsx');
+	}
+
+    public function export_excel_asdos(Request $request,$id)
+	{
+        
+        $user = User::where('id','=',$id)->get();
+		return Excel::download(new PresensiExport($request->tahun,$request->bulan,$id), 'presensi-data-asdos.xlsx');
 	}
 }

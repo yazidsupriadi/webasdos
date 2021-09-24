@@ -62,14 +62,14 @@ class GajiController extends Controller
         return view('pages.asdos.gaji.index',compact('gajis','total_gajis'));
         
     }
-    public function export_excel()
+    public function export_excel(Request $request)
 	{
-		return Excel::download(new GajiExport(2021,'08'), 'honor-data.xlsx');
+		return Excel::download(new GajiExport($request->tahun,$request->bulan), 'honor data bulan '.$request->bulan.' tahun '.$request->tahun.'.xlsx');
 	}
     public function export_excel_asdos(Request $request,$id)
 	{
         
         $user = User::where('id','=',$id)->get();
-		return Excel::download(new GajiExport($request->tahun,$request->bulan,$id), 'honor-data-asdos.xlsx');
+		return Excel::download(new GajiExport($request->tahun,$request->bulan,$id),'honor data bulan '.$request->bulan.' tahun '.$request->tahun.'.xlsx');
 	}
 }

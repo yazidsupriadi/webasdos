@@ -7,6 +7,40 @@
             <h1 class="h3 mb-0 text-light">Detail Presensi Asdos</h1>
           </div>
 
+          @foreach($user as $item)
+              <form action="{{url('/admin/gaji/export_excel_asdos/'.$item->id)}}" method="get">
+              <div class="form-row">
+              <div class="col-sm-3 my-1">
+      <label class="sr-only" for="inlineFormInputGroupUsername">Tahun</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Tahun</div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" value="{{date('Y')}}" name="tahun" placeholder="Masukan Nilai Tahun">
+      </div>
+    </div>
+              <select name="bulan" class="form-row p-1 ml-3">
+                <option value="">Pilih Bulan</option>
+                
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Jali</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+            <button type="submit" class="btn btn-success btn-sm ml-3">Export Laporan Excel</button>
+            
+              </div>
+            </form>     
+              @endforeach
+
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800 col-sm-12">
