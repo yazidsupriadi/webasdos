@@ -118,7 +118,7 @@ class Controller extends BaseController
             'assets/foto','public'
         );
         Asdos::create($asdos);
-        return redirect('/daftarasdos/daftar-matkul',$asdos->id);
+        return redirect('/');
     }
 
     

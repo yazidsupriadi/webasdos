@@ -114,7 +114,7 @@
             @endif
           
           </div>
-          
+          @if(Auth::user()->rules == 'admin')
           <div class="jumbotron-fluid bg-primary text-light p-3 m-3">
            <h3 class="display-6 text-center">Audit Trail</h3>
           </div>
@@ -160,6 +160,7 @@
             </table>
             </div>
           </div>
+          @endif
         
          
 @endsection

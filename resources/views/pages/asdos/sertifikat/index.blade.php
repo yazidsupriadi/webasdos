@@ -33,7 +33,7 @@
       <td>{{$item->nama}}</td>
       <td>{{$item->jabatan}}</td>
       <td>{{$item->matkul}}</td>
-      <td> <a  class="btn btn-primary" href="{!! route('download_sertifikat', $item->sertifikat_file) !!}" download> <i class="fa fa-download"></i> Download Sertifikat</a>
+      <td> <a  class="btn btn-primary" href="{{$item->sertifikat_file}}" target="_blank"> <i class="fa fa-download"></i> Download Sertifikat</a>
     </td>
       
 

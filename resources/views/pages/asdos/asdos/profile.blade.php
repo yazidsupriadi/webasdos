@@ -30,7 +30,7 @@
                 <h4 class="text-bold" style="font-size:16px;font-weight:bold;text-align:center;text-transform:capitalize;">Name : {{$item->user->name}}</h4>
                 @endforeach
                 @if(Auth::user()->rules == 'asdos')
-                <a href="{{url('asdos/profile/edit-photo',$item->id)}}" class="btn btn-primary btn-sm btn-block">Edit Profile</a>
+                <a href="{{url('asdos/profile/edit-photo',$item->id)}}" class="btn btn-primary btn-sm btn-block">Edit Photo</a>
                        @endif
                 
                 </ul>

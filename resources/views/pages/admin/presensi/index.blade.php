@@ -11,7 +11,7 @@
           </div>
 
           @foreach($user as $item)
-              <form action="{{url('/admin/gaji/export_excel_asdos/'.$item->id)}}" method="get">
+              <form action="{{url('/admin/presensi/export_excel_asdos/'.$item->id)}}" method="get">
               <div class="form-row">
               <div class="col-sm-3 my-1">
       <label class="sr-only" for="inlineFormInputGroupUsername">Tahun</label>
