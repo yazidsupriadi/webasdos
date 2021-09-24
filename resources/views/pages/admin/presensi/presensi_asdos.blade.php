@@ -3,9 +3,9 @@
 @section('content')
   
   <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Daftar Presensi Asdos</h1>
-          </div>
+  <div class="d-sm-flex align-items-center justify-content-between bg-primary p-4 mb-4">
+            <h1 class="h3 mb-0 text-light">Daftar Presensi Asdos</h1>
+           </div>
 
           
           <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 

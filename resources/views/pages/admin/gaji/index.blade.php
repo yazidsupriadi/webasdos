@@ -84,7 +84,7 @@
         <input type="text" class="form-control" value="{{date('Y')}}" id="inlineFormInputGroupUsername" name="tahun" placeholder="Masukan Nilai Tahun">
       </div>
     </div>
-              <select name="bulan" class="form-row p-1 ml-3">
+              <select name="bulan" class="form-select p-1 ml-3">
                 <option value="">Pilih Bulan</option>
                 
                 <option value="01">Januari</option>

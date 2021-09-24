@@ -4,7 +4,10 @@
   
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4 bg-primary p-4">
-            <h1 class="h3 mb-0 text-light">Detail Presensi Asdos</h1>
+            
+         @forelse($user as $item)
+            <h1 class="h3 mb-0 text-light">Detail Presensi Asdos : {{$item->name}}</h1>
+          @endforeach
           </div>
 
           @foreach($user as $item)

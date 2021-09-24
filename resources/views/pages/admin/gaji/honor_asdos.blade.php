@@ -3,10 +3,9 @@
 @section('content')
   
   <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Daftar Honor Asdos</h1>
+  <div class="d-sm-flex align-items-center justify-content-between bg-primary p-4 mb-4">
+            <h1 class="h3 mb-0 text-light">Daftar Honor Asdos</h1>
           </div>
-          
           <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
             <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $users->currentPage() }}</p>  <br/>
 	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $users->total() }}</p> <br/>
@@ -23,7 +22,7 @@
         <input type="text" class="form-control" id="inlineFormInputGroupUsername" value="{{date('Y')}}" name="tahun" placeholder="Masukan Nilai Tahun">
       </div>
     </div>
-              <select name="bulan" class="form-row p-1 ml-3">
+              <select name="bulan" class="form-select form-select-sm p-1 ml-3">
                 <option value="0">Pilih Bulan</option>
                 
                 <option value="01">Januari</option>
@@ -43,8 +42,6 @@
             
               </div>
             </form>     
-          <a href="/admin/gaji/export_excel" class="btn btn-success my-2 mx-4" target="_blank">EXPORT SEMUA DATA HONOR EXCEL</a>
-		
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">
