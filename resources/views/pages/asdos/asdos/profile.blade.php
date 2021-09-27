@@ -30,7 +30,7 @@
                 <h4 class="text-bold" style="font-size:16px;font-weight:bold;text-align:center;text-transform:capitalize;">Name : {{$item->user->name}}</h4>
                 @endforeach
                 @if(Auth::user()->rules == 'asdos')
-                <a href="{{url('asdos/profile/edit-photo',$item->id)}}" class="btn btn-primary btn-sm btn-block">Edit Photo</a>
+                <a href="{{url('asdos/profile/edit-photo',Auth::user()->id)}}" class="btn btn-primary btn-sm btn-block">Edit Photo</a>
                        @endif
                 
                 </ul>
@@ -59,10 +59,11 @@
                             <a  class="btn btn-primary my-3" href="{{$item->berkas}}" target="_blank"> <i class="fa fa-download"></i> Download Berkas Pendaftaran</a>
 
                             
-                @if(Auth::user()->rules == 'asdos')
-                            <a href="{{url('asdos/profile/edit',$item->id)}}" class="btn btn-primary btn-block">Edit Profile</a>
-                @endif
+                
                             @endforeach
+                            @if(Auth::user()->rules == 'asdos')
+                            <a href="{{url('asdos/profile/edit',Auth::user()->id)}}" class="btn btn-primary btn-block">Edit Profile</a>
+                @endif
            
                     
                     </div>
