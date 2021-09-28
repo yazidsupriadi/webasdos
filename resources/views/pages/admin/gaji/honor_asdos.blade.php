@@ -38,7 +38,7 @@
                 <option value="11">November</option>
                 <option value="12">Desember</option>
             </select>
-            <button type="submit" class="btn btn-success btn-sm ml-3">Export Laporan Presensi Excel</button>
+            <button type="submit" class="btn btn-success btn-sm ml-3">Export Laporan Honor Excel</button>
             
               </div>
             </form>     
