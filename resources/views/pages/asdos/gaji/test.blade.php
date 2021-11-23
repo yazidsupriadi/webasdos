@@ -9,11 +9,6 @@
       
           </div>
           
-          <div class=" card-header d-sm-flex align-items-center justify-content-between mb-4p-4"> 
-            <p><i class="fa fa-bookmark text-primary" aria-hidden="true"></i> Halaman : {{ $presensis->currentPage() }}</p>  <br/>
-	          <p><i class="fa fa-calculator text-primary" aria-hidden="true"></i> Jumlah Data : {{ $presensis->total() }}</p> <br/>
-            {{ $presensis->links() }} 
-          </div>
 
           <!-- Content Row -->
           <div class="row">
@@ -36,7 +31,7 @@
   </thead>
   <tbody>
   <?php $i = 1 ?>
-  @forelse($presensis as $item)
+  @forelse($presensi as $item)
     <tr>
       <th scope="row">{{$i++}}</th>
       <td>{{$item->user->name}}</td>

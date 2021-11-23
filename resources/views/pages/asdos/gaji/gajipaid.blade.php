@@ -4,11 +4,11 @@
   
   <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4 bg-primary p-4">
-            <h1 class="h3 mb-0 text-light">Informasi Honor Asdos Diterima</h1>
+            <h1 class="h3 mb-0 text-light">Informasi Honor Asdos Telah Dibayar</h1>
           
           </div>
 
-          <a href="/asdos/gaji/paid" class="btn btn-success p-2 mx-3 my-2">Honor Paid</a>
+          <a href="/asdos/gaji" class="btn btn-warning p-2 mx-3 my-2">Honor Accepted</a>
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">
@@ -54,15 +54,13 @@
                       <th scope="col">Kode Gaji</th>
                       <th scope="col">Bulan</th>
                       <th scope="col">Jumlah Insentif </th>
-                      <th scope="col">Jenis Praktikum </th>
                       
                       <th scope="col">Detail Presensi </th>
+                      <th scope="col">Jenis Praktikum </th>
                       
                       <th scope="col">Asdos</th>
                      
-                      <th scope="col">Status Honor</th>
-                      
-                      <th scope="col">Status Pembayaran</th>
+                      <th scope="col">Status Pembayaran </th>
                       
                     </tr>
                   </thead>
@@ -79,16 +77,11 @@
                       <td>{{$item->kode_gaji}}</td>
                       <td>{{$item->bulan_gaji}}</td>
                       <td>{{$item->total}}</td> 
-                      <td>{{$item->insentif->tipe_insentif}}</td>
-                      <td><a  href="{{url('/asdos/gaji/detail/presensi',$item->presensi_id)}}" class="btn btn-primary btn-sm px-3 py-1">detail</a></td>                  
-                    
-                      <td>{{Auth::user()->name}}</td>
-                      <td >  @if($item->status == 'accepted')
-                         <span class="badge bg-warning text-light">{{$item->status}}</span>
-                        @else
-                        <span class="badge bg-success text-light">{{$item->status}}</span>
-                      @endif</td>
                       
+                      <td><a  href="{{url('/asdos/gaji/detail/presensi',$item->presensi_id)}}" class="btn btn-primary mx-2 ">detail</a></td>                  
+                    
+                      <td>{{$item->insentif->tipe_insentif}}</td>
+                      <td>{{$item->user->name}}</td>
                       <td >  @if($item->paid == 'Y')
                          <span class="badge bg-success text-light">Paid</span>
                         @else

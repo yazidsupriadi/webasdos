@@ -21,7 +21,7 @@
           <!-- Content Row -->
           <div class="card-shadow">
             <div class="card-body">
-              <form action="{{url('/asdos/profile/edit',$asdos->id)}}" method="post" >
+              <form action="{{url('/asdos/profile/edit',Auth::user()->id)}}" method="post" >
                 @csrf
                 
                 @method('PUT')

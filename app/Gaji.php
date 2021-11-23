@@ -22,5 +22,8 @@ class Gaji extends Model implements Auditable
     public function insentif() { 
     return $this->belongsTo(Insentif::class,'insentif_id','id'); 
     }
-
+    public function presensi() { 
+        return $this->belongsTo(Presensi::class,'presensi_id','id'); 
+        }
+    
 }

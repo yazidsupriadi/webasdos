@@ -23,6 +23,9 @@ class Presensi extends Model implements Auditable
     public function jadwal_praktek(){
     	return $this->belongsTo(JadwalPraktikum::class,'jadwal_praktikum_id','id');
     }
+    public function gaji(){
+    	return $this->hasMany(Gaji::class);
+    }
     
 
 }

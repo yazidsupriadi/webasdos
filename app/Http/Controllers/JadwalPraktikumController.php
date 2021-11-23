@@ -17,8 +17,13 @@ class JadwalPraktikumController extends Controller
 {
     //
     public function index(){
-        $jadwals = JadwalPraktikum::where('hari','=','Senin')->paginate(10);
+        $jadwals = JadwalPraktikum::where('status','=','active')->paginate(10);
         return view('pages.admin.jadwal_praktek.index',compact('jadwals'));
+    }
+    public function adminpendingindex(){
+        $jadwals = JadwalPraktikum::where('status','=','pending')->paginate(10);
+        return view('pages.admin.jadwal_praktek.index',compact('jadwals'));
+        
     }
 
     public function add(){
@@ -60,7 +65,12 @@ class JadwalPraktikumController extends Controller
     }
 
     public function asdosindex(){
-        $jadwals = Auth::user()->jadwal_praktek()->get();
+        $jadwals = Auth::user()->jadwal_praktek()->where('status','=','active')->get();
+        return view('pages.asdos.jadwal_praktek.index',compact('jadwals'));
+        
+    }
+    public function asdospendingindex(){
+        $jadwals = Auth::user()->jadwal_praktek()->where('status','=','pending')->get();
         return view('pages.asdos.jadwal_praktek.index',compact('jadwals'));
         
     }
@@ -96,4 +106,21 @@ class JadwalPraktikumController extends Controller
 		return Excel::download(new JadwalPraktikumExport($request->tahun_akademik), 'jadwal-praktek.xlsx');
 	}
 
+    public function updatestatusjadwalpraktek($id)
+    {
+        $jadwals = JadwalPraktikum::find($id);
+        if($jadwals->status == 'active'){
+            $change_status = 'pending';
+            Alert::success('Jadwal Praktikum pending','Data Berhasil diubah!');
+
+        }
+        else {
+            $change_status = 'active';
+            
+            Alert::success('Jadwal Praktikum active','Data Berhasil diubah!');
+        }
+
+        JadwalPraktikum::where('id',$id)->update(['status' => $change_status]);
+        return redirect()->back();
+    }
 }

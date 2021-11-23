@@ -12,6 +12,7 @@ use App\User;
 use App\TahunAkademik;
 use App\Exports\PresensiExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Response;
 use DB;
 use Alert;
 class PresensiController extends Controller
@@ -25,7 +26,7 @@ class PresensiController extends Controller
     public function detailpresensi($id){
         
         $user = User::where('id','=',$id)->get();
-        $presensis = Presensi::where('user_id','=',$id)->get();
+        $presensis = Presensi::where('user_id','=',$id)->orderby('created_at','desc')->get();
         return view('pages.admin.presensi.index',compact('presensis','user'));
     }
 
@@ -36,13 +37,14 @@ class PresensiController extends Controller
         return view('pages.asdos.presensi.index',compact('presensis','insentif'));
     }
 
-    public function addasdos(){
+    public function addasdos($id){
         
+        $user = User::where('id','=',$id)->get();
         $insentif = Insentif::all();
-        $presensis = Presensi::all();
-        $tahun_akademik = TahunAkademik::all();
+        $presensis = Presensi::where('user_id','=',$id)->get();
         $jadwals = Auth::user()->jadwal_praktek()->get();
-        return view('pages.asdos.presensi.add',compact('presensis','jadwals','insentif','tahun_akademik'));
+        $tahun_akademik = TahunAkademik::where('tahun','=',date('Y'))->get();
+        return view('pages.asdos.presensi.add',compact('user','presensis','jadwals','insentif','tahun_akademik'));
     }
 
     
@@ -91,4 +93,46 @@ class PresensiController extends Controller
         $user = User::where('id','=',$id)->get();
 		return Excel::download(new PresensiExport($request->tahun,$request->bulan,$id), 'presensi-data-asdos.xlsx');
 	}
+
+    public function updatestatusapprovalpresensi($id)
+    {
+        $presensis = Presensi::find($id);
+        if($presensis->approved == 'Y'){
+            $change_status = 'N';
+            Alert::success('Presensi tidak di approved','Data Berhasil diubah!');
+
+        }
+        else {
+            $change_status = 'Y';
+            
+            Alert::success('Presensi di approved','Data Berhasil diubah!');
+        }
+
+        Presensi::where('id',$id)->update(['approved' => $change_status]);
+        return redirect()->back();
+
+    }
+
+    public function insentif($id)
+    {
+        $data = Insentif::where('id','=',$id)->first();
+        return response()->json($data);
+
+
+    }
+    public function edit($id){
+        $presensi = Presensi::find($id);
+        $tahun_akademik = TahunAkademik::where('tahun','=',date('Y'))->get();
+        $insentif = Insentif::all();
+        
+        return view('pages.admin.presensi.edit',compact('presensi','tahun_akademik','insentif'));
+    }
+    
+    public function update(Request $request,$id){
+        $presensi = $request->all();
+        $item = Presensi::findOrFail($id);
+         $item->update($presensi);
+         
+        return redirect('admin/asdos-presensi');
+    }
 }

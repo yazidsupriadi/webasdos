@@ -113,11 +113,11 @@
                       <th scope="col">Kode Gaji</th>
                       <th scope="col">Bulan</th>
                       <th scope="col">Jumlah Insentif </th>
-                      <th scope="col">Jenis Praktikum </th>
-                      
+                      <th scope="col">Jenis Praktikum </th>     
                       <th scope="col">Asdos</th>
-                     
-                      <th scope="col">Status </th>
+                      <th scope="col">Detail Presensi</th>
+                      <th scope="col">Status Honor</th>
+                      <th scope="col">Status Pembayaran</th>
                      <th scope="col">Action</th> 
                     </tr>
                   </thead>
@@ -133,11 +133,20 @@
                       <td>{{$item->bulan_gaji}}</td>
                       <td>{{$item->total}}</td> 
                       <td>{{$item->insentif->tipe_insentif}}</td>
-                      <td>{{Auth::user()->name}}</td>
+                      <td>{{$item->user->name}}</td>
+                      
+                      <td><a  href="{{url('/admin/gaji/detail/presensi',$item->presensi_id)}}" class="btn btn-primary btn-sm px-3 py-1">detail</a></td>                  
+                    
                       <td > @if($item->status == 'accepted')
                          <span class="badge bg-warning text-light">{{$item->status}}</span>
                         @else
                         <span class="badge bg-success text-light">{{$item->status}}</span>
+                      @endif
+                      </td>
+                      <td > @if($item->paid == 'N')
+                         <span class="badge bg-warning text-light">Belum Dibayar</span>
+                        @else
+                        <span class="badge bg-success text-light">Sudah dibayar</span>
                       @endif
                       </td>
                       <td > @if($item->status == 'accepted')

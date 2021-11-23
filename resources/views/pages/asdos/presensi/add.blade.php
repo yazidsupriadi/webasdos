@@ -59,20 +59,7 @@
                           
                           <option value="">Pilih Tahun Akademik</option>
                               @foreach($tahun_akademik as $item)
-                              <option value="{{$item->id}}">{{$item->kode_tahun_akademik}}</option>
-                              @endforeach
-                          </select>
-                      
-                      </div>
-                  <div class="form-group">
-                     
-                        <label for="slug">Jadwal Praktikum</label>
-                          <select name="jadwal_praktikum_id" class="form-control">
-                        
-                          
-                          <option value="">Pilih Jadwal praktikum</option>
-                              @foreach($jadwals as $item)
-                              <option value="{{$item->id}}">{{$item->hari}} -  {{$item->matkul->nama}} - {{$item->kelas->kode_kelas}} - {{$item->kelas->angkatan}}</option>
+                              <option value="{{$item->id}}">{{$item->tahun}}</option>
                               @endforeach
                           </select>
                       

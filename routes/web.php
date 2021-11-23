@@ -91,6 +91,8 @@ Route::delete('/admin/jadwal-praktikum/delete/{id}','JadwalPraktikumController@d
 Route::get('/admin/jadwal-praktikum/search-by-date','JadwalPraktikumController@search_by_date');
 Route::get('/admin/jadwal-praktikum/search-by-tahun-akademik','JadwalPraktikumController@search_by_tahun_akademik');
 Route::get('/admin/jadwal-praktikum/export_excel', 'JadwalPraktikumController@export_excel');
+Route::get('/admin/jadwal-praktikum/pending','JadwalPraktikumController@adminpendingindex');
+Route::get('/admin/jadwal-praktikum/updatestatus/{id}','JadwalPraktikumController@updatestatusjadwalpraktek');
 
 //user
 Route::get('/admin/user','UserController@index');
@@ -111,6 +113,10 @@ Route::get('/admin/presensi/detail/{id}','PresensiController@detailpresensi');
 Route::get('/admin/asdos-presensi','PresensiController@asdos_presensi');
 Route::get('/admin/presensi/export_excel', 'PresensiController@export_excel');
 Route::get('/admin/presensi/export_excel_asdos/{id}', 'PresensiController@export_excel_asdos');
+Route::get('/admin/presensi/updatestatusapproval/{id}','PresensiController@updatestatusapprovalpresensi');
+Route::get('/admin/presensi/editpresensi/{id}','PresensiController@edit');
+Route::put('/admin/presensi/editpresensi/update/{id}','PresensiController@update');
+
 //gaji
 Route::get('admin/gaji','GajiController@index');
 Route::get('admin/honor-asdos','GajiController@asdos_honor');
@@ -118,6 +124,7 @@ Route::get('/admin/honorasdos/updategaji/{id}','GajiController@updatestatusgaji'
 Route::get('/admin/gaji/detail/{id}','GajiController@detailgaji');
 Route::get('/admin/gaji/export_excel', 'GajiController@export_excel');
 Route::get('/admin/gaji/export_excel_asdos/{id}', 'GajiController@export_excel_asdos');
+Route::get('/admin/gaji/detail/presensi/{id}','GajiController@detailpresensi');
 
 //sertifikat
 Route::get('admin/sertifikat','SertifikatController@index');
@@ -156,6 +163,7 @@ Route::group(['middleware' => 'asdos'], function()
 Route::get('/asdos/dashboard','HomeController@asdos');
 
 Route::get('/asdos/jadwal-praktikum','JadwalPraktikumController@asdosindex');
+Route::get('/asdos/jadwal-praktikum/pending','JadwalPraktikumController@asdospendingindex');
 Route::get('/asdos/jadwal-praktikum/add','JadwalPraktikumController@addasdos');
 Route::post('/asdos/jadwal-praktikum/store','JadwalPraktikumController@storeasdos');
 
@@ -173,10 +181,10 @@ Route::get('/asdos','UserController@asdos');
 
 //presensi
 Route::get('/asdos/presensi','PresensiController@indexasdos');
-Route::get('/asdos/presensi/add','PresensiController@addasdos');
+Route::get('/asdos/presensi/add/{id}','PresensiController@addasdos');
 Route::post('/asdos/presensi/store','PresensiController@asdosstore');
 Route::delete('/asdos/presensi/presensidelete/{id}','PresensiController@presensidelete');
-
+Route::get('/insentif/{id}','PresensiController@insentif')->name('getinsentif');
 
 //asdos
 Route::get('/asdos/profile/{id}','AsdosController@profile');
@@ -188,6 +196,8 @@ Route::put('/asdos/profile/edit-photo/{id}','AsdosController@updatephoto');
 
 //gaji
 Route::get('/asdos/gaji','GajiController@asdosindex');
+Route::get('/asdos/gaji/paid','GajiController@asdosgajipaid');
+Route::get('/asdos/gaji/detail/presensi/{id}','GajiController@detailpresensi');
 
 //sertifikat
 Route::get('/asdos/sertifikat/{id}','SertifikatController@sertifikatasdos');

@@ -55,11 +55,13 @@
     <tr>
       <th scope="col">No</th>
       <th scope="col">Asdos</th>
-      <th scope="col">Mata Kuliah</th>
       <th scope="col">Tanggal Praktek</th>
       <th scope="col">Pertemuan</th>
       <th scope="col">Rekap Absen</th>
+      <th scope="col">Status Presensi</th> 
+      <th scope="col">Action Status Presensi</th> 
       <th scope="col">Keterangan</th>
+      <th scope="col">Action</th>
    
     </tr>
   </thead>
@@ -69,7 +71,6 @@
     <tr>
       <th scope="row">{{$i++}}</th>
       <td>{{$item->user->name}}</td>
-      <td>{{$item->jadwal_praktek->matkul->nama}}</td>
       
       <td>{{date('D , d - M - Y',strtotime($item->tanggal_praktek))}}</td>
       <td>{{$item->pertemuan}}</td>
@@ -78,11 +79,28 @@
                       @else
                       <td>  <a  class="btn btn-primary btn-sm " style="font-size:10px;" href="{{$item->rekap_absen}}" target="_blank"> <i class="fa fa-download"></i> Download Rekap Absen</a>
                       @endif
+                      @if($item->approved == 'Y')
+                      <td><p class="badge badge-success text-center">Approved</p></td>
+                      @else
+                      <td><p class="badge badge-warning text-center">Not Approved</p></td>
+                      
+                      @endif
+                      
+                      <td > @if($item->approved == 'N')
+            <a href="{{url('/admin/presensi/updatestatusapproval/'.$item->id)}}" class="btn btn-primary btn-sm">Make Approved</a>
+          @else
+            <a href="{{url('/admin/presensi/updatestatusapproval/'.$item->id)}}" class="btn btn-danger btn-sm ">Make Not Approved</a>
+         @endif</td>
+  
+    
                       @if($item->keterangan == null)
                       <td><p class="badge badge-warning text-center">Kosong</p></td>
                       @else
                       <td>  <a  class="btn btn-primary btn-sm " style="font-size:10px;" href="{{$item->rekap_absen}}" target="_blank"> <i class="fa fa-download"></i> Download Rekap Absen</a>
                       @endif
+
+                      <td> <a href="{{url('/admin/presensi/editpresensi/'.$item->id)}}" class="btn btn-success btn-sm">Edit</a>
+         </td>
     
     </tr>
    

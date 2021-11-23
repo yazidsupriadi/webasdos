@@ -8,7 +8,8 @@
             <h1 class="h3 mb-0 text-light">Daftar Jadwal Praktikum</h1>
             <a href="{{url('/admin/jadwal-praktikum/add')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm border-light"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Jadwal Praktikum</a>
           </div>
-
+     
+        
           <div class="container-fluid">
             <div class="row">
                 
@@ -61,6 +62,10 @@
             
               </div>
             </form>     
+            <a href="{{url('/admin/jadwal-praktikum/pending')}}" class="ml-3 mt-3 d-none d-sm-inline-block btn btn-sm btn-success   shadow-sm border-light "><i class="fas fa-calendar fa-sm text-white-50"></i> Request Jadwal Praktek</a>
+         
+         <a href="{{url('/admin/jadwal-praktikum')}}" class="mt-3 d-none d-sm-inline-block btn btn-sm btn-primary   shadow-sm border-light "><i class="fas fa-calendar fa-sm text-white-50"></i>  Jadwal Praktek Active</a>
+      
           <!-- Content Row -->
           <div class="row">
             <div class="card-body text-gray-800">
@@ -76,6 +81,8 @@
                       <th scope="col">Kelas</th>
                       <th scope="col">Tahun Akademik</th>
                       <th scope="col">Asdos</th>
+                      <th scope="col">Status</th>
+
                       <th scope="col">Rekap Absen</th>
                       
                       <th scope="col">Action</th>
@@ -95,13 +102,19 @@
                       <td>{{$item->kelas->kode_kelas}}-{{$item->kelas->angkatan}}</td>
                       <td>{{$item->tahun_akademik->kode_tahun_akademik}}</td>
                       <td>{{$item->user->name}}-{{$item->kelas->angkatan}}</td>
+                    
+                      <td > @if($item->status == 'pending')
+            <a href="{{url('/admin/jadwal-praktikum/updatestatus/'.$item->id)}}" class="btn btn-primary btn-sm">Make active</a>
+          @else
+            <a href="{{url('/admin/jadwal-praktikum/updatestatus/'.$item->id)}}" class="btn btn-warning btn-sm ">Make pending</a>
+         @endif</td>
+  
                       @if($item->rekap_absen == null)
                       <td><p class="badge badge-warning text-center">Kosong</p></td>
                       @else
                       <td>  <a  class="btn btn-primary btn-sm " style="font-size:10px;" href="{{$item->rekap_absen}}" target="_blank"> <i class="fa fa-download"></i> Download Rekap Absen</a>
                       @endif
-</td>
-                      
+                    
                       <td>
                       
                 <form action="{{url('admin/jadwal-praktikum/delete',$item->id)}}" method="post" class="d-inline">

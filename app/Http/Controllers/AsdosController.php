@@ -18,7 +18,8 @@ class AsdosController extends Controller
     }
 
     public function editprofile($id){
-        $asdos =  Asdos::find($id);
+        
+        $asdos =  Asdos::where('user_id','=',$id)->first();
         return view('pages.asdos.asdos.editprofile',compact('asdos'));
     }
 
@@ -26,13 +27,13 @@ class AsdosController extends Controller
     {
         //
         $asdos = $request->all();
-        $item = Asdos::findOrFail($id);
+        $item = Asdos::where('user_id','=',$id)->first();
          $item->update($asdos);
         return redirect('/asdos/profile/'.$id);
     
     }
     public function editphoto($id){
-        $asdos =  Asdos::find($id);
+        $asdos =  Asdos::where('user_id','=',$id)->first();
         return view('pages.asdos.asdos.editphoto',compact('asdos'));
     }
 
