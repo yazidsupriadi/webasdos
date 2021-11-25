@@ -87,9 +87,9 @@
                       @endif
                       
                       <td > @if($item->approved == 'N')
-            <a href="{{url('/admin/presensi/updatestatusapproval/'.$item->id)}}" class="btn btn-primary btn-sm">Make Approved</a>
+            <a href="{{url('/admin/presensi/updatestatusapproval/'.$item->id)}}" class="btn btn-primary btn-sm">Set As Approved</a>
           @else
-            <a href="{{url('/admin/presensi/updatestatusapproval/'.$item->id)}}" class="btn btn-danger btn-sm ">Make Not Approved</a>
+            <a href="{{url('/admin/presensi/updatestatusapproval/'.$item->id)}}" class="btn btn-danger btn-sm ">Set As Not Approved</a>
          @endif</td>
   
     

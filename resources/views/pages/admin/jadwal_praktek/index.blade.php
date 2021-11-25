@@ -104,9 +104,9 @@
                       <td>{{$item->user->name}}-{{$item->kelas->angkatan}}</td>
                     
                       <td > @if($item->status == 'pending')
-            <a href="{{url('/admin/jadwal-praktikum/updatestatus/'.$item->id)}}" class="btn btn-primary btn-sm">Make active</a>
+            <a href="{{url('/admin/jadwal-praktikum/updatestatus/'.$item->id)}}" class="btn btn-primary btn-sm">Set As Active</a>
           @else
-            <a href="{{url('/admin/jadwal-praktikum/updatestatus/'.$item->id)}}" class="btn btn-warning btn-sm ">Make pending</a>
+            <a href="{{url('/admin/jadwal-praktikum/updatestatus/'.$item->id)}}" class="btn btn-warning btn-sm ">Set As Pending</a>
          @endif</td>
   
                       @if($item->rekap_absen == null)

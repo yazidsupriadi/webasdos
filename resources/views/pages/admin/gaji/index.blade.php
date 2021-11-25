@@ -150,9 +150,9 @@
                       @endif
                       </td>
                       <td > @if($item->status == 'accepted')
-            <a href="{{url('/admin/honorasdos/updategaji/'.$item->id)}}" class="btn btn-primary btn-sm">Make paid</a>
+            <a href="{{url('/admin/honorasdos/updategaji/'.$item->id)}}" class="btn btn-primary btn-sm">Set As paid</a>
           @else
-            <a href="{{url('/admin/honorasdos/updategaji/'.$item->id)}}" class="btn btn-danger btn-sm ">Make other Status</a>
+            <a href="{{url('/admin/honorasdos/updategaji/'.$item->id)}}" class="btn btn-danger btn-sm ">Set As Other Status</a>
          @endif</td>
                       
                     </tr>

@@ -49,7 +49,7 @@
                      
                       @endif</td> 
                       <td>
-                      <a href="{{url('/admin/asdos/update-status-matkul/'.$item->id)}}" style="font-size:10px"class="btn btn-primary btn-sm">Make active</a>
+                      <a href="{{url('/admin/asdos/update-status-matkul/'.$item->id)}}" style="font-size:10px"class="btn btn-primary btn-sm">Set As active</a>
          
                       </td>
     </tr>

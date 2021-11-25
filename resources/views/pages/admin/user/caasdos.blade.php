@@ -43,9 +43,9 @@
       
       <td>{{$item->rules}}</td>
     <td>@if($item->rules == 'applicant')
-            <a href="{{url('admin/applicant/'.$item->id)}}" class="btn btn-primary btn-sm">Make Asdos</a>
+            <a href="{{url('admin/applicant/'.$item->id)}}" class="btn btn-primary btn-sm">Set As Asdos</a>
           @else
-            <a href="{{url('admin/applicant/'.$item->id)}}" class="btn btn-danger btn-sm ">Make other Rules</a>
+            <a href="{{url('admin/applicant/'.$item->id)}}" class="btn btn-danger btn-sm ">Set As other Rules</a>
          @endif
       </td>
       <td>      <a href="{{url('admin/profileasdos/'.$item->id)}}" class="btn btn-success btn-sm ">Detail</a>

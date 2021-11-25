@@ -48,7 +48,7 @@
                      
                       @endif</td> 
       <td>
-      <a href="{{url('/admin/asdos/update-status-matkul/'.$item->id)}}" style="font-size:10px"class="btn btn-danger btn-sm">Make inactive</a>
+      <a href="{{url('/admin/asdos/update-status-matkul/'.$item->id)}}" style="font-size:10px"class="btn btn-danger btn-sm">Set As Not active</a>
          
       </td>
 
