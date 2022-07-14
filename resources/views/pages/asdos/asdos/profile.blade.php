@@ -54,7 +54,7 @@
                             <p class="card-text">Tempat,Tanggal Lahir :{{ucfirst(strtolower($item->birthday_place))}} , {{date('D -M- Y',strtotime($item->birthday))}}</p>
                             <p class="card-text">Angkatan : {{$item->angkatan}}</p>
                             <p class="card-text">Username ELEN : {{$item->username_elen}}</p>
-                            <p class="card-text">Email : {{Auth::user()->email}}</p>                
+                            <p class="card-text">Email : {{$item->user->email}}</p>                
                             <p class="card-text">No Handphone: {{$item->no_hp}}</p>
                             <a  class="btn btn-primary my-3" href="{{$item->berkas}}" target="_blank"> <i class="fa fa-download"></i> Download Berkas Pendaftaran</a>
 

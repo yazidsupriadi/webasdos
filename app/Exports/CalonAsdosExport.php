@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\User;
+use App\Asdos;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -19,26 +19,27 @@ FromQuery
    
     public function query()
     {
-        return  User::query()->with('asdos')->where('rules','=','applicant');
+        return  Asdos::select('asdos.*','users.*')->join('users', 'users.id', '=', 'asdos.user_id')->where('users.rules', '=', 'applicant');
+
+        
     }
 
-    public function map($asdos): array
+    public function map($calonasdos): array
     {
         return [
-            $asdos->id,
-            $asdos->name,
-            $asdos->email,
-            $asdos->asdos->kode,
-            $asdos->asdos->birthday_place,
-            $asdos->asdos->birthday,
-            $asdos->asdos->angkatan,
-            $asdos->asdos->username_elen,
-            $asdos->asdos->no_hp,
-            $asdos->asdos->bank,
-            $asdos->asdos->no_rek,
-            $asdos->asdos->atasnama,
-            $asdos->asdos->berkas,
-            
+            $calonasdos->id,
+            $calonasdos->user->name,
+            $calonasdos->user->email,
+            $calonasdos->kode,
+            $calonasdos->birthday_place,
+            $calonasdos->birthday,
+            $calonasdos->angkatan,
+            $calonasdos->username_elen,
+            $calonasdos->no_hp,
+            $calonasdos->bank,
+            $calonasdos->no_rek,
+            $calonasdos->atasnama,
+            $calonasdos->berkas,
         ];
     }
     public function headings(): array
